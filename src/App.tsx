@@ -4,6 +4,7 @@ import { Routes } from './routes'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from '@material-ui/core/styles';
+import { Bar } from './componetns'
 import theme from './theme'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <div className="App">
         <RecoilRoot>
           <ThemeProvider theme={theme}>
+            <Bar></Bar>
             <Router>
             {
               Routes.map((route, key) => {
