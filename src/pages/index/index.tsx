@@ -1,4 +1,8 @@
 import style from './index.module.css'
+import { LogoViewer } from '../../componetns/index'
+
 export default function Index() {
-    return <div className={style['main']}>icosa main page</div>
-} 
+    return <div className={style['main']}>
+        <LogoViewer></LogoViewer>
+    </div>
+}  

@@ -3,19 +3,25 @@ import './App.css';
 import { Routes } from './routes'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
+import { ThemeProvider } from '@material-ui/core/styles';
+import { Bar } from './componetns'
+import theme from './theme'
 
 function App() {
   return (
-    <div className="App">
-      <RecoilRoot>
-        <Router>
-        {
-          Routes.map(route => {
-            return <Route path={route.path} exact={route.exact} children={route.component}></Route>
-          })
-        }
-        </Router>
-      </RecoilRoot>
+      <div className="App">
+        <RecoilRoot>
+          <ThemeProvider theme={theme}>
+            <Bar></Bar>
+            <Router>
+            {
+              Routes.map((route, key) => {
+                return <Route key={key} path={route.path} exact={route.exact} children={route.component}></Route>
+              })
+            }
+            </Router>
+          </ThemeProvider>
+        </RecoilRoot>
     </div>
   );
 }
