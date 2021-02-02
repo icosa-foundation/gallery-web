@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) =>
       flexWrap: "wrap",
       justifyContent: "space-around",
       overflow: "hidden",
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.default,
     },
     gridList: {
       width: "100%",
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) =>
       borderRadius: "10px",
       transition: "box-shadow 0.2s",
       "&:hover": {
-        boxShadow: "4px 4px 5px darkgrey",
+        boxShadow: "4px 4px 5px " + theme.palette.background.paper,
       },
     },
   })

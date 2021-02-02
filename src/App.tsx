@@ -7,17 +7,13 @@ import {
   ListItem,
   Drawer,
   fade,
-  GridList,
   Icon,
   IconButton,
   InputBase,
   List,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
   makeStyles,
-  Paper,
-  ThemeProvider,
   Toolbar,
   Typography,
   useTheme,
@@ -120,7 +116,7 @@ function App() {
               to="/"
               style={{
                 textDecoration: "none",
-                color: theme.palette.text.primary,
+                color: "black",
               }}
             >
               <Typography variant="h6">Icosa</Typography>
