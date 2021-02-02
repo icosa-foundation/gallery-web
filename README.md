@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Icosa Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run the repo locally
+
+1. Clone
+2. Install node and yarn (not yarn v2)
+3. Run `yarn`
+4. `yarn start`
+5. Profit?
 
 ## Available Scripts
 
