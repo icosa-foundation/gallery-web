@@ -87,7 +87,7 @@ function FeaturedPage() {
   return (
     <>
       <Box className={classes.logoHeader}>
-        <img src={IcosaLogo} className={classes.logo} />
+        <img src={IcosaLogo} className={classes.logo} alt="" />
       </Box>
       <Container style={{ marginTop: "1rem" }}>
         <Typography
