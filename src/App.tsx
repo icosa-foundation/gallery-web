@@ -21,6 +21,7 @@ import {
   Toolbar,
   Typography,
   useTheme,
+  useMediaQuery,
 } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import FeaturedPage from "./routes/FeaturedPage";
@@ -48,11 +49,12 @@ const useStyles = makeStyles((theme) =>
         backgroundColor: fade(theme.palette.common.white, 0.25),
       },
       marginRight: theme.spacing(2),
-      marginLeft: 0,
-      width: "50vw",
+      marginLeft: theme.spacing(2),
+      width: "100%",
       [theme.breakpoints.up("sm")]: {
         marginLeft: theme.spacing(3),
-        width: "auto",
+        marginRight: theme.spacing(3),
+        width: "50vw",
       },
     },
     searchIcon: {
@@ -99,6 +101,7 @@ function App() {
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
   const classes = useStyles();
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Router>
@@ -137,13 +140,17 @@ function App() {
                 inputProps={{ "aria-label": "search" }}
               />
             </div>
-            <IconButton color="inherit" aria-label="upload">
-              <Icon>upload</Icon>
-            </IconButton>
-            <div className={classes.grow} />
-            <Button href="/login" color="inherit">
-              Login
-            </Button>
+            {isLargeScreen && (
+              <>
+                <IconButton color="inherit" aria-label="upload">
+                  <Icon>upload</Icon>
+                </IconButton>
+                <div className={classes.grow} />
+                <Button href="/login" color="inherit">
+                  Login
+                </Button>{" "}
+              </>
+            )}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -152,14 +159,32 @@ function App() {
           onClose={() => setDrawerOpen(false)}
         >
           <List style={{ width: "250px" }}>
-            {["Home"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  <Icon>home</Icon>
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
+            {[
+              { name: "Home", icon: "home", route: "/" },
+              { name: "Login", icon: "login", route: "/login" },
+            ].map((item, index) => (
+              <Link
+                to={item.route}
+                key={item.route}
+                style={{ textDecoration: "none" }}
+              >
+                <ListItem button key={item.name}>
+                  <ListItemIcon>
+                    <Icon>{item.icon}</Icon>
+                  </ListItemIcon>
+                  <ListItemText
+                    style={{ color: theme.palette.text.primary }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              </Link>
             ))}
+            <ListItem button>
+              <ListItemIcon>
+                <Icon>upload</Icon>
+              </ListItemIcon>
+              <ListItemText primary={"Upload"} />
+            </ListItem>
           </List>
         </Drawer>
         <Switch>
