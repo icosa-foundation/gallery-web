@@ -1,0 +1,14 @@
+header {
+    margin-bottom: 1em;
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .logo {
+            img {
+                height: 5em;
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
-import Index from './pages/index/index'
+import Homepage from "./pages/homepage"
 
 export const Routes = [
-    {
-        path: '/',
-        exact: false,
-        component: Index
-    }
+  {
+    path: "/",
+    exact: false,
+    component: Homepage,
+  },
 ]

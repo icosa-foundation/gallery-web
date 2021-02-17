@@ -1,0 +1,23 @@
+.home-hero {
+    height: 20vh;
+    background-size: cover;
+    padding: 3em;
+
+    .herotext {
+        .row {
+            margin: 0 0 3em 0;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #399E5A;
+            font-size: 5em;
+            text-align: left;
+        }
+
+        button {
+            font-size: 1.2em;
+        }
+
+    }
+}
