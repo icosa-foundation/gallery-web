@@ -1,23 +1,44 @@
 .home-hero {
-    height: 20vh;
-    background-size: cover;
-    padding: 3em;
+    padding: 3em 0;
 
-    .herotext {
-        .row {
-            margin: 0 0 3em 0;
-            justify-content: center;
-        }
-
-        h1 {
-            color: #399E5A;
-            font-size: 5em;
-            text-align: left;
-        }
-
-        button {
-            font-size: 1.2em;
-        }
-
+    .overlay {
+        text-align: center;
+        margin-top: 2em;
     }
+
+    .slide {
+        .container {
+            height: 100%;
+
+            .row {
+                height: 100%;
+                align-items: flex-end;
+                padding: 1em;
+
+                .projectinfo {
+                    background: rgba(0, 0, 0, 0.3);
+                    padding: 1em;
+                    width: fit-content;
+
+                    .title {
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        margin: 0 0.2em;
+                        font-size: 1.3em;
+                    }
+
+                    .author,
+                    .date {
+                        display: inline;
+                        margin: 0 0.2em;
+                    }
+
+                    .date {
+                        color: #53E0DB;
+                    }
+                }
+            }
+        }
+    }
+
 }
