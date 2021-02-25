@@ -1,17 +1,26 @@
 import React from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
+import ProjectBox from "./projectbox"
 import "./projectslist.scss"
 
-const HomeHero = (props) => {
+const ProjectsList = (props) => {
+  const { content } = props
   return (
     <div className="projects-list">
       <Container>
         <Row>
-          <Col>Projects List</Col>
+          {content.map((project, key) => {
+            console.log(project)
+            return (
+              <Col md={3} xs={6}>
+                <ProjectBox project={project} />
+              </Col>
+            )
+          })}
         </Row>
       </Container>
     </div>
   )
 }
 
-export default HomeHero
+export default ProjectsList
