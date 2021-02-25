@@ -6,7 +6,9 @@ const HomeHero = (props) => {
   return (
     <div className="home-hero">
       <Container>
-        <Row>Home Hero</Row>
+        <Row>
+          <Col>Home Hero</Col>
+        </Row>
       </Container>
     </div>
   )
