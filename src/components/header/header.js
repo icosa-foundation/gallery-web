@@ -9,12 +9,12 @@ const WelcomeMessage = (props) => {
   if (isLoggedIn) {
     return <div>Welcome, {username}</div>
   } else {
-    return ""
+    return "Login / Register"
   }
 }
 
 const Header = (props) => {
-  const {} = props
+  const { user } = props
   return (
     <header>
       <Container>
@@ -25,7 +25,9 @@ const Header = (props) => {
               <img alt="logo" src={logo} />
             </Link>
           </Col>
-          <Col className="text-right">User Profile</Col>
+          <Col className="text-right">
+            <WelcomeMessage {...props} />
+          </Col>
         </Row>
       </Container>
     </header>

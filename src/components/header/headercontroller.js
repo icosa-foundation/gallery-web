@@ -1,7 +1,7 @@
 import React from "react"
 import Header from "./header"
 import { connect } from "react-redux"
-const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
+import UserAPI from "../../api/user"
 
 const mapStateToProps = (state) => {
   return {
@@ -15,29 +15,17 @@ class Controller extends React.Component {
     this.state = {
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
       username: props.user ? props.user.username : "",
-      credits: "",
     }
     this.getUserInfo(this)
-    setTimeout(() => this.getUserInfo(this), 5000)
   }
 
   async getUserInfo(parent) {
-    const result = await fetch(api_root + "/user/info", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        token: localStorage.getItem("loginToken"),
-      }),
-    })
-    const json = await result.json()
-    if (json.error) {
+    const info = await UserAPI.getUserInfo()
+    if (info.error) {
       return
     } else {
-      const username = json.user.username
-      parent.setState({ username })
+      const username = info.username
+      parent.setState({ username, isLoggedIn: true })
     }
   }
 
