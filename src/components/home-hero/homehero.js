@@ -20,7 +20,7 @@ const HomeHero = (props) => {
           shouldAutoplay: true,
           shouldDisplayButtons: false,
           autoplayDuration: 5000,
-          height: "30vh",
+          height: "",
         }}
       >
         <OverlayContainer className="overlay">
