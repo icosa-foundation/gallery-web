@@ -1,6 +1,7 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import HeroSlider, { Slide, Nav, OverlayContainer } from "hero-slider"
+import moment from "moment"
 import "./homehero.scss"
 
 const HomeHero = (props) => {
@@ -43,7 +44,7 @@ const HomeHero = (props) => {
             <Slide
               navDescription={content.title}
               background={{
-                backgroundImage: content.image_url,
+                backgroundImage: content.thumbnail.url,
                 backgroundAnimation: "zoom",
               }}
               className="slide"
@@ -52,10 +53,10 @@ const HomeHero = (props) => {
                 <Row>
                   <Col>
                     <div className="projectinfo">
-                      <div className="title">{content.title}</div>
+                      <div className="title">{content.displayName}</div>
                       <div>
-                        <div className="author">{content.author}</div>|
-                        <div className="date">{content.datetime}</div>
+                        <div className="author">{content.authorName}</div>|
+                        <div className="date">{moment(content.createTime).format('YYYY-MM-DD')}</div>
                       </div>
                     </div>
                   </Col>

@@ -17,7 +17,7 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const projects = await ProjectsAPI.getProjectList("featured", 25, 0)
+    const projects = await ProjectsAPI.getProjectList("full", 25, 0)
     this.setState({ content: projects })
   }
 }

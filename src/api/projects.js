@@ -26,11 +26,24 @@ class ProjectsAPI {
   }
 
   static getProjectList = async (filter, number, page) => {
-    let placeholders = []
-    for (let i = 0; i < number; i++) {
-      placeholders.push(this.generatePlaceholder())
+    
+    const result = await fetch(api_root + "poly/assets", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+    const json = await result.json()
+    if (json.error || !json.assets) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      if(filter === "featured"){
+        return json.assets.slice(0,4)
+      }
+      return json.assets
     }
-    return placeholders
   }
 
   static getProject = async () => {

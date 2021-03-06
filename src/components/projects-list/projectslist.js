@@ -9,8 +9,7 @@ const ProjectsList = (props) => {
     <div className="projects-list">
       <Container>
         <Row>
-          {content.map((project, key) => {
-            console.log(project)
+          {content && content.map((project, key) => {
             return (
               <Col md={3} xs={6}>
                 <ProjectBox project={project} />
