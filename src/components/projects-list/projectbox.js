@@ -3,10 +3,10 @@ import moment from "moment"
 
 const ProjectBox = (props) => {
   const { project } = props
-  console.log("url('" + project.thumbnail.url + "');")
+  const projectURL = "/view/"+project.name.replace("assets/","")
   return (
     <div className="projectbox">
-      <a href="#">
+      <a href={projectURL}>
         <div
           className="projectimage"
           style={{

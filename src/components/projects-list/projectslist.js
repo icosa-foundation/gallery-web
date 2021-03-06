@@ -11,7 +11,7 @@ const ProjectsList = (props) => {
         <Row>
           {content && content.map((project, key) => {
             return (
-              <Col md={3} xs={6}>
+              <Col md={3} xs={6} key={key}>
                 <ProjectBox project={project} />
               </Col>
             )

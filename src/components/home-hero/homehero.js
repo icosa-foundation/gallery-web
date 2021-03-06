@@ -6,17 +6,11 @@ import "./homehero.scss"
 
 const HomeHero = (props) => {
   const { content } = props
-  console.log("Change Autoplay to on")
   return (
     <div className="home-hero">
       <HeroSlider
         orientation="horizontal"
         initialSlide={1}
-        onBeforeChange={(previousSlide, nextSlide) =>
-          console.log("onBeforeChange", previousSlide, nextSlide)
-        }
-        onChange={(nextSlide) => console.log("onChange", nextSlide)}
-        onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
         style={{
           backgroundColor: "#000",
         }}
