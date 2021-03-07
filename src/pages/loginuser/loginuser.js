@@ -1,13 +1,23 @@
 import { Container, Row, Col } from "react-bootstrap"
+import Login from "../../components/login"
 import "./loginuser.scss"
 
 function LoginUser(props) {
   return (
-    <Container>
+    <Container className="loginuser">
       <Row>
         <Col className="text-center">
-          Log In
-          <a href="/register">Register</a>
+          <h2>LOG IN</h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <Login />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <a href="/register">Register a new account</a>
         </Col>
       </Row>
     </Container>

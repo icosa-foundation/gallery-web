@@ -63,14 +63,14 @@ class Controller extends React.Component {
       this.state.email,
       this.state.password
     )
-    if (result.error) {
+    if (result.error || result.detail) {
       this.setState({
-        error: result.error,
+        error: result.error || result.detail[0].msg,
       })
     } else {
       const { token, email, displayName } = result.json
       this.props.dispatch(loginUser({ token, email, displayName }))
-      this.props.history.push("/backend")
+      this.props.history.push("/")
     }
   }
 
