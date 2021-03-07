@@ -3,6 +3,7 @@ import ViewProject from "./pages/viewproject"
 import RegisterUser from "./pages/registeruser"
 import LoginUser from "./pages/loginuser"
 import Terms from "./pages/terms"
+import User from "./pages/user"
 
 export const Routes = [
   {
@@ -19,6 +20,11 @@ export const Routes = [
     path: "/terms",
     exact: true,
     component: Terms,
+  },
+  {
+    path: "/user/:id",
+    exact: true,
+    component: User,
   },
   {
     path: "/view/:id",
