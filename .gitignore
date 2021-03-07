@@ -1,3 +1,5 @@
 node_modules/
 .eslintcache
 .env
+.env.dev
+.env.live
