@@ -14,13 +14,8 @@ const Register = (props) => {
   } = props
   return (
     <Container className="register-container">
-      <Row>
-        <Col>
-          <h2>REGISTER</h2>
-        </Col>
-      </Row>
       <Row className="register-form">
-        <Col>
+        <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <p className="error">{error}</p>}
           <label htmlFor="username">Username:</label>
           <input

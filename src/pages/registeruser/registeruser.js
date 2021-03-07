@@ -4,7 +4,12 @@ import "./registeruser.scss"
 
 function RegisterUser(props) {
   return (
-    <Container>
+    <Container className="registeruser">
+      <Row>
+        <Col className="text-center">
+          <h2>REGISTER</h2>
+        </Col>
+      </Row>
       <Row>
         <Col className="text-center">
           <Register />
