@@ -78,7 +78,7 @@ class UserAPI {
     }
   }
   static GetUser = async (id) => {
-    const result = await fetch(api_root + "users" + id, {
+    const result = await fetch(api_root + "users/" + id, {
       method: "GET",
       headers: {
         Accept: "application/json",
