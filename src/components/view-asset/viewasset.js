@@ -3,11 +3,12 @@ import { Container, Row, Col } from "react-bootstrap"
 import "./viewasset.scss"
 
 const ViewAsset = (props) => {
+  const { viewerReference } = props
+
   return (
-      <div class="viewasset">
-        <div id="icosa-viewer">
-        </div>
-      </div>
+    <div className="viewasset">
+      <div ref={viewerReference}></div>
+    </div>
   )
 }
 
