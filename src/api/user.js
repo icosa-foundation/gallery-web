@@ -3,10 +3,10 @@ const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 class UserAPI {
   static Login = async (username, password) => {
     const result = await fetch(api_root + "login", {
-      method: "GET",
+      method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: "text/plain",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams({
         username,
@@ -27,7 +27,7 @@ class UserAPI {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
       body: JSON.stringify({
         displayName: name,
@@ -49,7 +49,7 @@ class UserAPI {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
     })
     const json = await result.json()
@@ -65,7 +65,7 @@ class UserAPI {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
     })
     const json = await result.json()
@@ -81,7 +81,7 @@ class UserAPI {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
     })
     const json = await result.json()
@@ -97,7 +97,7 @@ class UserAPI {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
     })
     const json = await result.json()
