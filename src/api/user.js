@@ -44,11 +44,12 @@ class UserAPI {
     }
   }
 
-  static GetSelf = async () => {
+  static GetSelf = async (user) => {
     const result = await fetch(api_root + "users/me", {
       method: "GET",
       headers: {
         Accept: "application/json",
+        Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
     })
@@ -60,7 +61,7 @@ class UserAPI {
       return json
     }
   }
-  static GetSelfAssets = async () => {
+  static GetSelfAssets = async (user) => {
     const result = await fetch(api_root + "users/me/assets", {
       method: "GET",
       headers: {

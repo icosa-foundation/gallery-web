@@ -64,13 +64,19 @@ class Controller extends React.Component {
       this.state.password
     )
     if (result.error || result.detail) {
+      let error = "An Error occurred while registering" || result.error
+      if (result.detail) {
+        if (typeof result.detail == "string") {
+          error = result.detail
+        } else if (result.detail[0]) {
+          error = result.detail[0].msg
+        }
+      }
       this.setState({
-        error: result.error || result.detail[0].msg,
+        error,
       })
     } else {
-      const { token, email, displayName } = result.json
-      this.props.dispatch(loginUser({ token, email, displayName }))
-      this.props.history.push("/")
+      this.props.history.push("/login")
     }
   }
 

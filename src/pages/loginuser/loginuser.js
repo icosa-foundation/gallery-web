@@ -12,7 +12,7 @@ function LoginUser(props) {
       </Row>
       <Row>
         <Col className="text-center">
-          <Login />
+          <Login history={props.history} />
         </Col>
       </Row>
       <Row>

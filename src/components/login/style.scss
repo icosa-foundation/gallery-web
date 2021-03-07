@@ -6,6 +6,10 @@
         margin: 1em 0;
         text-align: center;
 
+        .error {
+            color: #bb5050;
+        }
+
         label {
             display: none;
             margin: 0.2em 0;

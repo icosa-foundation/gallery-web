@@ -26,12 +26,22 @@ class Controller extends React.Component {
     }
     const result = await UserAPI.Login(this.state.username, this.state.password)
     if (result.error || result.detail) {
+      let error = "An Error occurred while logging in" || result.error
+      if (result.detail) {
+        if (typeof result.detail == "string") {
+          error = result.detail
+        } else if (result.detail[0]) {
+          error = result.detail[0].msg
+        }
+      }
       this.setState({
-        error: result.error || result.detail[0].msg,
+        error,
       })
     } else {
-      const { access_token } = result
-      this.props.dispatch(loginUser({ token: access_token }))
+      const { access_token, token_type } = result
+      this.props.dispatch(
+        loginUser({ token: access_token, token_type: token_type })
+      )
       this.props.history.push("/")
     }
   }

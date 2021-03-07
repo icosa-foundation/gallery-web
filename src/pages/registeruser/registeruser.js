@@ -12,7 +12,7 @@ function RegisterUser(props) {
       </Row>
       <Row>
         <Col className="text-center">
-          <Register />
+          <Register history={props.history} />
         </Col>
       </Row>
     </Container>
