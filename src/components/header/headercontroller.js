@@ -20,13 +20,7 @@ class Controller extends React.Component {
   }
 
   async getUserInfo(parent) {
-    const info = await UserAPI.getUserInfo()
-    if (info.error) {
-      return
-    } else {
-      const username = info.username
-      parent.setState({ username, isLoggedIn: true })
-    }
+    return null //To update when User Reg/Login is fixed on the API
   }
 
   componentDidUpdate(prevProps) {

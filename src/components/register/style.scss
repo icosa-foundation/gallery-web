@@ -1,0 +1,43 @@
+.register-container {
+    text-align: center;
+
+    .register-form {
+        padding: 1em;
+        margin: 1em 0;
+
+        .error {
+            color: #bb5050;
+        }
+
+        label {
+            display: none;
+            margin: 0.2em 0;
+        }
+
+        input {
+            width: 80%;
+            margin: 1em;
+            padding: 1em;
+
+            &[type="checkbox"] {
+                display: inline-block;
+                width: auto;
+            }
+        }
+
+
+        button {
+            margin-top: 1.5em;
+
+            &[type=submit] {
+                padding: 1em;
+
+            }
+        }
+
+
+        .terms {
+            display: inline-block;
+        }
+    }
+}

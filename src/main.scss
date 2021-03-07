@@ -19,3 +19,26 @@ body {
         max-width: 1560px;
     }
 }
+
+a {
+    color: darken(#00cc83, 10%);
+
+    &:hover {
+        color: darken(#00cc83, 12%);
+    }
+}
+
+button {
+    padding: 1em 2em;
+    text-transform: uppercase;
+    background: darken(#00cc83, 10%);
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px black;
+    border: none;
+
+    &:hover {
+        background: darken(#00cc83, 12%);
+
+    }
+}
