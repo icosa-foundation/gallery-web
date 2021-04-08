@@ -32,7 +32,8 @@ class Controller extends React.Component {
       parent.setState({
         isLoggedIn: true,
         username: result.displayname,
-        userid: result.token,
+        userid: result.id,
+        userurl: result.url,
       })
     }
   }
@@ -48,6 +49,7 @@ class Controller extends React.Component {
       <Header
         username={this.state.username}
         userid={this.state.userid}
+        userurl={this.state.userurl}
         isLoggedIn={this.state.isLoggedIn}
       />
     )

@@ -5,11 +5,11 @@ import logo from "./logo.png"
 import "./header.scss"
 
 const WelcomeMessage = (props) => {
-  const { isLoggedIn, username, userid } = props
+  const { isLoggedIn, username, userurl } = props
   if (isLoggedIn) {
     return (
       <div>
-        Welcome, <a href={"/user/" + userid}>{username}</a>
+        Welcome, <a href={"/user/" + userurl}>{username}</a>
       </div>
     )
   } else {
