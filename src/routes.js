@@ -4,6 +4,7 @@ import RegisterUser from "./pages/registeruser"
 import LoginUser from "./pages/loginuser"
 import Terms from "./pages/terms"
 import ViewUser from "./pages/viewuser"
+import EditProfile from "./pages/editprofile"
 
 export const Routes = [
   {
@@ -20,6 +21,11 @@ export const Routes = [
     path: "/terms",
     exact: true,
     component: Terms,
+  },
+  {
+    path: "/user/me",
+    exact: true,
+    component: EditProfile,
   },
   {
     path: "/user/:id",

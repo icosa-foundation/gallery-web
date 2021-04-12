@@ -3,7 +3,7 @@ import moment from "moment"
 
 const ProjectBox = (props) => {
   const { project } = props
-  const projectURL = "/view/"+project.name.replace("assets/","")
+  const projectURL = "/view/" + project.name.replace("assets/", "")
   return (
     <div className="projectbox">
       <a href={projectURL}>
@@ -20,7 +20,9 @@ const ProjectBox = (props) => {
       </a>
       <div className="projectinfo">
         <div className="author">{project.authorName}</div>
-        <div className="date">{moment(project.createTime).format('YYYY-MM-DD')}</div>
+        <div className="date">
+          {moment(project.createTime).format("YYYY-MM-DD")}
+        </div>
       </div>
     </div>
   )
