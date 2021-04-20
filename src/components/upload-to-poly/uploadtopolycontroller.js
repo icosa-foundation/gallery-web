@@ -36,7 +36,7 @@ class Controller extends React.Component {
     }
     this.setState({ loading: true })
     try {
-      const result = await FilesAPI.uploadFile(event.target.files[0], this.props.user.token)
+      const result = await FilesAPI.uploadFile(event.target.files[0], this.props.user)
       if (result.id) {
         this.setState({ loading: false, success: true })
       }
