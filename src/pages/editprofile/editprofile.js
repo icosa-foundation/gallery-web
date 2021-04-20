@@ -1,6 +1,7 @@
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap"
 import PolyConnect from "../../components/polyconnect"
 import UploadToPoly from "../../components/upload-to-poly"
+import UserSelfAssets from "../../components/user-self-assets"
 import "./editprofile.scss"
 
 function EditProfile(props) {
@@ -14,7 +15,14 @@ function EditProfile(props) {
         </Col>
       </Row>
       <Tabs defaultActiveKey="manage" id="uncontrolled-tab-example">
-        <Tab eventKey="manage" title="Manage Uploads"></Tab>
+        <Tab eventKey="manage" title="Manage Uploads">
+          <Row>
+            <Col>
+              <h2>Manage Uploads</h2>
+              <UserSelfAssets />
+            </Col>
+          </Row>
+        </Tab>
         <Tab eventKey="upload" title="Upload">
           <Row>
             <Col>
