@@ -36,6 +36,7 @@ const HomeHero = (props) => {
         {content.map((content, key) => {
           return (
             <Slide
+              key={key}
               navDescription={content.title}
               background={{
                 backgroundImage: content.thumbnail.url,
@@ -50,7 +51,7 @@ const HomeHero = (props) => {
                       <div className="title">{content.displayName}</div>
                       <div>
                         <div className="author">{content.authorName}</div>|
-                        <div className="date">{moment(content.createTime).format('YYYY-MM-DD')}</div>
+                        <div className="date">{moment(content.createTime).format("YYYY-MM-DD")}</div>
                       </div>
                     </div>
                   </Col>

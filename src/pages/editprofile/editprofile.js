@@ -54,7 +54,6 @@ const UpdateEmail = (props) => {
   )
 }
 function EditProfile(props) {
-  const { id } = props.match.params
   return (
     <Container>
       <Row>

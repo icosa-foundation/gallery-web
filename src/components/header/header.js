@@ -5,7 +5,7 @@ import logo from "./logo.png"
 import "./header.scss"
 
 const WelcomeMessage = (props) => {
-  const { isLoggedIn, username, userurl } = props
+  const { isLoggedIn, username } = props
   if (isLoggedIn) {
     return (
       <div>
@@ -22,7 +22,6 @@ const WelcomeMessage = (props) => {
 }
 
 const Header = (props) => {
-  const { user } = props
   return (
     <header>
       <Container>

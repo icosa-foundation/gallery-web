@@ -3,7 +3,6 @@ import Login from "./login"
 import { connect } from "react-redux"
 import { loginUser } from "../../states/userslice"
 import UserAPI from "../../api/user"
-const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class Controller extends React.Component {
   constructor(props) {
@@ -39,9 +38,7 @@ class Controller extends React.Component {
       })
     } else {
       const { access_token, token_type } = result
-      this.props.dispatch(
-        loginUser({ token: access_token, token_type: token_type })
-      )
+      this.props.dispatch(loginUser({ token: access_token, token_type: token_type }))
       this.props.history.push("/")
     }
   }

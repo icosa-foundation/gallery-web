@@ -1,7 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import "./userselfassets.scss"
-import ProjectBox from "../projects-list/projectbox"
 
 const UserSelfAssets = (props) => {
   const { content } = props

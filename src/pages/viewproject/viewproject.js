@@ -1,4 +1,3 @@
-import { Container, Row, Col } from "react-bootstrap"
 import { withRouter } from "react-router"
 import AssetInfo from "../../components/asset-info"
 import ViewAsset from "../../components/view-asset"

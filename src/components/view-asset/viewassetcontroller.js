@@ -1,7 +1,6 @@
 import React from "react"
 import ViewAsset from "./viewasset"
 import { Viewer as IcosaViewer } from "icosa-viewer"
-import _uniqueId from "lodash/uniqueId"
 
 class Controller extends React.Component {
   constructor(props) {

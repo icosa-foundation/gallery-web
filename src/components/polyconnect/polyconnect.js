@@ -19,7 +19,7 @@ const PolyList = (props) => {
         return (
           <Row className="polyasset" key={id}>
             <Col>
-              <img src={asset.thumbnail.url} />
+              <img alt={asset.displayName} src={asset.thumbnail.url} />
             </Col>
             <Col>
               <h3>{asset.displayName}</h3>
@@ -46,11 +46,7 @@ const PolyConnect = (props) => {
           {loggedIn ? (
             <div>
               <p>Logged in as {email}</p>
-              <GoogleLogout
-                clientId={googleClientId}
-                buttonText="Logout"
-                onLogoutSuccess={onLogout}
-              />
+              <GoogleLogout clientId={googleClientId} buttonText="Logout" onLogoutSuccess={onLogout} />
               {polyAssets ? <PolyList polyAssets={polyAssets} /> : ""}
             </div>
           ) : (
