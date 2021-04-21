@@ -17,6 +17,8 @@ function LoginUser(props) {
       </Row>
       <Row>
         <Col className="text-center">
+          <a href="/resetpassword">Forgot Password?</a>
+          <br />
           <a href="/register">Register a new account</a>
         </Col>
       </Row>
