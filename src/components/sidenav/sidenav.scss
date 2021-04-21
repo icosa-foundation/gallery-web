@@ -1,4 +1,8 @@
 .sidenav {
+    background: #230303;
+    height: 100vh;
+    position: fixed;
+
     &.collapsed {
 
         .pro-sidebar-header {
@@ -16,7 +20,7 @@
             .toggleicon {
                 font-size: 2em;
                 cursor: pointer;
-                margin: 0.2em;
+                margin: 0.2em 0.5em;
             }
         }
 
