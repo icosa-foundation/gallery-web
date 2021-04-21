@@ -2,6 +2,15 @@ import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import "./style.scss"
 
+const submitOnEnter = (toSubmit) => {
+  const handler = (event) => {
+    if (event.key === "Enter") {
+      toSubmit()
+    }
+  }
+  return handler
+}
+
 const Login = (props) => {
   const { handleSubmit, changeUsername, changePassword, error } = props
   return (
@@ -23,6 +32,7 @@ const Login = (props) => {
             onChange={changePassword}
             placeholder="Password"
             name="password"
+            onKeyUp={submitOnEnter(handleSubmit)}
           />
           <br />
           <button type="submit" onClick={handleSubmit}>
