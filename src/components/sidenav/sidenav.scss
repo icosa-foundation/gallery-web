@@ -1,0 +1,24 @@
+.sidenav {
+    &.collapsed {
+
+        .pro-sidebar-header {
+            .toggler {
+                text-align: center;
+            }
+
+        }
+    }
+
+    .pro-sidebar-header {
+        .toggler {
+            text-align: right;
+
+            .toggleicon {
+                font-size: 2em;
+                cursor: pointer;
+                margin: 0.2em;
+            }
+        }
+
+    }
+}
