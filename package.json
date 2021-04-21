@@ -5,7 +5,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "bootstrap": "^4.6.0",
-    "hero-slider": "^2.0.3",
+    "hero-slider": "github:MattHalloran/hero-slider",
     "icosa-viewer": "^0.2.3",
     "moment": "^2.29.1",
     "node-sass": "4.14.1",
