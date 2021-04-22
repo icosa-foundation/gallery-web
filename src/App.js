@@ -8,12 +8,18 @@ import Header from "./components/header"
 import Footer from "./components/footer"
 
 function App() {
+  const navRef = React.createRef()
+  const closeNav = () => {
+    if (navRef.current) {
+      navRef.current.closeNav()
+    }
+  }
   return (
     <div className="App">
       <RecoilRoot>
         <Router>
-          <SideNav />
-          <main>
+          <SideNav ref={navRef} />
+          <main onClick={closeNav}>
             <Header />
             <Switch>
               {Routes.map((route, key) => {

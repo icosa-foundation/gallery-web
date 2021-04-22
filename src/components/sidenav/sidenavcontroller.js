@@ -13,6 +13,10 @@ class Controller extends React.Component {
     this.setState({ collapsed: !this.state.collapsed })
   }
 
+  closeNav = () => {
+    this.setState({ collapsed: true })
+  }
+
   render() {
     return <SideNav collapsed={this.state.collapsed} toggleNav={this.toggleNav} />
   }
