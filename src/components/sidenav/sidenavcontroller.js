@@ -15,7 +15,7 @@ class Controller extends React.Component {
     this.state = {
       collapsed: true,
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
-      username: props.userInfo.displayname ? props.userInfo.displayname : "",
+      username: props.userInfo ? props.userInfo.displayname : "",
     }
   }
 
@@ -29,7 +29,9 @@ class Controller extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.userInfo !== this.props.userInfo) {
-      this.setState({ username: nextProps.userInfo.displayname })
+      this.setState({
+        username: nextProps.userInfo ? nextProps.userInfo.displayname : "",
+      })
     }
     if (nextProps.user !== this.props.user) {
       this.setState({

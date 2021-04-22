@@ -14,13 +14,15 @@ class Controller extends React.Component {
     super(props)
     this.state = {
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
-      username: props.userInfo.displayname ? props.userInfo.displayname : "",
+      username: props.userInfo ? props.userInfo.displayname : "",
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.userInfo !== this.props.userInfo) {
-      this.setState({ username: nextProps.userInfo.displayname })
+      this.setState({
+        username: nextProps.userInfo ? nextProps.userInfo.displayname : "",
+      })
     }
     if (nextProps.user !== this.props.user) {
       this.setState({
