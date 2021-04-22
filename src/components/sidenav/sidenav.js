@@ -88,9 +88,13 @@ const SideNav = (props) => {
           <PageLink to="/" icon={faHome}>
             Home
           </PageLink>
-          <PageLink to="/dashboard" icon={faTh}>
-            Dashboard
-          </PageLink>
+          {isLoggedIn ? (
+            <PageLink to="/dashboard" icon={faTh}>
+              Dashboard
+            </PageLink>
+          ) : (
+            ""
+          )}
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
