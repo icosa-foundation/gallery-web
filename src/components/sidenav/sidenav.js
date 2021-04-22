@@ -39,7 +39,7 @@ const PageLink = (props) => {
 }
 
 const LoggedInMenuItems = (props) => {
-  const userRoot = "/users/" + props.username
+  const userRoot = "/user/" + props.userUrl
   return (
     <div>
       <PageLink to={userRoot} icon={faUser}>

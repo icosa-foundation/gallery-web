@@ -18,15 +18,15 @@ class Controller extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.userInfo !== this.props.userInfo) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.userInfo !== this.props.userInfo) {
       this.setState({
-        username: nextProps.userInfo ? nextProps.userInfo.displayname : "",
+        username: this.props.userInfo ? this.props.userInfo.displayname : "",
       })
     }
-    if (nextProps.user !== this.props.user) {
+    if (prevProps.user !== this.props.user) {
       this.setState({
-        isLoggedIn: nextProps.user && Object.keys(nextProps.user).length !== 0,
+        isLoggedIn: this.props.user && Object.keys(this.props.user).length !== 0,
       })
     }
   }

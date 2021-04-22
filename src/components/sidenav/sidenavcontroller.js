@@ -16,6 +16,7 @@ class Controller extends React.Component {
       collapsed: true,
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
       username: props.userInfo ? props.userInfo.displayname : "",
+      userurl: props.userInfo ? props.userInfo.url : "",
     }
   }
 
@@ -27,15 +28,16 @@ class Controller extends React.Component {
     this.setState({ collapsed: true })
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.userInfo !== this.props.userInfo) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.userInfo !== this.props.userInfo) {
       this.setState({
-        username: nextProps.userInfo ? nextProps.userInfo.displayname : "",
+        username: this.props.userInfo ? this.props.userInfo.displayname : "",
+        userurl: this.props.userInfo ? this.props.userInfo.url : "",
       })
     }
-    if (nextProps.user !== this.props.user) {
+    if (prevProps.user !== this.props.user) {
       this.setState({
-        isLoggedIn: nextProps.user && Object.keys(nextProps.user).length !== 0,
+        isLoggedIn: this.props.user && Object.keys(this.props.user).length !== 0,
       })
     }
   }
@@ -52,6 +54,7 @@ class Controller extends React.Component {
         username={this.state.username}
         isLoggedIn={this.state.isLoggedIn}
         logout={this.logout}
+        userUrl={this.state.userurl}
       />
     )
   }
