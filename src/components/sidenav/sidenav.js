@@ -2,7 +2,17 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faTimes, faHome, faTh, faUser, faHeart, faCube, faSignOutAlt } from "@fortawesome/free-solid-svg-icons"
+import {
+  faBars,
+  faTimes,
+  faHome,
+  faTh,
+  faUser,
+  faHeart,
+  faCube,
+  faSignOutAlt,
+  faSignInAlt,
+} from "@fortawesome/free-solid-svg-icons"
 import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
@@ -14,6 +24,7 @@ import { logoutUser } from "../../states/userslice"
 const mapStateToProps = (state) => {
   return {
     user: state.user.value,
+    userInfo: state.userInfo.value,
   }
 }
 
@@ -42,8 +53,39 @@ const logout = (props) => {
   }
 }
 
+const LoggedInMenuItems = (props) => {
+  const userRoot = "/users/" + props.userInfo.displayname
+  return (
+    <div>
+      <PageLink to={userRoot} icon={faUser}>
+        My Profile
+      </PageLink>
+      <PageLink to={userRoot + "/likes"} icon={faHeart}>
+        My Likes
+      </PageLink>
+      <Showable {...props}>
+        <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={logout(props)}>
+          Log Out
+        </MenuItem>
+      </Showable>
+    </div>
+  )
+}
+
+const LoggedOutMenuItems = (props) => {
+  return (
+    <div>
+      <Showable {...props}>
+        <PageLink to="/login" icon={faSignInAlt}>
+          Log In
+        </PageLink>
+      </Showable>
+    </div>
+  )
+}
+
 const SideNav = (props) => {
-  const { collapsed, toggleNav, user } = props
+  const { collapsed, toggleNav, user, userInfo } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -69,17 +111,7 @@ const SideNav = (props) => {
           <Showable {...props}>
             <h3>ME</h3>
           </Showable>
-          <PageLink to="/" icon={faUser}>
-            My Profile
-          </PageLink>
-          <PageLink to="/" icon={faHeart}>
-            My Likes
-          </PageLink>
-          <Showable {...props}>
-            <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={logout(props)}>
-              Log Out
-            </MenuItem>
-          </Showable>
+          {props.user ? <LoggedInMenuItems {...props} /> : <LoggedOutMenuItems />}
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
