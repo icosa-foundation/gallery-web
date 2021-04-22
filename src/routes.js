@@ -4,7 +4,7 @@ import RegisterUser from "./pages/registeruser"
 import LoginUser from "./pages/loginuser"
 import Terms from "./pages/terms"
 import ViewUser from "./pages/viewuser"
-import EditProfile from "./pages/editprofile"
+import Dashboard from "./pages/dashboard"
 
 export const Routes = [
   {
@@ -25,7 +25,7 @@ export const Routes = [
   {
     path: "/dashboard",
     exact: true,
-    component: EditProfile,
+    component: Dashboard,
   },
   {
     path: "/user/:id",

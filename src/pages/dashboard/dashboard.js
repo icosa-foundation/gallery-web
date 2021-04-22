@@ -2,7 +2,7 @@ import { Container, Row, Col, Tabs, Tab } from "react-bootstrap"
 import PolyConnect from "../../components/polyconnect"
 import UploadToPoly from "../../components/upload-to-poly"
 import UserSelfAssets from "../../components/user-self-assets"
-import "./editprofile.scss"
+import "./dashboard.scss"
 
 const UpdatePassword = (props) => {
   return (
@@ -53,7 +53,7 @@ const UpdateEmail = (props) => {
     </div>
   )
 }
-function EditProfile(props) {
+function Dashboard(props) {
   return (
     <Container>
       <Row>
@@ -103,4 +103,4 @@ function EditProfile(props) {
   )
 }
 
-export default EditProfile
+export default Dashboard
