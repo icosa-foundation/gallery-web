@@ -43,14 +43,29 @@
         padding: 1em;
         font-size: 1.2em;
 
-        a {
-            padding: 0.2em 0;
-            font-weight: bold;
-            display: block;
+        .socials {
+            padding-bottom: 0.2em;
+            font-size: 1.2em;
+
+            a {
+                padding: 0.5em;
+            }
+
+            border-bottom: 1px solid #afafaf;
         }
 
-        img {
-            max-width: 100%;
+        .support {
+            padding-top: 0.5em;
+
+            a {
+                padding: 0.2em 0;
+                font-weight: bold;
+                display: block;
+            }
+
+            img {
+                max-width: 100%;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter, SubMenu } from "react-pro-sidebar"
+import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faTimes, faHome, faTh, faUser, faHeart, faCube } from "@fortawesome/free-solid-svg-icons"
 import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
