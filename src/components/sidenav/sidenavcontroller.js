@@ -9,6 +9,29 @@ const mapStateToProps = (state) => {
     userInfo: state.userInfo.value,
   }
 }
+
+const categories = [
+  {
+    name: "Science",
+    icon: "flask",
+    url: "/science",
+  },
+  {
+    name: "History",
+    icon: "landmark",
+    url: "/history",
+  },
+  {
+    name: "Animals",
+    icon: "paw",
+    url: "/animals",
+  },
+  {
+    name: "Technology",
+    icon: "microchip",
+    url: "/technology",
+  },
+]
 class Controller extends React.Component {
   constructor(props) {
     super(props)
@@ -55,6 +78,7 @@ class Controller extends React.Component {
         isLoggedIn={this.state.isLoggedIn}
         logout={this.logout}
         userUrl={this.state.userurl}
+        categories={categories}
       />
     )
   }

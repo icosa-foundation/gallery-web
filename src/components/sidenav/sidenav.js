@@ -2,18 +2,6 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faBars,
-  faTimes,
-  faHome,
-  faTh,
-  faUser,
-  faHeart,
-  faCube,
-  faSignOutAlt,
-  faSignInAlt,
-} from "@fortawesome/free-solid-svg-icons"
-import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
@@ -31,7 +19,7 @@ const PageLink = (props) => {
   const { to, icon } = props
   const location = useLocation()
   return (
-    <MenuItem active={location.pathname === to} icon={<FontAwesomeIcon icon={icon} />}>
+    <MenuItem className={props.className} active={location.pathname === to} icon={<FontAwesomeIcon icon={icon} />}>
       {props.children}
       <Link to={to} />
     </MenuItem>
@@ -42,14 +30,14 @@ const LoggedInMenuItems = (props) => {
   const userRoot = "/user/" + props.userUrl
   return (
     <div>
-      <PageLink to={userRoot} icon={faUser}>
+      <PageLink to={userRoot} icon="user">
         My Profile
       </PageLink>
-      <PageLink to={userRoot + "/likes"} icon={faHeart}>
+      <PageLink to={userRoot + "/likes"} icon="heart">
         My Likes
       </PageLink>
       <Showable {...props}>
-        <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={props.logout}>
+        <MenuItem icon={<FontAwesomeIcon icon="sign-out-alt" />} onClick={props.logout}>
           Log Out
         </MenuItem>
       </Showable>
@@ -61,7 +49,7 @@ const LoggedOutMenuItems = (props) => {
   return (
     <div>
       <Showable {...props}>
-        <PageLink to="/login" icon={faSignInAlt}>
+        <PageLink to="/login" icon="sign-in-alt">
           Log In
         </PageLink>
       </Showable>
@@ -70,12 +58,12 @@ const LoggedOutMenuItems = (props) => {
 }
 
 const SideNav = (props) => {
-  const { collapsed, toggleNav, isLoggedIn, username, logout } = props
+  const { collapsed, toggleNav, isLoggedIn, categories } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
         <div className="toggler">
-          <FontAwesomeIcon className="toggleicon" icon={collapsed ? faBars : faTimes} onClick={toggleNav} />
+          <FontAwesomeIcon className="toggleicon" icon={collapsed ? "bars" : "times"} onClick={toggleNav} />
         </div>
         <Showable {...props}>
           <div className="text-center title">
@@ -85,11 +73,11 @@ const SideNav = (props) => {
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="square">
-          <PageLink to="/" icon={faHome}>
+          <PageLink to="/" icon="home">
             Home
           </PageLink>
           {isLoggedIn ? (
-            <PageLink to="/dashboard" icon={faTh}>
+            <PageLink to="/dashboard" icon="th">
               Dashboard
             </PageLink>
           ) : (
@@ -114,21 +102,17 @@ const SideNav = (props) => {
           <Showable {...props}>
             <h3>EXPLORE</h3>
           </Showable>
-          <PageLink to="/" icon={faCube}>
+          <PageLink to="/poly" icon="cube" className="poly-link">
             Google Poly Legacy
           </PageLink>
-          <PageLink to="/" icon={faBars}>
-            Animals
-          </PageLink>
-          <PageLink to="/" icon={faBars}>
-            History
-          </PageLink>
-          <PageLink to="/" icon={faBars}>
-            Science
-          </PageLink>
-          <PageLink to="/" icon={faBars}>
-            Technology
-          </PageLink>
+          {categories &&
+            categories.map((category, key) => {
+              return (
+                <PageLink key={key} to={"/category/" + category.url} icon={category.icon}>
+                  {category.name}
+                </PageLink>
+              )
+            })}
         </Menu>
       </SidebarContent>
       <SidebarFooter>
@@ -136,13 +120,13 @@ const SideNav = (props) => {
           <div className="socials text-center">
             <h5>Join our Community!</h5>
             <a href="http://twitter.com/icosa-gallery" alt="twitter" rel="noreferrer" target="_blank">
-              <FontAwesomeIcon icon={faTwitter} />
+              <FontAwesomeIcon icon={["fab", "twitter"]} />
             </a>
             <a href="https://discord.gg/fS69VdFXpk" alt="discord" rel="noreferrer" target="_blank">
-              <FontAwesomeIcon icon={faDiscord} />
+              <FontAwesomeIcon icon={["fab", "discord"]} />
             </a>
             <a href="https://github.com/icosa-gallery/" alt="github" rel="noreferrer" target="_blank">
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={["fab", "github"]} />
             </a>
           </div>
           <div className="support text-center">
