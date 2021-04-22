@@ -2,6 +2,7 @@ import React from "react"
 import Login from "./login"
 import { connect } from "react-redux"
 import { loginUser } from "../../states/userslice"
+import { updateUserInfo } from "../../states/userinfoslice"
 import UserAPI from "../../api/user"
 
 class Controller extends React.Component {
@@ -38,7 +39,11 @@ class Controller extends React.Component {
       })
     } else {
       const { access_token, token_type } = result
-      this.props.dispatch(loginUser({ token: access_token, token_type: token_type }))
+      const user = { token: access_token, token_type: token_type }
+      this.props.dispatch(loginUser(user))
+      /* Get Self */
+      const resultSelf = await UserAPI.GetSelf(user)
+      this.props.dispatch(updateUserInfo(resultSelf))
       this.props.history.push("/")
     }
   }

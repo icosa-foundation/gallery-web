@@ -13,6 +13,7 @@ export const slice = createSlice({
     },
     logoutUser: (state) => {
       localStorage.removeItem("user")
+      localStorage.removeItem("userinfo")
       state.value = {}
     },
   },
