@@ -41,10 +41,11 @@ function App(props) {
             <Header />
             <Switch>
               {Routes.map((route, key) => {
+                let children = route.component
                 if (route.requiresLogin && !props.user) {
-                  return <Redirect to="/login" />
+                  children = <Redirect to="/login" />
                 }
-                return <Route key={key} path={route.path} exact={route.exact} children={route.component}></Route>
+                return <Route key={key} path={route.path} exact={route.exact} children={children}></Route>
               })}
             </Switch>
             <Footer />
