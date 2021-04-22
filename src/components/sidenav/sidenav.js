@@ -92,7 +92,7 @@ const SideNav = (props) => {
           </div>
           <div className="support text-center">
             <a href="https://openbrush.org" rel="noreferrer" target="_blank" alt="OpenBrush">
-              <img src={obLogo} />
+              <img src={obLogo} alt="OpenBrush Logo" />
             </a>
           </div>
         </Showable>
