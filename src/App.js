@@ -36,7 +36,7 @@ function App(props) {
     <div className="App">
       <RecoilRoot>
         <Router>
-          <SideNav ref={navRef} />
+          <SideNav innerRef={navRef} />
           <main onClick={closeNav}>
             <Header />
             <Switch>
