@@ -23,7 +23,7 @@ export const Routes = [
     component: Terms,
   },
   {
-    path: "/user/me",
+    path: "/dashboard",
     exact: true,
     component: EditProfile,
   },
