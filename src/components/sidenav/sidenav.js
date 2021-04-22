@@ -9,6 +9,7 @@ import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
 import { useLocation } from "react-router-dom"
 import { connect } from "react-redux"
+import { logoutUser } from "../../states/userslice"
 
 const mapStateToProps = (state) => {
   return {
@@ -35,8 +36,14 @@ const PageLink = (props) => {
   )
 }
 
+const logout = (props) => {
+  return () => {
+    props.dispatch(logoutUser())
+  }
+}
+
 const SideNav = (props) => {
-  const { collapsed, toggleNav } = props
+  const { collapsed, toggleNav, user } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -69,9 +76,8 @@ const SideNav = (props) => {
             My Likes
           </PageLink>
           <Showable {...props}>
-            <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />}>
+            <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={logout(props)}>
               Log Out
-              <Link to="/" />
             </MenuItem>
           </Showable>
         </Menu>
