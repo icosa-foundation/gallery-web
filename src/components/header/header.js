@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap"
 import { Link, withRouter } from "react-router-dom"
 import logo from "./logo.png"
 import "./header.scss"
@@ -26,7 +26,16 @@ const Header = (props) => {
     <header>
       <Container>
         <Row>
-          <Col></Col>
+          <Col>
+            <OverlayTrigger
+              placement="auto"
+              overlay={
+                <Tooltip>Icosa is currently in Beta, please be aware not all features may be implemented</Tooltip>
+              }
+            >
+              <span className="beta">BETA</span>
+            </OverlayTrigger>
+          </Col>
           <Col className="text-center">
             <Link className="logo" to="/">
               <img alt="logo" src={logo} />
