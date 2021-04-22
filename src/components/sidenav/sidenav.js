@@ -2,12 +2,19 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faTimes, faHome, faTh, faUser, faHeart, faCube } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faTimes, faHome, faTh, faUser, faHeart, faCube, faSignOutAlt } from "@fortawesome/free-solid-svg-icons"
 import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
 import { useLocation } from "react-router-dom"
+import { connect } from "react-redux"
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.value,
+  }
+}
 
 const Showable = (props) => {
   if (props.collapsed || !props.children) {
@@ -17,9 +24,19 @@ const Showable = (props) => {
   }
 }
 
+const PageLink = (props) => {
+  const { to, icon } = props
+  const location = useLocation()
+  return (
+    <MenuItem active={location.pathname === to} icon={<FontAwesomeIcon icon={icon} />}>
+      {props.children}
+      <Link to={to} />
+    </MenuItem>
+  )
+}
+
 const SideNav = (props) => {
   const { collapsed, toggleNav } = props
-  const location = useLocation()
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -34,27 +51,29 @@ const SideNav = (props) => {
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="square">
-          <MenuItem active={location.pathname === "/"} icon={<FontAwesomeIcon icon={faHome} />}>
+          <PageLink to="/" icon={faHome}>
             Home
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem active={location.pathname === "/dashboard"} icon={<FontAwesomeIcon icon={faTh} />}>
+          </PageLink>
+          <PageLink to="/dashboard" icon={faTh}>
             Dashboard
-            <Link to="/dashboard" />
-          </MenuItem>
+          </PageLink>
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
             <h3>ME</h3>
           </Showable>
-          <MenuItem icon={<FontAwesomeIcon icon={faUser} />}>
+          <PageLink to="/" icon={faUser}>
             My Profile
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faHeart} />}>
+          </PageLink>
+          <PageLink to="/" icon={faHeart}>
             My Likes
-            <Link to="/" />
-          </MenuItem>
+          </PageLink>
+          <Showable {...props}>
+            <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />}>
+              Log Out
+              <Link to="/" />
+            </MenuItem>
+          </Showable>
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
@@ -68,26 +87,21 @@ const SideNav = (props) => {
           <Showable {...props}>
             <h3>EXPLORE</h3>
           </Showable>
-          <MenuItem icon={<FontAwesomeIcon icon={faCube} />}>
-            Poly Legacy
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
+          <PageLink to="/" icon={faCube}>
+            Google Poly Legacy
+          </PageLink>
+          <PageLink to="/" icon={faBars}>
             Animals
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
+          </PageLink>
+          <PageLink to="/" icon={faBars}>
             History
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
+          </PageLink>
+          <PageLink to="/" icon={faBars}>
             Science
-            <Link to="/" />
-          </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
-            Science
-            <Link to="/" />
-          </MenuItem>
+          </PageLink>
+          <PageLink to="/" icon={faBars}>
+            Technology
+          </PageLink>
         </Menu>
       </SidebarContent>
       <SidebarFooter>
@@ -115,4 +129,4 @@ const SideNav = (props) => {
   )
 }
 
-export default SideNav
+export default connect(mapStateToProps)(SideNav)
