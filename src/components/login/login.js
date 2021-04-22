@@ -19,7 +19,7 @@ const Login = (props) => {
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <p className="error">{error}</p>}
           <label htmlFor="username">Username:</label>
-          <input type="text" onChange={changeUsername} placeholder="Username" name="username" autocomplete="username" />
+          <input type="text" onChange={changeUsername} placeholder="Username" name="username" autoComplete="username" />
           <br />
           <label htmlFor="password">Password:</label>
           <input
@@ -28,7 +28,7 @@ const Login = (props) => {
             placeholder="Password"
             name="password"
             onKeyUp={submitOnEnter(handleSubmit)}
-            autocomplete="current-password"
+            autoComplete="current-password"
           />
           <br />
           <button type="submit" onClick={handleSubmit}>

@@ -18,10 +18,10 @@ const Register = (props) => {
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <p className="error">{error}</p>}
           <label htmlFor="username">Username:</label>
-          <input type="text" onChange={changeUsername} placeholder="Username" name="username" autocomplete="username" />
+          <input type="text" onChange={changeUsername} placeholder="Username" name="username" autoComplete="username" />
           <br />
           <label htmlFor="email">Email:</label>
-          <input type="text" onChange={changeEmail} placeholder="Email" name="email" autocomplete="email" />
+          <input type="text" onChange={changeEmail} placeholder="Email" name="email" autoComplete="email" />
           <br />
           <label htmlFor="password">Password:</label>
           <input
@@ -29,7 +29,7 @@ const Register = (props) => {
             onChange={changePassword}
             placeholder="Password"
             name="password"
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
           <br />
           <label htmlFor="passwordconfirm">Confirm Password:</label>
@@ -38,7 +38,7 @@ const Register = (props) => {
             onChange={changeConfirmPassword}
             placeholder="Confirm Password"
             name="passwordconfirm"
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
           <br />
           <label htmlFor="tacagree">Agree to the Terms and Conditions:</label>
