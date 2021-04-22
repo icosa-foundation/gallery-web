@@ -26,7 +26,7 @@ const SideNav = (props) => {
         </div>
         <Showable {...props}>
           <div className="text-center">
-            <h2>Icosa Gallery</h2>{" "}
+            <h2>Icosa Gallery</h2>
           </div>
         </Showable>
       </SidebarHeader>
