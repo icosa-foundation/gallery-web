@@ -4,7 +4,6 @@ import LoginUser from "./pages/loginuser"
 import Terms from "./pages/terms"
 import ViewUser from "./pages/viewuser"
 import ViewProject from "./pages/viewproject"
-import ViewPolyUser from "./pages/poly/viewuser"
 import ViewPolyProject from "./pages/poly/viewproject"
 import Dashboard from "./pages/dashboard"
 
@@ -39,11 +38,6 @@ export const Routes = [
     path: "/view/:id",
     exact: true,
     component: ViewProject,
-  },
-  {
-    path: "/poly/user/:id",
-    exact: true,
-    component: ViewPolyUser,
   },
   {
     path: "/poly/view/:id",
