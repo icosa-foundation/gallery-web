@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter, SubMenu } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faTimes, faHome, faTh, faUser, faHeart, faCube } from "@fortawesome/free-solid-svg-icons"
+import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
@@ -77,12 +78,21 @@ const SideNav = (props) => {
       </SidebarContent>
       <SidebarFooter>
         <Showable {...props}>
-          <div className="text-center">
+          <div className="socials text-center">
+            <h5>Join our Community!</h5>
+            <a href="http://twitter.com/icosa-gallery" alt="twitter" rel="noreferrer" target="_blank">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a href="https://discord.gg/fS69VdFXpk" alt="discord" rel="noreferrer" target="_blank">
+              <FontAwesomeIcon icon={faDiscord} />
+            </a>
+            <a href="https://github.com/icosa-gallery/" alt="github" rel="noreferrer" target="_blank">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </div>
+          <div className="support text-center">
             <a href="https://openbrush.org" rel="noreferrer" target="_blank" alt="OpenBrush">
               <img src={obLogo} />
-            </a>
-            <a href="https://github.com/icosa-gallery/" rel="noreferrer" target="_blank">
-              Support us on Github!
             </a>
           </div>
         </Showable>
