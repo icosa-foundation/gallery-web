@@ -6,6 +6,7 @@ import ViewUser from "./pages/viewuser"
 import ViewProject from "./pages/viewproject"
 import ViewPolyProject from "./pages/poly/viewproject"
 import Dashboard from "./pages/dashboard"
+import NotFound from "./pages/NotFound"
 
 export const Routes = [
   {
@@ -48,5 +49,9 @@ export const Routes = [
     path: "/",
     exact: true,
     component: Homepage,
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ]
