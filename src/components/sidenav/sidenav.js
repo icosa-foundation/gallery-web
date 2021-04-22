@@ -7,6 +7,7 @@ import { faTwitter, faDiscord, faGithub } from "@fortawesome/free-brands-svg-ico
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
+import { useLocation } from "react-router-dom"
 
 const Showable = (props) => {
   if (props.collapsed || !props.children) {
@@ -18,6 +19,7 @@ const Showable = (props) => {
 
 const SideNav = (props) => {
   const { collapsed, toggleNav } = props
+  const location = useLocation()
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -25,25 +27,25 @@ const SideNav = (props) => {
           <FontAwesomeIcon className="toggleicon" icon={collapsed ? faBars : faTimes} onClick={toggleNav} />
         </div>
         <Showable {...props}>
-          <div className="text-center">
-            <h2>Icosa Gallery</h2>
+          <div className="text-center title">
+            <h2>ICOSA GALLERY</h2>
           </div>
         </Showable>
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="square">
-          <MenuItem icon={<FontAwesomeIcon icon={faHome} />}>
+          <MenuItem active={location.pathname === "/"} icon={<FontAwesomeIcon icon={faHome} />}>
             Home
             <Link to="/" />
           </MenuItem>
-          <MenuItem icon={<FontAwesomeIcon icon={faTh} />}>
+          <MenuItem active={location.pathname === "/dashboard"} icon={<FontAwesomeIcon icon={faTh} />}>
             Dashboard
-            <Link to="/" />
+            <Link to="/dashboard" />
           </MenuItem>
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
-            <h3>Me</h3>
+            <h3>ME</h3>
           </Showable>
           <MenuItem icon={<FontAwesomeIcon icon={faUser} />}>
             My Profile
@@ -56,7 +58,15 @@ const SideNav = (props) => {
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
-            <h3>Explore</h3>
+            <h3>SEARCH</h3>
+            <MenuItem>
+              <input type="text" className="searchbar" />
+            </MenuItem>
+          </Showable>
+        </Menu>
+        <Menu iconShape="square">
+          <Showable {...props}>
+            <h3>EXPLORE</h3>
           </Showable>
           <MenuItem icon={<FontAwesomeIcon icon={faCube} />}>
             Poly Legacy
@@ -68,6 +78,10 @@ const SideNav = (props) => {
           </MenuItem>
           <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
             History
+            <Link to="/" />
+          </MenuItem>
+          <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
+            Science
             <Link to="/" />
           </MenuItem>
           <MenuItem icon={<FontAwesomeIcon icon={faBars} />}>
