@@ -1,7 +1,7 @@
 import React from "react"
 import "./main.scss"
 import { Routes } from "./routes"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import { RecoilRoot } from "recoil"
 import { connect } from "react-redux"
 import SideNav from "./components/sidenav"
@@ -41,6 +41,9 @@ function App(props) {
             <Header />
             <Switch>
               {Routes.map((route, key) => {
+                if (route.requiresLogin && !props.user) {
+                  return <Redirect to="/login" />
+                }
                 return <Route key={key} path={route.path} exact={route.exact} children={route.component}></Route>
               })}
             </Switch>

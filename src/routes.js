@@ -26,6 +26,7 @@ export const Routes = [
     path: "/dashboard",
     exact: true,
     component: Dashboard,
+    requiresLogin: true,
   },
   {
     path: "/user/:id",
