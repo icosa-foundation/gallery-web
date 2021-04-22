@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400;600;700&family=Montserrat:wght@100;400;600;700&family=Shadows+Into+Light&display=swap');
+
 body {
     background: #191919;
     color: #FFFFFF;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
+    font-family: "Montserrat", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Antonio", sans-serif;
+    }
 }
+
 
 @media (min-width: 1600px) {
 
