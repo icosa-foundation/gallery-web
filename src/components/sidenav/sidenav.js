@@ -18,15 +18,6 @@ import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.jpg"
 import { useLocation } from "react-router-dom"
-import { connect } from "react-redux"
-import { logoutUser } from "../../states/userslice"
-
-const mapStateToProps = (state) => {
-  return {
-    user: state.user.value,
-    userInfo: state.userInfo.value,
-  }
-}
 
 const Showable = (props) => {
   if (props.collapsed || !props.children) {
@@ -47,14 +38,8 @@ const PageLink = (props) => {
   )
 }
 
-const logout = (props) => {
-  return () => {
-    props.dispatch(logoutUser())
-  }
-}
-
 const LoggedInMenuItems = (props) => {
-  const userRoot = "/users/" + props.userInfo.displayname
+  const userRoot = "/users/" + props.username
   return (
     <div>
       <PageLink to={userRoot} icon={faUser}>
@@ -64,7 +49,7 @@ const LoggedInMenuItems = (props) => {
         My Likes
       </PageLink>
       <Showable {...props}>
-        <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={logout(props)}>
+        <MenuItem icon={<FontAwesomeIcon icon={faSignOutAlt} />} onClick={props.logout}>
           Log Out
         </MenuItem>
       </Showable>
@@ -85,7 +70,7 @@ const LoggedOutMenuItems = (props) => {
 }
 
 const SideNav = (props) => {
-  const { collapsed, toggleNav, user, userInfo } = props
+  const { collapsed, toggleNav, isLoggedIn, username, logout } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -111,7 +96,7 @@ const SideNav = (props) => {
           <Showable {...props}>
             <h3>ME</h3>
           </Showable>
-          {props.user ? <LoggedInMenuItems {...props} /> : <LoggedOutMenuItems />}
+          {isLoggedIn ? <LoggedInMenuItems {...props} /> : <LoggedOutMenuItems />}
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
@@ -167,4 +152,4 @@ const SideNav = (props) => {
   )
 }
 
-export default connect(mapStateToProps)(SideNav)
+export default SideNav
