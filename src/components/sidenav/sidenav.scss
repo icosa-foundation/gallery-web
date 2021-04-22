@@ -1,5 +1,4 @@
 .sidenav {
-    background: #230303;
     height: 100vh;
     position: fixed;
 
@@ -13,7 +12,21 @@
         }
     }
 
+    .pro-sidebar-inner {
+        background: #323232;
+    }
+
+    .pro-menu {
+        h3 {
+            text-align: center;
+            border-bottom: 1px solid #afafaf;
+            margin: 0 0.5em 0.5em 0.5em;
+            padding: 0.3em;
+        }
+    }
+
     .pro-sidebar-header {
+
         .toggler {
             text-align: right;
 
@@ -24,5 +37,20 @@
             }
         }
 
+    }
+
+    .pro-sidebar-footer {
+        padding: 1em;
+        font-size: 1.2em;
+
+        a {
+            padding: 0.2em 0;
+            font-weight: bold;
+            display: block;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
 }
