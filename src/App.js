@@ -9,6 +9,11 @@ import Header from "./components/header"
 import Footer from "./components/footer"
 import UserAPI from "./api/user"
 import { updateUserInfo } from "./states/userinfoslice"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { fab } from "@fortawesome/free-brands-svg-icons"
+import { fas } from "@fortawesome/free-solid-svg-icons"
+
+library.add(fab, fas)
 
 const mapStateToProps = (state) => {
   return {
