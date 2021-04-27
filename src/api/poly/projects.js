@@ -1,6 +1,6 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
-class ProjectsAPI {
+class PolyProjectsAPI {
   static getProjectList = async (filter, number, page) => {
     const result = await fetch(api_root + "poly/assets", {
       method: "GET",
@@ -11,7 +11,7 @@ class ProjectsAPI {
     })
     const json = await result.json()
     if (json.error || !json.assets) {
-      this.setState({ error: json.error })
+      return json
       return
     } else {
       if (filter === "featured") {
@@ -30,13 +30,8 @@ class ProjectsAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
-    } else {
-      return json
-    }
+    return json
   }
 }
 
-export default ProjectsAPI
+export default PolyProjectsAPI

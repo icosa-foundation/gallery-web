@@ -1,6 +1,6 @@
 import React from "react"
 import HomeHero from "./homehero"
-import ProjectsAPI from "../../api/projects"
+import PolyProjectsAPI from "../../api/poly/projects"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const projects = await ProjectsAPI.getProjectList("featured", 3, 0)
+    const projects = await PolyProjectsAPI.getProjectList("featured", 3, 0)
     this.setState({ content: projects })
   }
 }

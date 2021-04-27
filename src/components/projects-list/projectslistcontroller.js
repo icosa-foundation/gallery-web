@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectsList from "./projectslist"
-import ProjectsAPI from "../../api/projects"
+import PolyProjectsAPI from "../../api/poly/projects"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const projects = await ProjectsAPI.getProjectList("full", 25, 0)
+    const projects = await PolyProjectsAPI.getProjectList("full", 25, 0)
     this.setState({ content: projects })
   }
 }
