@@ -24,6 +24,13 @@
             padding: 0.3em;
         }
 
+        .comingsoon {
+            text-align: center;
+            display: block;
+            font-weight: bold;
+            margin-top: 1em;
+        }
+
         .pro-menu-item.active {
             color: #00cb82;
         }
@@ -61,6 +68,10 @@
             }
         }
 
+    }
+
+    .disabled {
+        pointer-events: none;
     }
 
     .pro-sidebar-content {
