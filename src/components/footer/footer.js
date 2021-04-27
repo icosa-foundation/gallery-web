@@ -7,7 +7,7 @@ const Footer = (props) => {
     <footer>
       <Container>
         <Row>
-          <Col>&copy; 2021 Icosa Gallery</Col>
+          <Col>&copy; 2020-{new Date().getFullYear()} Icosa Gallery</Col>
         </Row>
       </Container>
     </footer>
