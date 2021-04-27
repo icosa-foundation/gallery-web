@@ -4,7 +4,6 @@ import ProjectsList from "../../../components/projects-list"
 import "./viewall.scss"
 
 function ViewProject(props) {
-  const { id } = props.match.params
   return (
     <Container>
       <Row>
