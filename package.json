@@ -10,7 +10,6 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@reduxjs/toolkit": "^1.5.1",
     "bootstrap": "^4.6.0",
-    "hero-slider": "github:MattHalloran/hero-slider",
     "icosa-viewer": "^0.4.0",
     "moment": "^2.29.1",
     "node-sass": "4.14.1",

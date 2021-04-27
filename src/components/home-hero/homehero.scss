@@ -1,51 +1,23 @@
 .home-hero {
     padding: 0 0 3em 0;
 
-    .rm-hero-slider {
-        >div {
-            height: 40em;
-        }
+    .carousel {
+        .carousel-inner {
+            height: 30em;
 
-        .overlay {
-            text-align: center;
-            margin-top: 2em;
-        }
+            .carousel-item {
+                .carousel-caption {
+                    background: rgba(0, 0, 0, 0.2);
+                    border-radius: 1em;
+                }
 
-        .slide {
-            .container {
-                height: 100%;
-
-                .row {
-                    height: 100%;
-                    align-items: flex-end;
-                    padding: 1em;
-
-                    .projectinfo {
-                        background: rgba(0, 0, 0, 0.3);
-                        padding: 1em;
-                        width: fit-content;
-
-                        .title {
-                            text-transform: uppercase;
-                            font-weight: bold;
-                            margin: 0 0.2em;
-                            font-size: 1.3em;
-                        }
-
-                        .author,
-                        .date {
-                            display: inline;
-                            margin: 0 0.2em;
-                        }
-
-                        .date {
-                            color: #53E0DB;
-                        }
-                    }
+                img {
+                    width: 100%;
+                    height: 30em;
+                    object-fit: cover;
                 }
             }
         }
     }
-
 
 }
