@@ -14,7 +14,6 @@ const HomeHero = (props) => {
             <Carousel.Item key={key}>
               <img className="d" src={content.thumbnail.url} alt={content.displayName + " by " + content.authorName} />
               <Carousel.Caption>
-                {console.log(content)}
                 <Link to={"/poly/view/" + content.name.replace("assets/", "")}>
                   <h3 className="title">{content.displayName}</h3>
                 </Link>
