@@ -1,14 +1,23 @@
 import { withRouter } from "react-router"
+import { Container, Row, Col } from "react-bootstrap"
 import ProjectsList from "../../../components/projects-list"
 import "./viewall.scss"
 
 function ViewProject(props) {
   const { id } = props.match.params
   return (
-    <div>
-      <h3>Google Poly Projects</h3>
-      <ProjectsList isPoly={true} />
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <h3>Google Poly Projects</h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <ProjectsList isPoly={true} />
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
