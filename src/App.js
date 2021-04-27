@@ -27,12 +27,6 @@ const RefreshUserInfo = async (props) => {
 }
 
 function App(props) {
-  const navRef = React.createRef()
-  const closeNav = () => {
-    if (navRef.current) {
-      navRef.current.closeNav()
-    }
-  }
   /* Get User Info into store */
   if (props.user) {
     RefreshUserInfo(props)
@@ -41,8 +35,8 @@ function App(props) {
     <div className="App">
       <RecoilRoot>
         <Router>
-          <SideNav innerRef={navRef} />
-          <main onClick={closeNav}>
+          <SideNav />
+          <main>
             <Header />
             <Switch>
               {Routes.map((route, key) => {
