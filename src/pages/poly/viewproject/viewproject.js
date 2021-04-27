@@ -7,8 +7,8 @@ function ViewProject(props) {
   const { id } = props.match.params
   return (
     <div>
-      <ViewAsset id={id} />
-      <AssetInfo id={id} />
+      <ViewAsset id={id} isPoly={true} />
+      <AssetInfo id={id} isPoly={true} />
     </div>
   )
 }
