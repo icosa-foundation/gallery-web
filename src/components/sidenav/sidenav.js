@@ -112,7 +112,7 @@ const SideNav = (props) => {
           {categories &&
             categories.map((category, key) => {
               return (
-                <div className="disabled">
+                <div className="disabled" key={key}>
                   <PageLink key={key} to={"/category" + category.url} icon={category.icon}>
                     {category.name}
                   </PageLink>
