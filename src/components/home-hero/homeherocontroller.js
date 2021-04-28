@@ -17,7 +17,12 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const projects = await PolyProjectsAPI.getProjectList("featured", 3, 0)
+    const featured = ["ervEzbIlddY", "cNtBlok7QaS", "d-HKDBNRM9t", "0EuG9iDWMik"]
+    const projects = []
+    for (const f of featured) {
+      const sketch = await PolyProjectsAPI.getProject(f)
+      projects.push(sketch)
+    }
     this.setState({ content: projects })
   }
 }
