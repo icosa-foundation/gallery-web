@@ -2,7 +2,7 @@ const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class ProjectsAPI {
   static getProjectList = async (filter, number, page) => {
-    const result = await fetch(api_root + "assets", {
+    const result = await fetch(api_root + "assets?results=" + number + "&page=" + page, {
       method: "GET",
       headers: {
         Accept: "application/json",
