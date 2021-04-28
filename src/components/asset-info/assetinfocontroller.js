@@ -6,7 +6,7 @@ import PolyProjectsAPI from "../../api/poly/projects"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { info: [] }
+    this.state = { info: null }
   }
 
   componentDidMount() {

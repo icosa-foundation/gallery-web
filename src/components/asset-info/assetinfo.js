@@ -1,10 +1,14 @@
 import moment from "moment"
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
+import Loader from "../loader"
 import "./assetinfo.scss"
 
 const AssetInfo = (props) => {
   const { info } = props
+  if (!info) {
+    return <Loader />
+  }
   return (
     <Container className="asset-info">
       <Row>
