@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Carousel } from "react-bootstrap"
+import { Carousel } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import moment from "moment"
 import "./homehero.scss"
