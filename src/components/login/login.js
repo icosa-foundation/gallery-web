@@ -18,22 +18,35 @@ const Login = (props) => {
       <Row className="login-form">
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <p className="error">{error}</p>}
-          <label htmlFor="username">Username:</label>
-          <input type="text" onChange={changeUsername} placeholder="Username" name="username" autoComplete="username" />
-          <br />
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            onChange={changePassword}
-            placeholder="Password"
-            name="password"
-            onKeyUp={submitOnEnter(handleSubmit)}
-            autoComplete="current-password"
-          />
-          <br />
-          <button type="submit" onClick={handleSubmit}>
-            Log in
-          </button>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              return false
+            }}
+          >
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              onChange={changeUsername}
+              placeholder="Username"
+              name="username"
+              autoComplete="username"
+            />
+            <br />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              onChange={changePassword}
+              placeholder="Password"
+              name="password"
+              onKeyUp={submitOnEnter(handleSubmit)}
+              autoComplete="current-password"
+            />
+            <br />
+            <button type="submit" onClick={handleSubmit}>
+              Log in
+            </button>
+          </form>
         </Col>
       </Row>
     </Container>
