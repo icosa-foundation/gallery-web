@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import "./style.scss"
 
 const submitOnEnter = (toSubmit) => {
@@ -17,7 +17,7 @@ const Login = (props) => {
     <Container className="login-container">
       <Row className="login-form">
         <Col md={{ span: 8, offset: 2 }} xs={12}>
-          {error && <p className="error">{error}</p>}
+          {error && <Alert variant="danger">{error}</Alert>}
           <form
             onSubmit={(e) => {
               e.preventDefault()

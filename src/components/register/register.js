@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import "./style.scss"
 
 const Register = (props) => {
@@ -16,7 +16,7 @@ const Register = (props) => {
     <Container className="register-container">
       <Row className="register-form">
         <Col md={{ span: 8, offset: 2 }} xs={12}>
-          {error && <p className="error">{error}</p>}
+          {error && <Alert variant="danger">{error}</Alert>}
           <form
             onSubmit={(e) => {
               e.preventDefault()

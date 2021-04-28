@@ -1,14 +1,16 @@
 import React from "react"
 import "./uploadtopoly.scss"
+import { Alert } from "react-bootstrap"
+import Loader from "../loader"
 
 const UploadToPoly = (props) => {
   const { onFileUpload, loading, error, success } = props
   return (
     <div className="uploadtopoly">
       {error.length > 0 ? (
-        <div className="error">
+        <Alert variant="danger">
           <span>Error: {error}</span>
-        </div>
+        </Alert>
       ) : (
         ""
       )}
@@ -19,7 +21,7 @@ const UploadToPoly = (props) => {
       ) : (
         ""
       )}
-      <div> {loading ? <span>Loading...</span> : <input type="file" name="Upload" onChange={onFileUpload} />}</div>
+      <div> {loading ? <Loader /> : <input type="file" name="Upload" onChange={onFileUpload} />}</div>
     </div>
   )
 }
