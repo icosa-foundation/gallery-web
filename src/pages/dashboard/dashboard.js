@@ -93,7 +93,15 @@ function Dashboard(props) {
             </Col>
             <Col>
               <h2>Connect with Google Poly</h2>
-              <p>Note: This functionality will be unavailble from June 30th 2021</p>
+              <p className="error">
+                Note: This functionality will be unavailble from <strong>June 30th 2021</strong>
+              </p>
+              <p>
+                <strong>
+                  Google Poly uses internal model urls that have extra user data to display extra data like scene
+                  backgrounds, key lights etc. This data is not exposed by the Poly API and so we cannot import it.
+                </strong>
+              </p>
               <PolyConnect />
             </Col>
           </Row>
