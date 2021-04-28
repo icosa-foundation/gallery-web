@@ -1,10 +1,11 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import ProjectBox from "./projectbox"
+import Loader from "../loader"
 import "./projectslist.scss"
 
 const ProjectsList = (props) => {
-  const { content, isPoly } = props
+  const { content, isPoly, loading } = props
   return (
     <div className="projects-list">
       <Container>
@@ -18,6 +19,13 @@ const ProjectsList = (props) => {
               )
             })}
         </Row>
+        {loading ? (
+          <Row>
+            <Loader />
+          </Row>
+        ) : (
+          ""
+        )}
       </Container>
     </div>
   )

@@ -6,7 +6,7 @@ import PolyProjectsAPI from "../../api/poly/projects"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { content: [], page: 0 }
+    this.state = { content: [], page: 0, loading: true }
   }
 
   componentDidMount() {
@@ -20,19 +20,21 @@ class Controller extends React.Component {
 
   handleScroll = (e) => {
     const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
-    if (bottom) {
+    if (bottom && !this.state.loading) {
       this.setState({ page: this.state.page + 1 }, () => {
+        console.log(this.state.page)
         this.getContent()
       })
     }
   }
 
   async getContent() {
+    this.setState({ loading: true })
     let projects = []
     if (this.props.isPoly) {
-      projects = await PolyProjectsAPI.getProjectList("full", 25, this.state.page)
+      projects = await PolyProjectsAPI.getProjectList("full", 24, this.state.page)
     } else {
-      projects = await ProjectsAPI.getProjectList("full", 25, this.state.page)
+      projects = await ProjectsAPI.getProjectList("full", 24, this.state.page)
     }
     const content = this.state.content
     for (const p of projects) {
@@ -47,11 +49,11 @@ class Controller extends React.Component {
         content.push(p)
       }
     }
-    this.setState({ content })
+    this.setState({ content, loading: false })
   }
 
   render() {
-    return <ProjectsList content={this.state.content} isPoly={this.props.isPoly} />
+    return <ProjectsList content={this.state.content} isPoly={this.props.isPoly} loading={this.state.loading} />
   }
 }
 export default Controller
