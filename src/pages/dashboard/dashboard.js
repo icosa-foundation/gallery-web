@@ -10,11 +10,11 @@ const UpdatePassword = (props) => {
       <h4>Password</h4>
       <Row>
         <Col xs="12">
-          <label for="oldpassword">Old Password</label>
+          <label htmlFor="oldpassword">Old Password</label>
           <input type="password" name="oldpassword" />
         </Col>
         <Col xs="12">
-          <label for="newpassword">New Password</label>
+          <label htmlFor="newpassword">New Password</label>
           <input type="password" name="newpassword" />
         </Col>
       </Row>
@@ -28,7 +28,7 @@ const UpdateUsername = (props) => {
       <h4>Username</h4>
       <Row>
         <Col xs="12">
-          <label for="newusername">New Username</label>
+          <label htmlFor="newusername">New Username</label>
           <input type="text" name="newusername" />
         </Col>
       </Row>
@@ -42,11 +42,11 @@ const UpdateEmail = (props) => {
       <h4>Email</h4>
       <Row>
         <Col xs="12">
-          <label for="newemail">New Email</label>
+          <label htmlFor="newemail">New Email</label>
           <input type="email" name="newemail" />
         </Col>
         <Col xs="12">
-          <label for="newemailconfirm">Confirm Email</label>
+          <label htmlFor="newemailconfirm">Confirm Email</label>
           <input type="email" name="newemailconfirm" />
         </Col>
       </Row>
