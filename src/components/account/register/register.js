@@ -55,12 +55,14 @@ const Register = (props) => {
             </Form.Group>
             <br />
             <Form.Group controlId="tacagree" className="tacscontainer">
-              <Form.Check type="checkbox" onClick={changeTacAgree} placeholder="Confirm Password" />
+              <Form.Check type="checkbox" onClick={changeTacAgree} />
               <Form.Label className="terms">
-                I agree to the{" "}
-                <a href="/terms" target="_blank">
-                  Terms and Conditions
-                </a>
+                <span>
+                  I agree to the{" "}
+                  <a href="/terms" target="_blank">
+                    Terms and Conditions
+                  </a>
+                </span>
               </Form.Label>
             </Form.Group>
             <br />
