@@ -1,6 +1,6 @@
 import { withRouter } from "react-router"
 import { Container, Row, Col } from "react-bootstrap"
-import ProjectsList from "../../../components/projects-list"
+import ProjectsList from "../../../components/sketch/projects-list"
 import "./viewall.scss"
 
 function ViewProject(props) {

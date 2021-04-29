@@ -1,7 +1,7 @@
 import moment from "moment"
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import Loader from "../ui/loader"
+import Loader from "../../ui/loader"
 import "./assetinfo.scss"
 
 const AssetInfo = (props) => {

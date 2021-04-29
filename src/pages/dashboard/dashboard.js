@@ -1,7 +1,7 @@
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap"
-import PolyConnect from "../../components/polyconnect"
-import UploadToPoly from "../../components/upload-to-poly"
-import UserSelfAssets from "../../components/user-self-assets"
+import PolyConnect from "../../components/dashboard/polyconnect"
+import UploadToPoly from "../../components/dashboard/upload-to-poly"
+import UserSelfAssets from "../../components/dashboard/user-self-assets"
 import "./dashboard.scss"
 
 const UpdatePassword = (props) => {

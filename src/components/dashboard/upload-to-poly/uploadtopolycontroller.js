@@ -1,6 +1,6 @@
 import React from "react"
 import UploadToPoly from "./uploadtopoly"
-import FilesAPI from "../../api/files"
+import FilesAPI from "../../../api/files"
 import { connect } from "react-redux"
 const mapStateToProps = (state) => {
   return {

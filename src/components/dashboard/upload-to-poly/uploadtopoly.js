@@ -1,7 +1,7 @@
 import React from "react"
 import "./uploadtopoly.scss"
 import { Alert, Form } from "react-bootstrap"
-import Loader from "../ui/loader"
+import Loader from "../..//ui/loader"
 
 const UploadToPoly = (props) => {
   const { onFileUpload, loading, error, success } = props

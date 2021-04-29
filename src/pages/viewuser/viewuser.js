@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
-import UserInfo from "../../components/user-info"
+import UserInfo from "../../components/user/user-info"
 import "./viewuser.scss"
 
 function ViewUser(props) {

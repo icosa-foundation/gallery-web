@@ -1,7 +1,7 @@
 import React from "react"
 import AssetInfo from "./assetinfo"
-import ProjectsAPI from "../../api/projects"
-import PolyProjectsAPI from "../../api/poly/projects"
+import ProjectsAPI from "../../../api/projects"
+import PolyProjectsAPI from "../../../api/poly/projects"
 
 class Controller extends React.Component {
   constructor(props) {

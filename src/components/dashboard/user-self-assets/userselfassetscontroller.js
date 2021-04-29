@@ -1,6 +1,6 @@
 import React from "react"
 import UserSelfAssets from "./userselfassets"
-import UserAPI from "../../api/user"
+import UserAPI from "../../../api/user"
 import { connect } from "react-redux"
 
 const mapStateToProps = (state) => {

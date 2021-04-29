@@ -1,6 +1,6 @@
 import { withRouter } from "react-router"
-import AssetInfo from "../../components/asset-info"
-import ViewAsset from "../../components/view-asset"
+import AssetInfo from "../../components/sketch/asset-info"
+import ViewAsset from "../../components/sketch/view-asset"
 import "./viewproject.scss"
 
 function ViewProject(props) {

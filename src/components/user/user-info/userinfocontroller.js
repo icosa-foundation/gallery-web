@@ -1,6 +1,6 @@
 import React from "react"
 import UserInfo from "./userinfo"
-import UserAPI from "../../api/user"
+import UserAPI from "../../../api/user"
 
 class Controller extends React.Component {
   constructor(props) {
