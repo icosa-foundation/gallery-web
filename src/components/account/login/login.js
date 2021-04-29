@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Alert } from "react-bootstrap"
+import { Container, Row, Col, Alert, Form, Button } from "react-bootstrap"
 import "./style.scss"
 
 const submitOnEnter = (toSubmit) => {
@@ -18,14 +18,14 @@ const Login = (props) => {
       <Row className="login-form">
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <Alert variant="danger">{error}</Alert>}
-          <form
+          <Form
             onSubmit={(e) => {
               e.preventDefault()
               return false
             }}
           >
             <label htmlFor="username">Username:</label>
-            <input
+            <Form.Control
               type="text"
               onChange={changeUsername}
               placeholder="Username"
@@ -34,7 +34,7 @@ const Login = (props) => {
             />
             <br />
             <label htmlFor="password">Password:</label>
-            <input
+            <Form.Control
               type="password"
               onChange={changePassword}
               placeholder="Password"
@@ -43,10 +43,10 @@ const Login = (props) => {
               autoComplete="current-password"
             />
             <br />
-            <button type="submit" onClick={handleSubmit}>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
               Log in
-            </button>
-          </form>
+            </Button>
+          </Form>
         </Col>
       </Row>
     </Container>

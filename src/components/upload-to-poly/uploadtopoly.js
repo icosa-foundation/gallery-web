@@ -1,6 +1,6 @@
 import React from "react"
 import "./uploadtopoly.scss"
-import { Alert } from "react-bootstrap"
+import { Alert, Form } from "react-bootstrap"
 import Loader from "../loader"
 
 const UploadToPoly = (props) => {
@@ -21,7 +21,7 @@ const UploadToPoly = (props) => {
       ) : (
         ""
       )}
-      <div> {loading ? <Loader /> : <input type="file" name="Upload" onChange={onFileUpload} />}</div>
+      <div> {loading ? <Loader /> : <Form.File onChange={onFileUpload} />}</div>
     </div>
   )
 }
