@@ -5,7 +5,7 @@ import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFoote
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
-import obLogo from "./oblogo.jpg"
+import obLogo from "./oblogo.png"
 import { useLocation } from "react-router-dom"
 
 const Showable = (props) => {
