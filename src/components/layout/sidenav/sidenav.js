@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { OverlayTrigger, Tooltip } from "react-bootstrap"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "react-pro-sidebar/dist/scss/styles.scss"
@@ -68,6 +69,14 @@ const SideNav = (props) => {
         <Showable {...props}>
           <div className="text-center title">
             <h2>ICOSA GALLERY</h2>
+            <OverlayTrigger
+              placement="auto"
+              overlay={
+                <Tooltip>Icosa is currently in Beta, please be aware not all features may be implemented</Tooltip>
+              }
+            >
+              <span className="beta">BETA</span>
+            </OverlayTrigger>
           </div>
         </Showable>
       </SidebarHeader>

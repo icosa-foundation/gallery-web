@@ -1,8 +1,16 @@
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
 .sidenav {
+    z-index: 100;
     height: 100vh;
     position: fixed;
 
     &.collapsed {
+
+        @media(max-width: 1024px) {
+            width: 0px;
+            min-width: 0px;
+        }
 
         .pro-sidebar-header {
             .toggler {

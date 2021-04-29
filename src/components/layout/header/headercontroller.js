@@ -38,6 +38,7 @@ class Controller extends React.Component {
         userid={this.state.userid}
         userurl={this.state.userurl}
         isLoggedIn={this.state.isLoggedIn}
+        toggleNav={this.props.toggleNav}
       />
     )
   }

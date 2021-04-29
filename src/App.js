@@ -43,6 +43,10 @@ class App extends React.Component {
     this.setState({ navCollapsed: !this.state.navCollapsed })
   }
 
+  openNav = () => {
+    this.setState({ navCollapsed: false })
+  }
+
   closeNav = () => {
     this.setState({ navCollapsed: true })
   }
@@ -55,10 +59,14 @@ class App extends React.Component {
             <SideNav collapsed={this.state.navCollapsed} toggleNav={this.toggleNav} />
             <main
               onClick={(e) => {
-                this.closeNav()
+                if (!this.state.navCollapsed) {
+                  this.closeNav()
+                  e.preventDefault()
+                  return
+                }
               }}
             >
-              <Header />
+              <Header toggleNav={this.openNav} />
               <Switch>
                 {Routes.map((route, key) => {
                   let children = route.component

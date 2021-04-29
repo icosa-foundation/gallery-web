@@ -1,6 +1,7 @@
 import React from "react"
 import { Container, Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap"
 import { Link, withRouter } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import logo from "./logo.png"
 import "./header.scss"
 
@@ -22,11 +23,17 @@ const WelcomeMessage = (props) => {
 }
 
 const Header = (props) => {
+  const { toggleNav } = props
   return (
     <header>
       <Container>
         <Row>
-          <Col>
+          <Col className="d-block d-md-none text-center">
+            <h3>
+              <FontAwesomeIcon className="toggleicon" icon="bars" onClick={toggleNav} />
+            </h3>
+          </Col>
+          <Col className="d-none d-md-block">
             <OverlayTrigger
               placement="auto"
               overlay={
