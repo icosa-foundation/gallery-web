@@ -10,7 +10,6 @@ const UserSelfAssets = (props) => {
         <Row>
           {content &&
             content.map((project, key) => {
-              console.log(project)
               return (
                 <Col md={3} xs={6} key={key}>
                   <h3>{project.name}</h3>

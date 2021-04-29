@@ -22,7 +22,6 @@ class Controller extends React.Component {
     const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
     if (bottom && !this.state.loading) {
       this.setState({ page: this.state.page + 1 }, () => {
-        console.log(this.state.page)
         this.getContent()
       })
     }
