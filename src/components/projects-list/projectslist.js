@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import ProjectBox from "./projectbox"
-import Loader from "../loader"
+import Loader from "../ui/loader"
 import "./projectslist.scss"
 
 const ProjectsList = (props) => {
