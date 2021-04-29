@@ -18,6 +18,7 @@ const Register = (props) => {
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form
+            inline
             onSubmit={(e) => {
               e.preventDefault()
               return false
@@ -53,7 +54,7 @@ const Register = (props) => {
               />
             </Form.Group>
             <br />
-            <Form.Group controlId="tacagree">
+            <Form.Group controlId="tacagree" className="tacscontainer">
               <Form.Check type="checkbox" onClick={changeTacAgree} placeholder="Confirm Password" />
               <Form.Label className="terms">
                 I agree to the{" "}

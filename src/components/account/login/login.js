@@ -19,29 +19,27 @@ const Login = (props) => {
         <Col md={{ span: 8, offset: 2 }} xs={12}>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form
+            inline
             onSubmit={(e) => {
               e.preventDefault()
               return false
             }}
           >
-            <label htmlFor="username">Username:</label>
-            <Form.Control
-              type="text"
-              onChange={changeUsername}
-              placeholder="Username"
-              name="username"
-              autoComplete="username"
-            />
+            <Form.Group controlId="username">
+              <Form.Label srOnly>Username:</Form.Label>
+              <Form.Control type="text" onChange={changeUsername} placeholder="Username" autoComplete="username" />
+            </Form.Group>
             <br />
-            <label htmlFor="password">Password:</label>
-            <Form.Control
-              type="password"
-              onChange={changePassword}
-              placeholder="Password"
-              name="password"
-              onKeyUp={submitOnEnter(handleSubmit)}
-              autoComplete="current-password"
-            />
+            <Form.Group controlId="password">
+              <Form.Label srOnly>Password:</Form.Label>
+              <Form.Control
+                type="password"
+                onChange={changePassword}
+                placeholder="Password"
+                onKeyUp={submitOnEnter(handleSubmit)}
+                autoComplete="current-password"
+              />
+            </Form.Group>
             <br />
             <Button variant="primary" type="submit" onClick={handleSubmit}>
               Log in

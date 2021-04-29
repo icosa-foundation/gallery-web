@@ -5,12 +5,20 @@
         padding: 1em;
         margin: 1em 0;
 
-        .error {
-            color: #bb5050;
-        }
+        form {
+            flex-flow: column;
 
-        .terms {
-            display: inline-block;
+            .form-group:not(.tacscontainer) {
+                label {
+                    margin: 0 1em;
+                    width: 5em;
+                    text-align: right;
+                }
+
+                input {
+                    width: 20em;
+                }
+            }
         }
     }
 }
