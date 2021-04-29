@@ -1,7 +1,7 @@
 import React from "react"
 import AssetInfo from "./assetinfo"
-import ProjectsAPI from "../../../api/projects"
-import PolyProjectsAPI from "../../../api/poly/projects"
+import AssetsAPI from "../../../api/assets"
+import PolyAssetsAPI from "../../../api/poly/assets"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -15,10 +15,10 @@ class Controller extends React.Component {
 
   async getContent() {
     if (this.props.isPoly) {
-      const assetInfo = await PolyProjectsAPI.getProject(this.props.id)
+      const assetInfo = await PolyAssetsAPI.getAsset(this.props.id)
       this.setState({ info: assetInfo })
     } else {
-      const assetInfo = await ProjectsAPI.getProject(this.props.id)
+      const assetInfo = await AssetsAPI.getAsset(this.props.id)
       this.setState({ info: assetInfo })
     }
   }

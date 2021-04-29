@@ -1,7 +1,7 @@
 import React from "react"
 import ProjectsList from "./projectslist"
-import ProjectsAPI from "../../../api/projects"
-import PolyProjectsAPI from "../../../api/poly/projects"
+import AssetsAPI from "../../../api/assets"
+import PolyAssetsAPI from "../../../api/poly/assets"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -32,9 +32,9 @@ class Controller extends React.Component {
     this.setState({ loading: true })
     let projects = []
     if (this.props.isPoly) {
-      projects = await PolyProjectsAPI.getProjectList("full", 24, this.state.page)
+      projects = await PolyAssetsAPI.getAssetList("full", 24, this.state.page)
     } else {
-      projects = await ProjectsAPI.getProjectList("full", 24, this.state.page)
+      projects = await AssetsAPI.getAssetList("full", 24, this.state.page)
     }
     const content = this.state.content
     for (const p of projects) {

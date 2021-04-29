@@ -1,6 +1,6 @@
 import React from "react"
 import UploadToPoly from "./uploadtopoly"
-import FilesAPI from "../../../api/files"
+import AssetsAPI from "../../../api/assets"
 import { connect } from "react-redux"
 const mapStateToProps = (state) => {
   return {
@@ -17,7 +17,7 @@ class Controller extends React.Component {
 
   onFileLoaded = async (event) => {
     try {
-      const result = await FilesAPI.uploadFile(event.target.result, this.props.user.token)
+      const result = await AssetsAPI.uploadFile(event.target.result, this.props.user.token)
       console.log(result)
     } catch (error) {
       this.setState({ loading: false, error: "An Error occured while uploading the file: ERR_SERVER_ERROR" })
@@ -36,7 +36,7 @@ class Controller extends React.Component {
     }
     this.setState({ loading: true })
     try {
-      const result = await FilesAPI.uploadFile(event.target.files[0], this.props.user)
+      const result = await AssetsAPI.uploadFile(event.target.files[0], this.props.user)
       if (result.id) {
         this.setState({ loading: false, success: true })
       }

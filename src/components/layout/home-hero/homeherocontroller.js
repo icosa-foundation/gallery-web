@@ -1,6 +1,6 @@
 import React from "react"
 import HomeHero from "./homehero"
-import PolyProjectsAPI from "../../../api/poly/projects"
+import PolyAssetsAPI from "../../../api/poly/assets"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -18,12 +18,12 @@ class Controller extends React.Component {
 
   async getContent() {
     const featured = ["ervEzbIlddY", "cNtBlok7QaS", "d-HKDBNRM9t", "0EuG9iDWMik"]
-    const projects = []
+    const sketches = []
     for (const f of featured) {
-      const sketch = await PolyProjectsAPI.getProject(f)
-      projects.push(sketch)
+      const sketch = await PolyAssetsAPI.getAsset(f)
+      sketches.push(sketch)
     }
-    this.setState({ content: projects })
+    this.setState({ content: sketches })
   }
 }
 export default Controller

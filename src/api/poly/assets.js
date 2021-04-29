@@ -1,7 +1,7 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
-class PolyProjectsAPI {
-  static getProjectList = async (filter, number, page) => {
+class PolyAssetsAPI {
+  static getAssetList = async (filter, number, page) => {
     const result = await fetch(api_root + "poly/assets?results=" + number + "&page=" + page, {
       method: "GET",
       headers: {
@@ -21,7 +21,7 @@ class PolyProjectsAPI {
     }
   }
 
-  static getProject = async (id) => {
+  static getAsset = async (id) => {
     const result = await fetch(api_root + "poly/assets/" + id, {
       method: "GET",
       headers: {
@@ -34,4 +34,4 @@ class PolyProjectsAPI {
   }
 }
 
-export default PolyProjectsAPI
+export default PolyAssetsAPI
