@@ -1,9 +1,9 @@
 import React from "react"
 import Login from "./login"
 import { connect } from "react-redux"
-import { loginUser } from "../../states/userslice"
-import { updateUserInfo } from "../../states/userinfoslice"
-import UserAPI from "../../api/user"
+import { loginUser } from "../../../states/userslice"
+import { updateUserInfo } from "../../../states/userinfoslice"
+import UserAPI from "../../../api/user"
 
 class Controller extends React.Component {
   constructor(props) {

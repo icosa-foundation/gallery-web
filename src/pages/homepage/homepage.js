@@ -1,4 +1,4 @@
-import HomeHero from "../../components/home-hero"
+import HomeHero from "../../components/layout/home-hero"
 import ProjectsList from "../../components/projects-list"
 import "./homepage.scss"
 

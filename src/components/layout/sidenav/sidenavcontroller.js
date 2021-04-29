@@ -1,7 +1,7 @@
 import React from "react"
 import SideNav from "./sidenav"
 import { connect } from "react-redux"
-import { logoutUser } from "../../states/userslice"
+import { logoutUser } from "../../../states/userslice"
 
 const mapStateToProps = (state) => {
   return {

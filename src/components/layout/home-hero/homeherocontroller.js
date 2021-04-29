@@ -1,6 +1,6 @@
 import React from "react"
 import HomeHero from "./homehero"
-import PolyProjectsAPI from "../../api/poly/projects"
+import PolyProjectsAPI from "../../../api/poly/projects"
 
 class Controller extends React.Component {
   constructor(props) {

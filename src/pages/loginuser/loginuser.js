@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
-import Login from "../../components/login"
+import Login from "../../components/account/login"
 import "./loginuser.scss"
 
 function LoginUser(props) {

@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
-import Register from "../../components/register"
+import Register from "../../components/account/register"
 import "./registeruser.scss"
 
 function RegisterUser(props) {

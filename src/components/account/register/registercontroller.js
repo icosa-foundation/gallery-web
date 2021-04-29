@@ -1,7 +1,7 @@
 import React from "react"
 import Register from "./register"
 import { connect } from "react-redux"
-import UserAPI from "../../api/user"
+import UserAPI from "../../../api/user"
 
 class Controller extends React.Component {
   constructor(props) {
