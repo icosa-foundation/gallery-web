@@ -13,7 +13,7 @@ const ProjectsList = (props) => {
           {content &&
             content.map((project, key) => {
               return (
-                <Col md={3} xs={6} key={key}>
+                <Col md={3} xs={12} key={key}>
                   <ProjectBox project={project} isPoly={isPoly} />
                 </Col>
               )

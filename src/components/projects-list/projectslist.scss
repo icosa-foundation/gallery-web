@@ -5,6 +5,11 @@
 
         .projectimage {
             height: 13em;
+
+            @media(max-width: 1024px) {
+                height: 16em;
+            }
+
             display: flex;
             align-items: flex-end;
             border-radius: 1em 1em 0 0;
