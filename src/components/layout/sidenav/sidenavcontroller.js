@@ -36,22 +36,17 @@ class Controller extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      collapsed: true,
+      collapsed: props.collapsed,
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
       username: props.userInfo ? props.userInfo.displayname : "",
       userurl: props.userInfo ? props.userInfo.url : "",
     }
   }
 
-  toggleNav = () => {
-    this.setState({ collapsed: !this.state.collapsed })
-  }
-
-  closeNav = () => {
-    this.setState({ collapsed: true })
-  }
-
   componentDidUpdate(prevProps) {
+    if (prevProps.collapsed !== this.props.collapsed) {
+      this.setState({ collapsed: this.props.collapsed })
+    }
     if (prevProps.userInfo !== this.props.userInfo) {
       this.setState({
         username: this.props.userInfo ? this.props.userInfo.displayname : "",
@@ -73,7 +68,7 @@ class Controller extends React.Component {
     return (
       <SideNav
         collapsed={this.state.collapsed}
-        toggleNav={this.toggleNav}
+        toggleNav={this.props.toggleNav}
         username={this.state.username}
         isLoggedIn={this.state.isLoggedIn}
         logout={this.logout}

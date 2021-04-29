@@ -21,39 +21,60 @@ const mapStateToProps = (state) => {
     user: state.user.value,
   }
 }
-
-const RefreshUserInfo = async (props) => {
-  const result = await UserAPI.GetSelf(props.user)
-  props.dispatch(updateUserInfo(result))
-}
-
-function App(props) {
-  /* Get User Info into store */
-  if (props.user) {
-    RefreshUserInfo(props)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { navCollapsed: true }
   }
-  return (
-    <div className="App">
-      <RecoilRoot>
-        <Router>
-          <SideNav />
-          <main>
-            <Header />
-            <Switch>
-              {Routes.map((route, key) => {
-                let children = route.component
-                if (route.requiresLogin && !props.user) {
-                  children = <Redirect to="/login" />
-                }
-                return <Route key={key} path={route.path} exact={route.exact} children={children}></Route>
-              })}
-            </Switch>
-            <Footer />
-          </main>
-        </Router>
-      </RecoilRoot>
-    </div>
-  )
+
+  componentDidMount() {
+    /* Get User Info into store */
+    if (this.props.user) {
+      this.refreshUserInfo()
+    }
+  }
+
+  refreshUserInfo = async () => {
+    const result = await UserAPI.GetSelf(this.props.user)
+    this.props.dispatch(updateUserInfo(result))
+  }
+
+  toggleNav = () => {
+    this.setState({ navCollapsed: !this.state.navCollapsed })
+  }
+
+  closeNav = () => {
+    this.setState({ navCollapsed: true })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <RecoilRoot>
+          <Router>
+            <SideNav collapsed={this.state.navCollapsed} toggleNav={this.toggleNav} />
+            <main
+              onClick={(e) => {
+                this.closeNav()
+              }}
+            >
+              <Header />
+              <Switch>
+                {Routes.map((route, key) => {
+                  let children = route.component
+                  if (route.requiresLogin && !this.props.user) {
+                    children = <Redirect to="/login" />
+                  }
+                  return <Route key={key} path={route.path} exact={route.exact} children={children}></Route>
+                })}
+              </Switch>
+              <Footer />
+            </main>
+          </Router>
+        </RecoilRoot>
+      </div>
+    )
+  }
 }
 
 export default connect(mapStateToProps)(App)
