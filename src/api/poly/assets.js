@@ -12,7 +12,6 @@ class PolyAssetsAPI {
     const json = await result.json()
     if (json.error || !json.assets) {
       return json
-      return
     } else {
       if (filter === "featured") {
         return json.assets.slice(0, 4)
