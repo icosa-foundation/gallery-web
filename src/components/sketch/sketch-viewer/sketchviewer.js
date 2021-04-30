@@ -1,14 +1,14 @@
 import React from "react"
-import "./viewasset.scss"
+import "./sketchviewer.scss"
 
-const ViewAsset = (props) => {
+const SketchViewer = (props) => {
   const { viewerReference } = props
 
   return (
-    <div className="viewasset">
+    <div className="sketchviewer">
       <div ref={viewerReference}></div>
     </div>
   )
 }
 
-export default ViewAsset
+export default SketchViewer

@@ -1,5 +1,5 @@
 import React from "react"
-import ViewAsset from "./viewasset"
+import SketchViewer from "./sketchviewer"
 import { Viewer as IcosaViewer } from "icosa-viewer"
 
 class Controller extends React.Component {
@@ -14,7 +14,7 @@ class Controller extends React.Component {
   }
 
   render() {
-    return <ViewAsset viewerReference={this.viewerReference} />
+    return <SketchViewer viewerReference={this.viewerReference} />
   }
 }
 
