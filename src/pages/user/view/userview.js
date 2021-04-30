@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap"
-import UserInfo from "../../components/user/user-info"
-import "./viewuser.scss"
+import UserInfo from "../../../components/user/user-info"
+import "./userview.scss"
 
-function ViewUser(props) {
+function UserView(props) {
   const { id } = props.match.params
   return (
     <Container>
@@ -15,4 +15,4 @@ function ViewUser(props) {
   )
 }
 
-export default ViewUser
+export default UserView

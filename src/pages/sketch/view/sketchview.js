@@ -1,16 +1,16 @@
 import { withRouter } from "react-router"
 import SketchInfo from "../../../components/sketch/sketch-info"
 import SketchViewer from "../../../components/sketch/sketch-viewer"
-import "./viewproject.scss"
+import "./sketchview.scss"
 
-function ViewProject(props) {
+function SketchView(props) {
   const { id } = props.match.params
   return (
     <div>
-      <SketchViewer id={id} isPoly={true} />
-      <SketchInfo id={id} isPoly={true} />
+      <SketchViewer id={id} />
+      <SketchInfo id={id} />
     </div>
   )
 }
 
-export default withRouter(ViewProject)
+export default withRouter(SketchView)

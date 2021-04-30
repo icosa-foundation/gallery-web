@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap"
-import Login from "../../components/account/login"
-import "./loginuser.scss"
+import Login from "../../../components/account/login"
+import "./userlogin.scss"
 
-function LoginUser(props) {
+function UserLogin(props) {
   return (
     <Container className="loginuser">
       <Row>
@@ -26,4 +26,4 @@ function LoginUser(props) {
   )
 }
 
-export default LoginUser
+export default UserLogin

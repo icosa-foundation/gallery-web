@@ -1,9 +1,9 @@
 import { withRouter } from "react-router"
 import SketchInfo from "../../../components/sketch/sketch-info"
-import SketchViewer from "../../../components/sketch/sketch-viewer
-import "./viewproject.scss"
+import SketchViewer from "../../../components/sketch/sketch-viewer"
+import "./sketchview.scss"
 
-function ViewProject(props) {
+function SketchView(props) {
   const { id } = props.match.params
   return (
     <div>
@@ -13,4 +13,4 @@ function ViewProject(props) {
   )
 }
 
-export default withRouter(ViewProject)
+export default withRouter(SketchView)

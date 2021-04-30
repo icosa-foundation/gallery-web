@@ -1,10 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap"
-import Register from "../../components/account/register"
-import "./registeruser.scss"
+import Register from "../../../components/account/register"
+import "./userregister.scss"
 
-function RegisterUser(props) {
+function UserRegister(props) {
   return (
-    <Container className="registeruser">
+    <Container className="userregister">
       <Row>
         <Col className="text-center">
           <h2>REGISTER</h2>
@@ -19,4 +19,4 @@ function RegisterUser(props) {
   )
 }
 
-export default RegisterUser
+export default UserRegister
