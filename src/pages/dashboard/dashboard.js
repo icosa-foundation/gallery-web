@@ -2,57 +2,9 @@ import { Container, Row, Col, Tabs, Tab } from "react-bootstrap"
 import PolyConnect from "../../components/dashboard/polyconnect"
 import UploadToPoly from "../../components/dashboard/upload-to-poly"
 import MySketches from "../../components/dashboard/my-sketches"
+import MyDetails from "../../components/dashboard/my-details"
 import "./dashboard.scss"
 
-const UpdatePassword = (props) => {
-  return (
-    <div>
-      <h4>Password</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="oldpassword">Old Password</label>
-          <input type="password" name="oldpassword" />
-        </Col>
-        <Col xs="12">
-          <label htmlFor="newpassword">New Password</label>
-          <input type="password" name="newpassword" />
-        </Col>
-      </Row>
-    </div>
-  )
-}
-
-const UpdateUsername = (props) => {
-  return (
-    <div>
-      <h4>Username</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="newusername">New Username</label>
-          <input type="text" name="newusername" />
-        </Col>
-      </Row>
-    </div>
-  )
-}
-
-const UpdateEmail = (props) => {
-  return (
-    <div>
-      <h4>Email</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="newemail">New Email</label>
-          <input type="email" name="newemail" />
-        </Col>
-        <Col xs="12">
-          <label htmlFor="newemailconfirm">Confirm Email</label>
-          <input type="email" name="newemailconfirm" />
-        </Col>
-      </Row>
-    </div>
-  )
-}
 function Dashboard(props) {
   return (
     <Container>
@@ -86,10 +38,8 @@ function Dashboard(props) {
           <hr />
           <Row>
             <Col>
+              <MyDetails />
               <hr />
-              <UpdateUsername />
-              <UpdateEmail />
-              <UpdatePassword />
             </Col>
             <Col>
               <h2>Connect with Google Poly</h2>
