@@ -24,7 +24,7 @@ class Controller extends React.Component {
   }
 
   render() {
-    return <AssetInfo info={this.state.info} />
+    return <SketchInfo info={this.state.info} />
   }
 }
 

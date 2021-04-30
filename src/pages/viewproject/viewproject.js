@@ -1,5 +1,5 @@
 import { withRouter } from "react-router"
-import AssetInfo from "../../components/sketch/sketch-info"
+import SketchInfo from "../../components/sketch/sketch-info"
 import ViewAsset from "../../components/sketch/view-asset"
 import "./viewproject.scss"
 
@@ -8,7 +8,7 @@ function ViewProject(props) {
   return (
     <div>
       <ViewAsset id={id} />
-      <AssetInfo id={id} />
+      <SketchInfo id={id} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import ProjectsList from "./projectslist"
+import SketchList from "./sketchlist"
 import AssetsAPI from "../../../api/assets"
 import PolyAssetsAPI from "../../../api/poly/assets"
 
@@ -29,30 +29,30 @@ class Controller extends React.Component {
 
   async getContent() {
     this.setState({ loading: true })
-    let projects = []
+    let sketches = []
     if (this.props.isPoly) {
-      projects = await PolyAssetsAPI.getAssetList("full", 24, this.state.page)
+      sketches = await PolyAssetsAPI.getAssetList("full", 24, this.state.page)
     } else {
-      projects = await AssetsAPI.getAssetList("full", 24, this.state.page)
+      sketches = await AssetsAPI.getAssetList("full", 24, this.state.page)
     }
     const content = this.state.content
-    for (const p of projects) {
+    for (const s of sketches) {
       let isUnique = true
       for (const c of content) {
-        if (c.name === p.name) {
+        if (c.name === s.name) {
           isUnique = false
           break
         }
       }
       if (isUnique) {
-        content.push(p)
+        content.push(s)
       }
     }
     this.setState({ content, loading: false })
   }
 
   render() {
-    return <ProjectsList content={this.state.content} isPoly={this.props.isPoly} loading={this.state.loading} />
+    return <SketchList content={this.state.content} isPoly={this.props.isPoly} loading={this.state.loading} />
   }
 }
 export default Controller

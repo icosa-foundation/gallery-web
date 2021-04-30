@@ -1,20 +1,20 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import ProjectBox from "./projectbox"
+import SketchBox from "./sketchbox"
 import Loader from "../../ui/loader"
-import "./projectslist.scss"
+import "./sketchlist.scss"
 
-const ProjectsList = (props) => {
+const SketchList = (props) => {
   const { content, isPoly, loading } = props
   return (
-    <div className="projects-list">
+    <div className="sketch-list">
       <Container>
         <Row>
           {content &&
-            content.map((project, key) => {
+            content.map((sketch, key) => {
               return (
                 <Col md={3} xs={12} key={key}>
-                  <ProjectBox project={project} isPoly={isPoly} />
+                  <SketchBox sketch={sketch} isPoly={isPoly} />
                 </Col>
               )
             })}
@@ -31,4 +31,4 @@ const ProjectsList = (props) => {
   )
 }
 
-export default ProjectsList
+export default SketchList
