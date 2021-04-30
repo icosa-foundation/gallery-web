@@ -1,7 +1,7 @@
 import React from "react"
 import "./userinfo.scss"
 
-const ViewAsset = (props) => {
+const UserInfo = (props) => {
   const { displayname, description } = props.info
 
   return (
@@ -12,4 +12,4 @@ const ViewAsset = (props) => {
   )
 }
 
-export default ViewAsset
+export default UserInfo
