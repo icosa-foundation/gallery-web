@@ -1,5 +1,5 @@
 import { withRouter } from "react-router"
-import AssetInfo from "../../../components/sketch/asset-info"
+import AssetInfo from "../../../components/sketch/sketch-info"
 import ViewAsset from "../../../components/sketch/view-asset"
 import "./viewproject.scss"
 

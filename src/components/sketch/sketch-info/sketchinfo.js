@@ -2,15 +2,15 @@ import moment from "moment"
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import Loader from "../../ui/loader"
-import "./assetinfo.scss"
+import "./sketchinfo.scss"
 
-const AssetInfo = (props) => {
+const SketchInfo = (props) => {
   const { info } = props
   if (!info) {
     return <Loader />
   }
   return (
-    <Container className="asset-info">
+    <Container className="sketch-info">
       <Row>
         <Col>
           {info && (
@@ -28,4 +28,4 @@ const AssetInfo = (props) => {
   )
 }
 
-export default AssetInfo
+export default SketchInfo
