@@ -1,13 +1,12 @@
-import { Container, Row, Col } from "react-bootstrap"
-import HomeHero from "../../components/home-hero"
-import ProjectsList from "../../components/projects-list"
+import HomeHero from "../../components/layout/home-hero"
+import SketchList from "../../components/sketch/sketch-list"
 import "./homepage.scss"
 
 function Homepage() {
   return (
     <div>
       <HomeHero />
-      <ProjectsList />
+      <SketchList isPoly={true} />
     </div>
   )
 }

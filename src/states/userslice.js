@@ -8,13 +8,12 @@ export const slice = createSlice({
   reducers: {
     loginUser: (state, action) => {
       const user = action.payload
-      localStorage.setItem("loginToken", user.token)
       localStorage.setItem("user", JSON.stringify(user))
       state.value = user
     },
     logoutUser: (state) => {
-      localStorage.removeItem("loginToken")
       localStorage.removeItem("user")
+      localStorage.removeItem("userinfo")
       state.value = {}
     },
   },

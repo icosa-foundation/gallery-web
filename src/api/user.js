@@ -67,6 +67,7 @@ class UserAPI {
       headers: {
         Accept: "application/json",
         "Content-Type": "text/plain",
+        Authorization: user.token_type + " " + user.token,
       },
     })
     const json = await result.json()

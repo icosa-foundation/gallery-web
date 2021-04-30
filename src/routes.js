@@ -1,20 +1,24 @@
 import Homepage from "./pages/homepage"
-import ViewProject from "./pages/viewproject"
-import RegisterUser from "./pages/registeruser"
-import LoginUser from "./pages/loginuser"
-import Terms from "./pages/terms"
-import ViewUser from "./pages/viewuser"
+import UserRegister from "./pages/user/login"
+import UserLogin from "./pages/user/register"
+import UserView from "./pages/user/view"
+import Terms from "./pages/static/terms"
+import SketchView from "./pages/sketch/view"
+import PolySketchView from "./pages/poly/sketchview"
+import PolyViewAll from "./pages/poly/viewall"
+import Dashboard from "./pages/dashboard"
+import NotFound from "./pages/notfound"
 
 export const Routes = [
   {
     path: "/register",
     exact: true,
-    component: RegisterUser,
+    component: UserRegister,
   },
   {
     path: "/login",
     exact: true,
-    component: LoginUser,
+    component: UserLogin,
   },
   {
     path: "/terms",
@@ -22,18 +26,38 @@ export const Routes = [
     component: Terms,
   },
   {
+    path: "/dashboard",
+    exact: true,
+    component: Dashboard,
+    requiresLogin: true,
+  },
+  {
     path: "/user/:id",
     exact: true,
-    component: ViewUser,
+    component: UserView,
   },
   {
     path: "/view/:id",
     exact: true,
-    component: ViewProject,
+    component: SketchView,
+  },
+  {
+    path: "/poly",
+    exact: true,
+    component: PolyViewAll,
+  },
+  {
+    path: "/poly/view/:id",
+    exact: true,
+    component: PolySketchView,
   },
   {
     path: "/",
     exact: true,
     component: Homepage,
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ]
