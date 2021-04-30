@@ -6,27 +6,27 @@ import { GoogleLogin, GoogleLogout } from "react-google-login"
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
 const PolyList = (props) => {
-  const { polyAssets } = props
+  const { polySketches } = props
   return (
-    <Container className="polyassetslist">
+    <Container className="polysketcheslist">
       <Row>
         <Col>
           <Button className="importall">IMPORT ALL</Button>
         </Col>
       </Row>
-      {polyAssets.map((o, id) => {
-        const asset = o.asset
+      {polySketches.map((o, id) => {
+        const sketch = o.asset
         return (
-          <Row className="polyasset" key={id}>
+          <Row className="polysketch" key={id}>
             <Col>
-              <img alt={asset.displayName} src={asset.thumbnail.url} />
+              <img alt={sketch.displayName} src={sketch.thumbnail.url} />
             </Col>
             <Col>
-              <h3>{asset.displayName}</h3>
+              <h3>{sketch.displayName}</h3>
             </Col>
-            <Col>{asset.updateTime}</Col>
-            <Col>{asset.visibility}</Col>
-            <Col>{asset.license}</Col>
+            <Col>{sketch.updateTime}</Col>
+            <Col>{sketch.visibility}</Col>
+            <Col>{sketch.license}</Col>
             <Col>
               <Button>IMPORT</Button>
             </Col>
@@ -38,7 +38,7 @@ const PolyList = (props) => {
 }
 
 const PolyConnect = (props) => {
-  const { loggedIn, onLogin, onLogout, onError, email, polyAssets } = props
+  const { loggedIn, onLogin, onLogout, onError, email, polySketches } = props
   return (
     <Container>
       <Row>
@@ -47,7 +47,7 @@ const PolyConnect = (props) => {
             <div>
               <p>Logged in as {email}</p>
               <GoogleLogout clientId={googleClientId} buttonText="Logout" onLogoutSuccess={onLogout} />
-              {polyAssets ? <PolyList polyAssets={polyAssets} /> : ""}
+              {polySketches ? <PolyList polySketches={polySketches} /> : ""}
             </div>
           ) : (
             <GoogleLogin

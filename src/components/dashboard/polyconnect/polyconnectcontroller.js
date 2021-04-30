@@ -10,7 +10,7 @@ class Controller extends React.Component {
   onLogin = (message) => {
     const accessToken = message.accessToken
     const email = message.profileObj.email
-    this.getUserPolyAssets(accessToken)
+    this.getUserPolySketches(accessToken)
     this.setState({ loggedIn: true, accessToken, email })
   }
 
@@ -22,7 +22,7 @@ class Controller extends React.Component {
     this.setState({ loggedIn: false })
   }
 
-  getUserPolyAssets = async (accessToken) => {
+  getUserPolySketches = async (accessToken) => {
     const url = "https://poly.googleapis.com/v1/users/me/assets"
     const result = await fetch(url, {
       method: "GET",
@@ -33,10 +33,10 @@ class Controller extends React.Component {
       },
     })
     const json = await result.json()
-    if (json.error || !json.userAssets) {
+    if (json.error || !json.userSketches) {
       this.setState({ error: json.error })
     } else {
-      this.setState({ polyAssets: json.userAssets })
+      this.setState({ polySketches: json.userAssets })
     }
   }
 
@@ -48,7 +48,7 @@ class Controller extends React.Component {
         onLogout={this.onLogout}
         onError={this.onError}
         email={this.state.email}
-        polyAssets={this.state.polyAssets}
+        polySketches={this.state.polySketches}
       />
     )
   }
