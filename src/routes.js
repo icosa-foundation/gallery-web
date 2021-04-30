@@ -37,7 +37,7 @@ export const Routes = [
     component: UserView,
   },
   {
-    path: "/view/:id",
+    path: "/view/:owner/:id",
     exact: true,
     component: SketchView,
   },
