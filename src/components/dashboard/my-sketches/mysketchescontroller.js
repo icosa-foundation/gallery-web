@@ -1,5 +1,5 @@
 import React from "react"
-import UserSelfAssets from "./userselfassets"
+import MySketches from "./mysketches"
 import UserAPI from "../../../api/user"
 import { connect } from "react-redux"
 
@@ -18,13 +18,13 @@ class Controller extends React.Component {
     this.getContent()
   }
 
-  render() {
-    return <UserSelfAssets content={this.state.content} />
-  }
-
   async getContent() {
     const sketches = await UserAPI.GetSelfAssets(this.props.user)
     this.setState({ content: sketches })
+  }
+
+  render() {
+    return <MySketches content={this.state.content} />
   }
 }
 export default connect(mapStateToProps)(Controller)

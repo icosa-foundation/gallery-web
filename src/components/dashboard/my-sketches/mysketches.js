@@ -1,8 +1,8 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import "./userselfassets.scss"
+import "./mysketches.scss"
 
-const UserSelfAssets = (props) => {
+const MySketches = (props) => {
   const { content } = props
   return (
     <div className="userselfassets">
@@ -23,4 +23,4 @@ const UserSelfAssets = (props) => {
   )
 }
 
-export default UserSelfAssets
+export default MySketches
