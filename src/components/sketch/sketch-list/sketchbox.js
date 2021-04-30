@@ -1,11 +1,11 @@
 import React from "react"
 import moment from "moment"
-import noasset from "./noasset.png"
+import nothumbnail from "./nothumbnail.png"
 
 const SketchBox = (props) => {
   const { sketch, isPoly } = props
   const sketchURL = (isPoly ? "/poly" : "") + "/view/" + sketch.name.replace("assets/", "")
-  const thumbnail = sketch.thumbnail.url ? `url(${sketch.thumbnail.url})` : `url(${noasset})`
+  const thumbnail = sketch.thumbnail.url ? `url(${sketch.thumbnail.url})` : `url(${nothumbnail})`
   return (
     <div className="sketchbox">
       <a href={sketchURL}>
