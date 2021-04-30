@@ -5,7 +5,7 @@ import "./mysketches.scss"
 const MySketches = (props) => {
   const { content } = props
   return (
-    <div className="userselfassets">
+    <div className="my-sketches">
       <Container>
         <Row>
           {content &&
