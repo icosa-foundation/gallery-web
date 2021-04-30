@@ -23,8 +23,8 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const projects = await UserAPI.GetSelfAssets(this.props.user)
-    this.setState({ content: projects })
+    const sketches = await UserAPI.GetSelfAssets(this.props.user)
+    this.setState({ content: sketches })
   }
 }
 export default connect(mapStateToProps)(Controller)

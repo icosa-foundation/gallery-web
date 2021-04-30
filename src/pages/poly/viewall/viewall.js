@@ -1,23 +1,23 @@
 import { withRouter } from "react-router"
 import { Container, Row, Col } from "react-bootstrap"
-import ProjectsList from "../../../components/sketch/sketch-list"
+import SketchList from "../../../components/sketch/sketch-list"
 import "./viewall.scss"
 
-function ViewProject(props) {
+function ViewSketch(props) {
   return (
     <Container>
       <Row>
         <Col>
-          <h3>Google Poly Projects</h3>
+          <h3>Google Poly Sketches</h3>
         </Col>
       </Row>
       <Row>
         <Col>
-          <ProjectsList isPoly={true} />
+          <SketchList isPoly={true} />
         </Col>
       </Row>
     </Container>
   )
 }
 
-export default withRouter(ViewProject)
+export default withRouter(ViewSketch)

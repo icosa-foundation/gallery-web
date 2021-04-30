@@ -9,11 +9,11 @@ const UserSelfAssets = (props) => {
       <Container>
         <Row>
           {content &&
-            content.map((project, key) => {
+            content.map((sketch, key) => {
               return (
                 <Col md={3} xs={6} key={key}>
-                  <h3>{project.name}</h3>
-                  <span>{project.description}</span>
+                  <h3>{sketch.name}</h3>
+                  <span>{sketch.description}</span>
                 </Col>
               )
             })}
