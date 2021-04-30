@@ -1,21 +1,22 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 import "./mydetails.scss"
 
 const UpdatePassword = (props) => {
   return (
     <div>
       <h4>Password</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="oldpassword">Old Password</label>
-          <input type="password" name="oldpassword" />
-        </Col>
-        <Col xs="12">
-          <label htmlFor="newpassword">New Password</label>
-          <input type="password" name="newpassword" />
-        </Col>
-      </Row>
+      <Form.Group controlId="newpassword">
+        <Form.Label>New Password</Form.Label>
+        <Form.Control type="password" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
+
+      <Form.Group controlId="newpasswordconfirm">
+        <Form.Label>Confirm Password</Form.Label>
+        <Form.Control type="password" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
     </div>
   )
 }
@@ -24,12 +25,11 @@ const UpdateUsername = (props) => {
   return (
     <div>
       <h4>Username</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="newusername">New Username</label>
-          <input type="text" name="newusername" />
-        </Col>
-      </Row>
+      <Form.Group controlId="newusername">
+        <Form.Label>New Username</Form.Label>
+        <Form.Control type="text" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
     </div>
   )
 }
@@ -38,26 +38,30 @@ const UpdateEmail = (props) => {
   return (
     <div>
       <h4>Email</h4>
-      <Row>
-        <Col xs="12">
-          <label htmlFor="newemail">New Email</label>
-          <input type="email" name="newemail" />
-        </Col>
-        <Col xs="12">
-          <label htmlFor="newemailconfirm">Confirm Email</label>
-          <input type="email" name="newemailconfirm" />
-        </Col>
-      </Row>
+      <Form.Group controlId="newemail">
+        <Form.Label>New Email</Form.Label>
+        <Form.Control type="email" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
+
+      <Form.Group controlId="newemailconfirm">
+        <Form.Label>Confirm Email</Form.Label>
+        <Form.Control type="email" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
     </div>
   )
 }
 const MyDetails = (props) => {
   return (
-    <div className="my-details">
+    <Form className="my-details text-center">
       <UpdateUsername />
       <UpdateEmail />
       <UpdatePassword />
-    </div>
+      <Button variant="primary" type="submit">
+        Update
+      </Button>
+    </Form>
   )
 }
 
