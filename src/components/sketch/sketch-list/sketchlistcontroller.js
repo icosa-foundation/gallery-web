@@ -6,7 +6,7 @@ import PolyAssetsAPI from "../../../api/poly/assets"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { content: [], page: 0, loading: true }
+    this.state = { content: [], page: 0, loading: true, usePolyList: props.isPoly }
   }
 
   componentDidMount() {
@@ -30,10 +30,13 @@ class Controller extends React.Component {
   async getContent() {
     this.setState({ loading: true })
     let sketches = []
-    if (this.props.isPoly) {
+    if (this.state.usePolyList) {
       sketches = await PolyAssetsAPI.getAssetList("full", 24, this.state.page)
     } else {
       sketches = await AssetsAPI.getAssetList("full", 24, this.state.page)
+    }
+    if(sketches.length < 24 && !this.state.usePolyList) {
+      this.setState({ usePolyList: true, page: -1 })
     }
     const content = this.state.content
     for (const s of sketches) {

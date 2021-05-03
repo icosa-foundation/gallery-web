@@ -4,7 +4,9 @@ import nothumbnail from "./nothumbnail.png"
 import { GetSnowflakeTimestamp } from "../../../helpers"
 
 const SketchBox = (props) => {
-  const { sketch, isPoly } = props
+  const { sketch } = props
+
+  const isPoly = sketch.displayName ? true : false
   const sketchURL = (isPoly ? "/poly" : "") + "/view/" + (isPoly ? sketch.name.replace("assets/", "") : `${sketch.ownerurl}/${sketch.url}`)
   const thumbnail = isPoly ? (sketch.thumbnail.url ? `url(${sketch.thumbnail.url})` : `url(${nothumbnail})`) : (sketch.thumbnail ? `url(${sketch.thumbnail})` : `url(${nothumbnail})`)
   const name = isPoly ? sketch.displayName : sketch.name
