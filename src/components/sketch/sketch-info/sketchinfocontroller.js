@@ -18,7 +18,7 @@ class Controller extends React.Component {
       const info = await PolyAssetsAPI.getAsset(this.props.id)
       this.setState({ info })
     } else {
-      const info = await AssetsAPI.getAsset(this.props.id)
+      const info = await AssetsAPI.getAsset(this.props.user, this.props.id)
       this.setState({ info })
     }
   }

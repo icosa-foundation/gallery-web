@@ -20,8 +20,8 @@ class AssetsAPI {
     }
   }
 
-  static getAsset = async (id) => {
-    const result = await fetch(api_root + "assets/" + id, {
+  static getAsset = async (userurl, asseturl) => {
+    const result = await fetch(api_root + "assets/" + userurl + "/" + asseturl, {
       method: "GET",
       headers: {
         Accept: "application/json",
