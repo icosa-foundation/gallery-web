@@ -10,7 +10,10 @@ class Controller extends React.Component {
 
   componentDidMount() {
     const viewer = new IcosaViewer(this.viewerReference.current)
-    viewer.loadPolyAsset(this.props.id)
+    if(this.props.isPoly)
+      viewer.loadPolyAsset(this.props.id)
+    else
+      viewer.loadIcosaAsset(this.props.user, this.props.id)
   }
 
   render() {
