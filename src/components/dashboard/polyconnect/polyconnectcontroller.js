@@ -33,7 +33,7 @@ class Controller extends React.Component {
       },
     })
     const json = await result.json()
-    if (json.error || !json.userSketches) {
+    if (json.error || !json.userAssets) {
       this.setState({ error: json.error })
     } else {
       this.setState({ polySketches: json.userAssets })
