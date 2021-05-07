@@ -1,6 +1,6 @@
 import Homepage from "./pages/homepage"
-import UserRegister from "./pages/user/login"
-import UserLogin from "./pages/user/register"
+import UserRegister from "./pages/user/register"
+import UserLogin from "./pages/user/login"
 import UserView from "./pages/user/view"
 import Terms from "./pages/static/terms"
 import SketchView from "./pages/sketch/view"
@@ -37,7 +37,7 @@ export const Routes = [
     component: UserView,
   },
   {
-    path: "/view/:id",
+    path: "/view/:user/:id",
     exact: true,
     component: SketchView,
   },

@@ -2,6 +2,7 @@ import React from "react"
 import "./polyconnect.scss"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import { GoogleLogin, GoogleLogout } from "react-google-login"
+import nothumbnail from "../../sketch/sketch-list/nothumbnail.png"
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
@@ -19,7 +20,7 @@ const PolyList = (props) => {
         return (
           <Row className="polysketch" key={id}>
             <Col>
-              <img alt={sketch.displayName} src={sketch.thumbnail.url} />
+              <img alt={sketch.displayName} src={sketch.thumbnail?.url ? sketch.thumbnail?.url : nothumbnail} />
             </Col>
             <Col>
               <h3>{sketch.displayName}</h3>
@@ -57,6 +58,7 @@ const PolyConnect = (props) => {
               onFailure={onError}
               cookiePolicy={"single_host_origin"}
               isSignedIn={true}
+              scope={"https://www.googleapis.com/auth/vrassetdata.readonly"}
             />
           )}
         </Col>

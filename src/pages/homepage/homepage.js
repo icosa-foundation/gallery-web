@@ -6,7 +6,7 @@ function Homepage() {
   return (
     <div>
       <HomeHero />
-      <SketchList isPoly={true} />
+      <SketchList />
     </div>
   )
 }

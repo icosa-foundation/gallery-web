@@ -6,7 +6,7 @@ import PolyAssetsAPI from "../../../api/poly/assets"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { info: null }
+    this.state = { info: null, isPoly: this.props.isPoly }
   }
 
   componentDidMount() {
@@ -18,13 +18,13 @@ class Controller extends React.Component {
       const info = await PolyAssetsAPI.getAsset(this.props.id)
       this.setState({ info })
     } else {
-      const info = await AssetsAPI.getAsset(this.props.id)
+      const info = await AssetsAPI.getAsset(this.props.user, this.props.id)
       this.setState({ info })
     }
   }
 
   render() {
-    return <SketchInfo info={this.state.info} />
+    return <SketchInfo info={this.state.info} isPoly={this.state.isPoly} />
   }
 }
 
