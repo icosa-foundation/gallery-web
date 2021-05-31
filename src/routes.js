@@ -4,6 +4,7 @@ import UserLogin from "./pages/user/login"
 import UserView from "./pages/user/view"
 import Terms from "./pages/static/terms"
 import SketchView from "./pages/sketch/view"
+import SketchEdit from "./pages/sketch/edit"
 import PolySketchView from "./pages/poly/sketchview"
 import PolyViewAll from "./pages/poly/viewall"
 import Dashboard from "./pages/dashboard"
@@ -40,6 +41,12 @@ export const Routes = [
     path: "/view/:user/:id",
     exact: true,
     component: SketchView,
+  },
+  {
+    path: "/edit/:user/:id",
+    exact: true,
+    requiresLogin: true,
+    component: SketchEdit,
   },
   {
     path: "/poly",
