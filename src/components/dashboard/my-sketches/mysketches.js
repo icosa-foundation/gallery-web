@@ -12,8 +12,8 @@ const MySketches = (props) => {
           {content &&
             content.map((sketch, key) => {
               return (
-                <Col xs={3}>
-                  <MySketchBox key={key} sketch={sketch} />
+                <Col xs={3} key={key}>
+                  <MySketchBox sketch={sketch} />
                 </Col>
               )
             })}
