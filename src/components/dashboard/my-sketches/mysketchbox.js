@@ -1,15 +1,12 @@
-import React from "react"
-import moment from "moment"
 import nothumbnail from "./nothumbnail.png"
 import { GetSnowflakeTimestamp } from "../../../helpers"
 
 const SketchBox = (props) => {
   const { sketch } = props
-
-  const sketchURL = "/edit/" + `${sketch.url}`
+  console.log(sketch)
+  const sketchURL = "/edit/" + `${sketch.ownerurl}/${sketch.url}`
   const thumbnail = sketch.thumbnail ? `url(${sketch.thumbnail})` : `url(${nothumbnail})`
   const name = sketch.name
-  const owner = sketch.ownername
   const timestamp = GetSnowflakeTimestamp(sketch.id).format("YYYY-MM-DD")
   return (
     <div className="my-sketchbox">
