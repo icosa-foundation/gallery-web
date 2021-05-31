@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
+import MySketchBox from "./mysketchbox"
 import "./mysketches.scss"
 
 const MySketches = (props) => {
@@ -11,9 +12,8 @@ const MySketches = (props) => {
           {content &&
             content.map((sketch, key) => {
               return (
-                <Col md={3} xs={6} key={key}>
-                  <h3>{sketch.name}</h3>
-                  <span>{sketch.description}</span>
+                <Col xs={3}>
+                  <MySketchBox key={key} sketch={sketch} />
                 </Col>
               )
             })}
