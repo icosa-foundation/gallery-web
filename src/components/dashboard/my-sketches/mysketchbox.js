@@ -4,7 +4,7 @@ import { GetSnowflakeTimestamp } from "../../../helpers"
 const SketchBox = (props) => {
   const { sketch } = props
   console.log(sketch)
-  const sketchURL = "/edit/" + `${sketch.ownerurl}/${sketch.url}`
+  const sketchURL = `/edit/${sketch.ownerurl}/${sketch.url}`
   const thumbnail = sketch.thumbnail ? `url(${sketch.thumbnail})` : `url(${nothumbnail})`
   const name = sketch.name
   const timestamp = GetSnowflakeTimestamp(sketch.id).format("YYYY-MM-DD")
