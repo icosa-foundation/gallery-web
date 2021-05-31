@@ -42,9 +42,13 @@ class SketchView extends React.Component {
       return <Redirect to={`/view/${userid}/${sketchid}`} />
     }
     return (
-      <div>
-        <SketchViewer id={sketchid} user={userid} />
-        <SketchEditor id={sketchid} user={userid} />
+      <div className="sketchedit">
+        <div className="viewer">
+          <SketchViewer id={sketchid} user={userid} />
+        </div>
+        <div className="editor">
+          <SketchEditor id={sketchid} user={userid} />
+        </div>
       </div>
     )
   }

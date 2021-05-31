@@ -1,1 +1,52 @@
-.sketcheditor {}
+.sketcheditor {
+    .update-button {
+        text-align: right;
+
+        .btn {
+            font-size: 0.9em;
+            padding: 0.5em 1em;
+        }
+    }
+
+    .nav-tabs {
+        justify-content: center;
+    }
+
+    .tab-pane {
+        >h2 {
+            padding: 0.1em 0.5em;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        form {
+            width: 100%;
+            padding: 0.5em;
+
+            select {
+                cursor: pointer;
+            }
+
+            input,
+            select,
+            textarea {
+                background-color: #272727;
+                border-color: #272727;
+                color: #d7d7d7;
+
+                &:active {
+
+                    background-color: lighten(#272727, 10%);
+                    border-color: #272727;
+                    color: #d7d7d7;
+                }
+
+                &:focus {
+                    background-color: #272727;
+                    border-color: lighten(#272727, 5%);
+                    color: #d7d7d7;
+                }
+            }
+        }
+    }
+}
