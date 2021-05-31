@@ -5,4 +5,4 @@ const SketchEditor = (props) => {
   return <div className="sketchEditor"></div>
 }
 
-export default SketchViewer
+export default SketchEditor

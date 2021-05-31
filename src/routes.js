@@ -43,7 +43,7 @@ export const Routes = [
     component: SketchView,
   },
   {
-    path: "/edit/:user/:id",
+    path: "/edit/:userid/:sketchid",
     exact: true,
     requiresLogin: true,
     component: SketchEdit,
