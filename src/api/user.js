@@ -61,6 +61,116 @@ class UserAPI {
       return json
     }
   }
+
+  static updateUser = async (user, url, displayName, description) => {
+    const result = await fetch(api_root + "users/me", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        body: JSON.stringify({
+          url,
+          displayName,
+          description,
+        }),
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (json.error) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      return json
+    }
+  }
+
+  static updatePassword = async (user, oldPassword, newPassword) => {
+    const result = await fetch(api_root + "users/me/password", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        body: JSON.stringify({
+          oldPassword,
+          newPassword,
+        }),
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (json.error) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      return json
+    }
+  }
+
+  static passwordResetRequest = async (email) => {
+    const result = await fetch(api_root + "users/password/reset", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        body: JSON.stringify({
+          email,
+        }),
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (json.error) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      return json
+    }
+  }
+
+  static passwordResetToken = async (token, newPassword) => {
+    const result = await fetch(api_root + "users/password", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        body: JSON.stringify({
+          token,
+          newPassword,
+        }),
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (json.error) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      return json
+    }
+  }
+
+  static updateEmail = async (user, newEmail, currentPassword) => {
+    const result = await fetch(api_root + "users/me/email", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        body: JSON.stringify({
+          newEmail,
+          currentPassword,
+        }),
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (json.error) {
+      this.setState({ error: json.error })
+      return
+    } else {
+      return json
+    }
+  }
+
+  static getSelfAssets = async (user) => {
     const result = await fetch(api_root + "users/me/assets", {
       method: "GET",
       headers: {

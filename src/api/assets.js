@@ -32,6 +32,38 @@ class AssetsAPI {
     return json
   }
 
+  static updateAsset = async (asseturl, user, name, url, description, visibility) => {
+    const result = await fetch(api_root + "assets/" + asseturl, {
+      method: "PATCH",
+      body: JSON.stringify({
+        name,
+        url,
+        description,
+        visibility,
+      }),
+      headers: {
+        Accept: "application/json",
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    return json
+  }
+
+  static deleteAsset = async (asseturl, user) => {
+    const result = await fetch(api_root + "assets/" + asseturl, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    return json
+  }
+
   static uploadFile = async (filecontents, user) => {
     const formData = new FormData()
     formData.append("file", filecontents)
