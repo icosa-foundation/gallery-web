@@ -21,12 +21,14 @@ class AssetsAPI {
   }
 
   static getAsset = async (userurl, asseturl) => {
+    const loggedInUser = JSON.parse(localStorage.getItem("user"))
     const result = await fetch(api_root + "assets/" + userurl + "/" + asseturl, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "text/plain",
-      },
+        "Authorization": loggedInUser ? loggedInUser.token_type + " " + loggedInUser.token : ""
+      }
     })
     const json = await result.json()
     return json
