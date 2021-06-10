@@ -34,6 +34,32 @@ const UpdateUsername = (props) => {
   )
 }
 
+const UpdateDescription = (props) => {
+  return (
+    <div>
+      <h4>Description</h4>
+      <Form.Group controlId="newdescription">
+        <Form.Label>New Description</Form.Label>
+        <Form.Control as="textarea" type="text" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
+    </div>
+  )
+}
+
+const UpdateUrl = (props) => {
+  return (
+    <div>
+      <h4>URL</h4>
+      <Form.Group controlId="newurl">
+        <Form.Label>New URL</Form.Label>
+        <Form.Control type="text" />
+        {/* TODO: Add AutoComplete */}
+      </Form.Group>
+    </div>
+  )
+}
+
 const UpdateEmail = (props) => {
   return (
     <div>
@@ -56,6 +82,9 @@ const MyDetails = (props) => {
   return (
     <Form className="my-details text-center">
       <UpdateUsername />
+      <UpdateUrl />
+      <UpdateDescription />
+      <hr />
       <UpdateEmail />
       <UpdatePassword />
       <Button variant="primary" type="submit">
