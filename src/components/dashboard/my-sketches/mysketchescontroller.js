@@ -19,7 +19,7 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const sketches = await UserAPI.GetSelfAssets(this.props.user)
+    const sketches = await UserAPI.getSelfAssets(this.props.user)
     this.setState({ content: sketches })
   }
 

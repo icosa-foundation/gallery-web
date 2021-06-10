@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   refreshUserInfo = async () => {
-    const result = await UserAPI.GetSelf(this.props.user)
+    const result = await UserAPI.getSelf(this.props.user)
     this.props.dispatch(updateUserInfo(result))
   }
 

@@ -22,7 +22,7 @@ class SketchView extends React.Component {
   }
 
   getUserInfo = async () => {
-    const selfAssets = await UserAPI.GetSelfAssets(this.props.user)
+    const selfAssets = await UserAPI.getSelfAssets(this.props.user)
     this.setState({ selfAssets, loading: false })
   }
 

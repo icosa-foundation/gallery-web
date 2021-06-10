@@ -32,14 +32,13 @@ class Controller extends React.Component {
     this.setState({ loading: true })
     let sketches = []
     if (this.state.useUserList) {
-      sketches = await UserAPI.GetUserAssets(this.state.useUserList)
-    }
-    else if (this.state.usePolyList) {
+      sketches = await UserAPI.getUserAssets(this.state.useUserList)
+    } else if (this.state.usePolyList) {
       sketches = await PolyAssetsAPI.getAssetList("full", 24, this.state.page)
     } else {
       sketches = await AssetsAPI.getAssetList("full", 24, this.state.page)
     }
-    if(sketches.length < 24 && !this.state.usePolyList) {
+    if (sketches.length < 24 && !this.state.usePolyList) {
       this.setState({ usePolyList: true, page: -1 })
     }
     const content = this.state.content

@@ -1,7 +1,7 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class UserAPI {
-  static Login = async (username, password) => {
+  static login = async (username, password) => {
     const result = await fetch(api_root + "login", {
       method: "POST",
       headers: {
@@ -22,7 +22,7 @@ class UserAPI {
     }
   }
 
-  static CreateNewUser = async (name, email, password) => {
+  static createNewUser = async (name, email, password) => {
     const result = await fetch(api_root + "users", {
       method: "POST",
       headers: {
@@ -44,7 +44,7 @@ class UserAPI {
     }
   }
 
-  static GetSelf = async (user) => {
+  static getSelf = async (user) => {
     const result = await fetch(api_root + "users/me", {
       method: "GET",
       headers: {
@@ -61,7 +61,6 @@ class UserAPI {
       return json
     }
   }
-  static GetSelfAssets = async (user) => {
     const result = await fetch(api_root + "users/me/assets", {
       method: "GET",
       headers: {
@@ -78,7 +77,8 @@ class UserAPI {
       return json
     }
   }
-  static GetUser = async (id) => {
+
+  static getUser = async (id) => {
     const result = await fetch(api_root + "users/" + id, {
       method: "GET",
       headers: {
@@ -94,7 +94,8 @@ class UserAPI {
       return json
     }
   }
-  static GetUserAssets = async (id) => {
+
+  static getUserAssets = async (id) => {
     const result = await fetch(api_root + "users/" + id + "/assets", {
       method: "GET",
       headers: {

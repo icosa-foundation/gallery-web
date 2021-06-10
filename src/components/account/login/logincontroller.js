@@ -24,7 +24,7 @@ class Controller extends React.Component {
       this.setState({ error: "Please input a valid Username and Password" })
       return
     }
-    const result = await UserAPI.Login(this.state.username, this.state.password)
+    const result = await UserAPI.login(this.state.username, this.state.password)
     if (result.error || result.detail) {
       let error = "An Error occurred while logging in" || result.error
       if (result.detail) {
@@ -42,7 +42,7 @@ class Controller extends React.Component {
       const user = { token: access_token, token_type: token_type }
       this.props.dispatch(loginUser(user))
       /* Get Self */
-      const resultSelf = await UserAPI.GetSelf(user)
+      const resultSelf = await UserAPI.getSelf(user)
       this.props.dispatch(updateUserInfo(resultSelf))
       this.props.history.push("/")
     }

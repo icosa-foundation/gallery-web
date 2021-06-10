@@ -57,7 +57,7 @@ class Controller extends React.Component {
       return
     }
 
-    const result = await UserAPI.CreateNewUser(this.state.username, this.state.email, this.state.password)
+    const result = await UserAPI.createNewUser(this.state.username, this.state.email, this.state.password)
     if (result.error || result.detail) {
       let error = "An Error occurred while registering" || result.error
       if (result.detail) {

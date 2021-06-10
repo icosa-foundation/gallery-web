@@ -13,7 +13,7 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const userinfo = await UserAPI.GetUser(this.props.id)
+    const userinfo = await UserAPI.getUser(this.props.id)
     this.setState({ info: userinfo })
   }
   render() {
