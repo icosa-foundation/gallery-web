@@ -28,6 +28,7 @@ class SketchView extends React.Component {
 
   render() {
     const { sketchid, userid } = this.props.match.params
+    const { user } = this.props
     if (this.state.loading) {
       return <Loader />
     }
@@ -44,10 +45,10 @@ class SketchView extends React.Component {
     return (
       <div className="sketchedit">
         <div className="viewer">
-          <SketchViewer id={sketchid} user={userid} />
+          <SketchViewer id={sketchid} userid={userid} />
         </div>
         <div className="editor">
-          <SketchEditor id={sketchid} user={userid} />
+          <SketchEditor id={sketchid} userid={userid} user={user} />
         </div>
       </div>
     )

@@ -19,33 +19,35 @@
             text-align: center;
         }
 
-        form {
+    }
+
+    form {
+        width: 100%;
+        padding: 0.5em;
+
+        select {
+            cursor: pointer;
+        }
+
+        input,
+        select,
+        textarea {
+            background-color: #272727;
+            border-color: #272727;
+            color: #d7d7d7;
             width: 100%;
-            padding: 0.5em;
 
-            select {
-                cursor: pointer;
-            }
+            &:active {
 
-            input,
-            select,
-            textarea {
-                background-color: #272727;
+                background-color: lighten(#272727, 10%);
                 border-color: #272727;
                 color: #d7d7d7;
+            }
 
-                &:active {
-
-                    background-color: lighten(#272727, 10%);
-                    border-color: #272727;
-                    color: #d7d7d7;
-                }
-
-                &:focus {
-                    background-color: #272727;
-                    border-color: lighten(#272727, 5%);
-                    color: #d7d7d7;
-                }
+            &:focus {
+                background-color: #272727;
+                border-color: lighten(#272727, 5%);
+                color: #d7d7d7;
             }
         }
     }

@@ -4,12 +4,12 @@ import SketchViewer from "../../../components/sketch/sketch-viewer"
 import "./sketchview.scss"
 
 function SketchView(props) {
-  const { id, user } = props.match.params
+  const { id, userid } = props.match.params
 
   return (
     <div>
-      <SketchViewer id={id} user={user} />
-      <SketchInfo id={id} user={user} />
+      <SketchViewer id={id} userid={userid} />
+      <SketchInfo id={id} userid={userid} />
     </div>
   )
 }

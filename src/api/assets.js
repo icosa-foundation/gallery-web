@@ -32,8 +32,8 @@ class AssetsAPI {
     return json
   }
 
-  static updateAsset = async (asseturl, user, name, url, description, visibility) => {
-    const result = await fetch(api_root + "assets/" + asseturl, {
+  static updateAsset = async (assetid, user, name, url, description, visibility) => {
+    const result = await fetch(api_root + "assets/" + assetid, {
       method: "PATCH",
       body: JSON.stringify({
         name,
@@ -51,8 +51,8 @@ class AssetsAPI {
     return json
   }
 
-  static deleteAsset = async (asseturl, user) => {
-    const result = await fetch(api_root + "assets/" + asseturl, {
+  static deleteAsset = async (assetid, user) => {
+    const result = await fetch(api_root + "assets/" + assetid, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
