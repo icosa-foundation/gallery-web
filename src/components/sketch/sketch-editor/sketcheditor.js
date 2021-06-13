@@ -17,7 +17,7 @@ const SketchEditor = (props) => {
         initialValues={{
           title: asset.name,
           description: asset.description || "",
-          visibility: asset.visibility || "private",
+          visibility: asset.visibility || "PRIVATE",
         }}
         onSubmit={handleSubmit}
       >
