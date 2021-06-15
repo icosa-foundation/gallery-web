@@ -105,3 +105,33 @@ textarea {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     margin: 0.4em;
 }
+
+form {
+    padding: 0.5em;
+
+    select {
+        cursor: pointer;
+    }
+
+    input,
+    select,
+    textarea {
+        background-color: #272727;
+        border-color: #272727;
+        color: #d7d7d7;
+        width: 100%;
+
+        &:active {
+
+            background-color: lighten(#272727, 10%);
+            border-color: #272727;
+            color: #d7d7d7;
+        }
+
+        &:focus {
+            background-color: #272727;
+            border-color: lighten(#272727, 5%);
+            color: #d7d7d7;
+        }
+    }
+}
