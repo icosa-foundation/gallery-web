@@ -1,5 +1,5 @@
 import React from "react"
-import UploadToPoly from "./uploadtopoly"
+import UploadFile from "./uploadfile"
 import AssetsAPI from "../../../api/assets"
 import { connect } from "react-redux"
 const mapStateToProps = (state) => {
@@ -17,7 +17,7 @@ class Controller extends React.Component {
 
   onFileLoaded = async (event) => {
     try {
-      const result = await AssetsAPI.uploadFile(event.target.result, this.props.user.token)
+      const result = await AssetsAPI.uploadFile(event.target.result, this.props.user)
     } catch (error) {
       this.setState({ loading: false, error: "An Error occured while uploading the file: ERR_SERVER_ERROR" })
     }
@@ -38,6 +38,9 @@ class Controller extends React.Component {
       const result = await AssetsAPI.uploadFile(event.target.files[0], this.props.user)
       if (result.id) {
         this.setState({ loading: false, success: true })
+        this.setTimeout(() => {
+          //TODO Redirect to sketch edit page
+        }, 1500)
       }
     } catch (error) {
       this.setState({ loading: false, error: "An Error occured while uploading the file: ERR_SERVER_ERROR" })
@@ -46,7 +49,7 @@ class Controller extends React.Component {
 
   render() {
     return (
-      <UploadToPoly
+      <UploadFile
         onFileUpload={this.onFileUpload}
         loading={this.state.loading}
         error={this.state.error}

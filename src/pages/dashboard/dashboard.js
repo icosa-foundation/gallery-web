@@ -1,6 +1,6 @@
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap"
 import PolyConnect from "../../components/dashboard/polyconnect"
-import UploadToPoly from "../../components/dashboard/upload-to-poly"
+import UploadFile from "../../components/dashboard/upload-file"
 import MySketches from "../../components/dashboard/my-sketches"
 import MyDetails from "../../components/dashboard/my-details"
 import "./dashboard.scss"
@@ -29,7 +29,7 @@ function Dashboard(props) {
           <hr />
           <Row>
             <Col>
-              <UploadToPoly />
+              <UploadFile />
             </Col>
           </Row>
         </Tab>
