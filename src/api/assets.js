@@ -34,6 +34,20 @@ class AssetsAPI {
     return json
   }
 
+  static getAssetId = async (assetid) => {
+    const loggedInUser = JSON.parse(localStorage.getItem("user"))
+    const result = await fetch(api_root + "assets/id/" + assetid, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "text/plain",
+        "Authorization": loggedInUser ? loggedInUser.token_type + " " + loggedInUser.token : ""
+      }
+    })
+    const json = await result.json()
+    return json
+  }
+
   static updateAsset = async (assetid, user, name, url, description, visibility) => {
     const result = await fetch(api_root + "assets/" + assetid, {
       method: "PATCH",
@@ -66,9 +80,11 @@ class AssetsAPI {
     return json
   }
 
-  static uploadFile = async (filecontents, user) => {
+  static uploadFile = async (files, user) => {
     const formData = new FormData()
-    formData.append("file", filecontents)
+    files.forEach(element => {
+      formData.append("files", element)
+    })
     const result = await fetch(api_root + "assets", {
       method: "POST",
       headers: {

@@ -25,18 +25,21 @@ class Controller extends React.Component {
 
   onFileUpload = async (event) => {
     this.setState({ error: "", success: false })
-    const extension = event.target.files[0].name.split(".").pop()
-    if (this.SUPPORTED_EXTENSIONS.indexOf(extension) === -1) {
-      this.setState({
-        loading: false,
-        error: "Invalid Extension, must be one of the following: " + this.SUPPORTED_EXTENSIONS.join(","),
-      })
-      return
-    }
+    const files = [...event.target.files]
+    files.forEach(element => {
+      const extension = element.name.split(".").pop()
+      if (this.SUPPORTED_EXTENSIONS.indexOf(extension) === -1) {
+        this.setState({
+          loading: false,
+          error: "Invalid Extension, must be one of the following: " + this.SUPPORTED_EXTENSIONS.join(","),
+        })
+        return
+      }
+    })
     this.setState({ loading: true })
     try {
-      const result = await AssetsAPI.uploadFile(event.target.files[0], this.props.user)
-      if (result.id) {
+      const result = await AssetsAPI.uploadFile(files, this.props.user)
+      if (result.upload_job) {
         this.setState({ loading: false, success: true })
         this.setTimeout(() => {
           //TODO Redirect to sketch edit page
