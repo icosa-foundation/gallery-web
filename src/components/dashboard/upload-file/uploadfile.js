@@ -18,7 +18,7 @@ const UploadToPoly = (props) => {
             <span>File Successfully Uploaded</span>
           </Alert>
         )}
-        <Col xs={6}> {loading ? <Loader /> : <Form.File onChange={onFileUpload} />}</Col>
+        <Col xs={6}> {loading ? <Loader /> : <Form.File onChange={onFileUpload} multiple={true} />}</Col>
       </Row>
     </Container>
   )
