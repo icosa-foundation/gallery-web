@@ -3,17 +3,24 @@ import "./polyconnect.scss"
 import {Row, Col, Button } from "react-bootstrap"
 import PolyAssetsAPI from "../../../api/poly/assets"
 import nothumbnail from "../../sketch/sketch-list/nothumbnail.png"
-import { connect } from "formik"
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.value,
+  }
+}
 
 class PolyAsset extends React.Component {
 
   beginImport = async () => {
-    const uploadData = await PolyAssetsAPI.importAssets([this.props.sketch.id], this.props.user)
+    const id = this.props.sketch.name.split("/")[1];
+    const uploadData = await PolyAssetsAPI.importAssets([id], this.props.user)
   }
   
   render() {
     return (
-      <Row className="polysketch" key={this.props.sketch.id}>
+      <Row className="polysketch" key={this.props.sketch.name}>
       <Col>
         <img alt={this.props.sketch.displayName} src={this.props.sketch.thumbnail?.url ? this.props.sketch.thumbnail?.url : nothumbnail} />
       </Col>
@@ -30,4 +37,4 @@ class PolyAsset extends React.Component {
     )
   }
 }
-export default PolyAsset
+export default connect(mapStateToProps)(PolyAsset)

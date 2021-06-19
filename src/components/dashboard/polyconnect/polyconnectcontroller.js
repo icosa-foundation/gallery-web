@@ -1,5 +1,4 @@
 import React from "react"
-import PolyAssetsAPI from "../../../api/poly/assets"
 import PolyConnect from "./polyconnect"
 
 class Controller extends React.Component {

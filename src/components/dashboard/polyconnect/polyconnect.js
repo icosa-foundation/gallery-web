@@ -2,7 +2,6 @@ import React from "react"
 import "./polyconnect.scss"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import { GoogleLogin, GoogleLogout } from "react-google-login"
-import nothumbnail from "../../sketch/sketch-list/nothumbnail.png"
 import PolyAsset from "./polyasset"
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
@@ -19,7 +18,7 @@ const PolyList = (props) => {
       {polySketches.map((o, id) => {
         const sketch = o.asset
         return (
-          <PolyAsset
+          <PolyAsset key={id}
             sketch={sketch}
             user={user}
           />
