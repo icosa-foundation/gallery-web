@@ -14,13 +14,13 @@ const mapStateToProps = (state) => {
 class PolyAsset extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {imported: false}
+    this.state = {imported: false, status:"Import"}
   }
 
   beginImport = async () => {
     const id = this.props.sketch.name.split("/")[1];
     const uploadData = await PolyAssetsAPI.importAssets([id], this.props.user)
-    this.setState({imported: true})
+      this.setState({imported: true, status: uploadData.failedassets.length > 0 ? uploadData.failedassets[0].reason : "Imported"})
   }
   
   render() {
@@ -36,7 +36,7 @@ class PolyAsset extends React.Component {
       <Col>{this.props.sketch.visibility}</Col>
       <Col>{this.props.sketch.license}</Col>
       <Col>
-        {this.state.imported ? <Button>Imported!</Button> : <Button onClick={this.beginImport}>Import</Button>}
+        {this.state.imported ? <Button>{this.state.status}</Button> : <Button onClick={this.beginImport}>{this.state.status}</Button>}
       </Col>
     </Row>      
     )

@@ -15,14 +15,6 @@ class Controller extends React.Component {
     this.state = { loading: false, error: "", success: false }
   }
 
-  onFileLoaded = async (event) => {
-    try {
-      const result = await AssetsAPI.uploadFile(event.target.result, this.props.user)
-    } catch (error) {
-      this.setState({ loading: false, error: "An Error occured while uploading the file: ERR_SERVER_ERROR" })
-    }
-  }
-
   onFileUpload = async (event) => {
     this.setState({ error: "", success: false })
     const files = [...event.target.files]

@@ -1,6 +1,6 @@
 import React from "react"
 import "./polyconnect.scss"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import { GoogleLogin, GoogleLogout } from "react-google-login"
 import PolyAsset from "./polyasset"
 
@@ -10,11 +10,6 @@ const PolyList = (props) => {
   const { polySketches, user } = props
   return (
     <Container className="polysketcheslist">
-      <Row>
-        <Col>
-          <Button className="importall">IMPORT ALL</Button>
-        </Col>
-      </Row>
       {polySketches.map((o, id) => {
         const sketch = o.asset
         return (
