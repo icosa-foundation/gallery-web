@@ -1,4 +1,5 @@
 import React from "react"
+import PolyAssetsAPI from "../../../api/poly/assets"
 import PolyConnect from "./polyconnect"
 
 class Controller extends React.Component {
@@ -49,6 +50,7 @@ class Controller extends React.Component {
         onError={this.onError}
         email={this.state.email}
         polySketches={this.state.polySketches}
+        importPolySketch={this.importPolySketch}
       />
     )
   }

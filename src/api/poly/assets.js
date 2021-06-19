@@ -31,6 +31,20 @@ class PolyAssetsAPI {
     const json = await result.json()
     return json
   }
+
+  static importAssets = async (id_list) => {
+    const result = await fetch(api_root + "poly/import", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "text/plain",
+      },
+      body: JSON.stringify(id_list)
+    })
+    console.log(result.body)
+    const json = await result.json()
+    return json
+  }
 }
 
 export default PolyAssetsAPI

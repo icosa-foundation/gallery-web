@@ -3,11 +3,12 @@ import "./polyconnect.scss"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import { GoogleLogin, GoogleLogout } from "react-google-login"
 import nothumbnail from "../../sketch/sketch-list/nothumbnail.png"
+import PolyAsset from "./polyasset"
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
 const PolyList = (props) => {
-  const { polySketches } = props
+  const { polySketches, user } = props
   return (
     <Container className="polysketcheslist">
       <Row>
@@ -18,20 +19,10 @@ const PolyList = (props) => {
       {polySketches.map((o, id) => {
         const sketch = o.asset
         return (
-          <Row className="polysketch" key={id}>
-            <Col>
-              <img alt={sketch.displayName} src={sketch.thumbnail?.url ? sketch.thumbnail?.url : nothumbnail} />
-            </Col>
-            <Col>
-              <h3>{sketch.displayName}</h3>
-            </Col>
-            <Col>{sketch.updateTime}</Col>
-            <Col>{sketch.visibility}</Col>
-            <Col>{sketch.license}</Col>
-            <Col>
-              <Button>IMPORT</Button>
-            </Col>
-          </Row>
+          <PolyAsset
+            sketch={sketch}
+            user={user}
+          />
         )
       })}
     </Container>
