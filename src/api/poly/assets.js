@@ -33,7 +33,6 @@ class PolyAssetsAPI {
   }
 
   static importAssets = async (id_list, user) => {
-    console.log(id_list)
     const result = await fetch(api_root + "poly/import", {
       method: "POST",
       headers: {
@@ -43,7 +42,6 @@ class PolyAssetsAPI {
       },
       body: JSON.stringify(id_list)
     })
-    console.log(result.body)
     const json = await result.json()
     return json
   }
