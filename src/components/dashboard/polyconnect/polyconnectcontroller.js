@@ -23,7 +23,7 @@ class Controller extends React.Component {
   }
 
   getUserPolySketches = async (accessToken) => {
-    const url = "https://poly.googleapis.com/v1/users/me/assets"
+    const url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED"
     const result = await fetch(url, {
       method: "GET",
       headers: {
