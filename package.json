@@ -1,15 +1,31 @@
 {
   "name": "icosa-web",
-  "version": "0.1.0",
+  "version": "0.1.7",
   "private": true,
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@reduxjs/toolkit": "^1.5.1",
+    "bootstrap": "^4.6.0",
+    "formik": "^2.2.9",
+    "icosa-viewer": "^0.4.9",
+    "moment": "^2.29.1",
+    "node-sass": "4.14.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-lorem-ipsum": "^1.4.9",
+    "react-pro-sidebar": "^0.6.0",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "react-three-fiber": "^5.3.7",
-    "recoil": "^0.1.2",
-    "three": "^0.123.0"
+    "recoil": "^0.1.3",
+    "redux": "^4.0.5",
+    "styled-components": "^5.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +37,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "env": {
+      "es2020": true
+    }
   },
   "browserslist": {
     "production": [

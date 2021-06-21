@@ -1,0 +1,31 @@
+.register-container {
+    text-align: center;
+
+    .register-form {
+        padding: 1em;
+        margin: 1em 0;
+
+        form {
+            flex-flow: column;
+
+            .form-group:not(.tacscontainer) {
+                label {
+                    margin: 0 1em;
+                    width: 5em;
+                    text-align: right;
+                }
+
+                input {
+                    width: 20em;
+                }
+            }
+
+            .tacscontainer {
+                .form-check {
+                    display: inline;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
+}
