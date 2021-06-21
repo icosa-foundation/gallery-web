@@ -18,7 +18,7 @@ class Controller extends React.Component {
   onFileUpload = async (event) => {
     this.setState({ error: "", success: false })
     const files = [...event.target.files]
-    files.forEach(element => {
+    files.forEach((element) => {
       const extension = element.name.split(".").pop()
       if (this.SUPPORTED_EXTENSIONS.indexOf(extension) === -1) {
         this.setState({
@@ -32,10 +32,7 @@ class Controller extends React.Component {
     try {
       const result = await AssetsAPI.uploadFile(files, this.props.user)
       if (result.upload_job) {
-        this.setState({ loading: false, success: true })
-        this.setTimeout(() => {
-          //TODO Redirect to sketch edit page
-        }, 1500)
+        this.setState({ loading: false, success: true, error: "" })
       }
     } catch (error) {
       this.setState({ loading: false, error: "An Error occured while uploading the file: ERR_SERVER_ERROR" })
