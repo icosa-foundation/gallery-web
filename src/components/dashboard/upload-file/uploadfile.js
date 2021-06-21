@@ -8,7 +8,7 @@ const UploadToPoly = (props) => {
   return (
     <Container className="uploadtopoly">
       <Row>
-        {error.length > 0 && (
+        {error && (
           <Alert variant="danger">
             <span>Error: {error}</span>
           </Alert>
