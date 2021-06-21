@@ -78,7 +78,7 @@ const SideNav = (props) => {
               <span className="beta">BETA</span>
             </OverlayTrigger>
             <div>
-              <Link to="https://opencollective.com/icosa">
+              <Link to={{ pathname: "https://opencollective.com/icosa" }} target="_blank">
                 <h4>Support us!</h4>
               </Link>
             </div>
