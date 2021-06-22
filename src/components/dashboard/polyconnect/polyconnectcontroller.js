@@ -22,8 +22,10 @@ class Controller extends React.Component {
     this.setState({ loggedIn: false })
   }
 
-  getUserPolySketches = async (accessToken) => {
-    const url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED"
+  getUserPolySketches = async (accessToken, nextPageToken) => {
+    var url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED&pageSize=100"
+    if (nextPageToken)
+    url += `&pageToken=${nextPageToken}`
     const result = await fetch(url, {
       method: "GET",
       headers: {
@@ -36,7 +38,8 @@ class Controller extends React.Component {
     if (json.error || !json.userAssets) {
       this.setState({ error: json.error })
     } else {
-      this.setState({ polySketches: json.userAssets })
+      console.log(json)
+      this.setState({ polySketches: json.userAssets, nextPageToken })
     }
   }
 
