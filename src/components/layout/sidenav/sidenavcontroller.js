@@ -2,6 +2,7 @@ import React from "react"
 import SideNav from "./sidenav"
 import { connect } from "react-redux"
 import { logoutUser } from "../../../states/userslice"
+import { withRouter } from "react-router"
 
 const mapStateToProps = (state) => {
   return {
@@ -62,6 +63,7 @@ class Controller extends React.Component {
 
   logout = () => {
     this.props.dispatch(logoutUser())
+    this.props.history.push("/")
   }
 
   render() {
@@ -78,4 +80,4 @@ class Controller extends React.Component {
     )
   }
 }
-export default connect(mapStateToProps)(Controller)
+export default connect(mapStateToProps)(withRouter(Controller))
