@@ -12,7 +12,7 @@ const MySketches = (props) => {
           {content &&
             content.map((sketch, key) => {
               return (
-                <Col xs={3} key={key}>
+                <Col md={3} xs={12} key={key}>
                   <MySketchBox sketch={sketch} />
                 </Col>
               )
