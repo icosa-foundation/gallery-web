@@ -4,6 +4,7 @@ import NewPassword from "./newPassword"
 import UserAPI from "../../../api/user"
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux' 
 
 class Controller extends React.Component {
   constructor(props) {
@@ -100,4 +101,4 @@ class Controller extends React.Component {
   }
 }
 
-export default withRouter(Controller)
+export default connect()(withRouter(Controller))
