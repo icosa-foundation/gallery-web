@@ -67,14 +67,14 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          url,
-          displayName,
-          description,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        "url" : url,
+        "displayname" : displayName,
+        "description" : description,
+      }),
     })
     const json = await result.json()
     if (json.error) {
@@ -90,13 +90,13 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          oldPassword,
-          newPassword,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        oldPassword,
+        newPassword,
+      }),
     })
     const json = await result.json()
     if (json.error) {
@@ -112,14 +112,15 @@ class UserAPI {
       method: "PUT",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          email,
-        }),
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        "email": email,
+      }),
     })
     const json = await result.json()
     if (json.error) {
+      console.log(json.result)
       this.setState({ error: json.error })
       return
     } else {
@@ -132,12 +133,12 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          token,
-          newPassword,
-        }),
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        token,
+        newPassword,
+      }),
     })
     const json = await result.json()
     if (json.error) {
@@ -153,13 +154,13 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          newEmail,
-          currentPassword,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        newEmail,
+        currentPassword,
+      }),
     })
     const json = await result.json()
     if (json.error) {
