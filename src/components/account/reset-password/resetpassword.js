@@ -2,6 +2,7 @@ import React from "react"
 import { Container, Row, Col, Alert, Form, Button } from "react-bootstrap"
 import "./style.scss"
 
+
 const ResetPassword = (props) => {
   const { handleSubmit, changeEmail, success, error } = props
   return (
@@ -23,7 +24,7 @@ const ResetPassword = (props) => {
             </Form.Group>
             <br />
             <Button variant="primary" type="submit" onClick={handleSubmit}>
-              Reset Password
+              Send Reset E-mail
             </Button>
           </Form>
         </Col>

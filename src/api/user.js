@@ -139,12 +139,12 @@ class UserAPI {
         newPassword,
       }),
     })
-    const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    const response = await result
+    if (response.status !== 200) {
+      this.setState({ error: response.json().error })
+      return response.json()
     } else {
-      return json
+      return false
     }
   }
 
