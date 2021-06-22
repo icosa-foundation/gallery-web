@@ -34,11 +34,14 @@ const LoggedInMenuItems = (props) => {
       <PageLink to={userRoot} icon="user">
         My Profile
       </PageLink>
-      <PageLink to="/dashboard" icon="th">
+      <PageLink to="/uploads" icon="th">
         My Uploads
       </PageLink>
       <PageLink icon="heart">
         My Likes [Coming Soon]
+      </PageLink>
+      <PageLink to="/settings" icon="cog">
+        My Settings
       </PageLink>
       <Showable {...props}>
         <MenuItem icon={<FontAwesomeIcon icon="sign-out-alt" />} onClick={props.logout}>
