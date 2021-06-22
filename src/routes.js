@@ -1,6 +1,7 @@
 import Homepage from "./pages/homepage"
 import UserRegister from "./pages/user/register"
 import UserLogin from "./pages/user/login"
+import UserForgot from "./pages/user/forgot"
 import UserView from "./pages/user/view"
 import Terms from "./pages/static/terms"
 import SketchView from "./pages/sketch/view"
@@ -20,6 +21,11 @@ export const Routes = [
     path: "/login",
     exact: true,
     component: UserLogin,
+  },
+  {
+    path: "/resetpassword",
+    exact: true,
+    component: UserForgot,
   },
   {
     path: "/terms",
