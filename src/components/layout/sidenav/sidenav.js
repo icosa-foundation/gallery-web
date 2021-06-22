@@ -37,7 +37,7 @@ const LoggedInMenuItems = (props) => {
       <PageLink to="/uploads" icon="th">
         My Uploads
       </PageLink>
-      <PageLink icon="heart">
+      <PageLink to="./" icon="heart">
         My Likes [Coming Soon]
       </PageLink>
       <PageLink to="/settings" icon="cog">
