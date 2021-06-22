@@ -23,7 +23,7 @@ class Controller extends React.Component {
   }
 
   getUserPolySketches = async (accessToken, nextPageToken) => {
-    var url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED&pageSize=100"
+    var url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED&pageSize=20"
     if (nextPageToken)
     url += `&pageToken=${nextPageToken}`
     const result = await fetch(url, {
