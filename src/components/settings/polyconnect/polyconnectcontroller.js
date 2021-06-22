@@ -4,14 +4,14 @@ import PolyConnect from "./polyconnect"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { loggedIn: false }
+    this.state = { loggedIn: false, page: 0, loading: false, polySketches: []}
   }
 
   onLogin = (message) => {
     const accessToken = message.accessToken
     const email = message.profileObj.email
-    this.getUserPolySketches(accessToken)
-    this.setState({ loggedIn: true, accessToken, email })
+    this.setState({ loggedIn: true, accessToken, email})
+    this.getUserPolySketches()
   }
 
   onLogout = (message) => {
@@ -22,15 +22,35 @@ class Controller extends React.Component {
     this.setState({ loggedIn: false })
   }
 
-  getUserPolySketches = async (accessToken, nextPageToken) => {
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll, false)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll, false)
+  }
+
+  handleScroll = (e) => {
+    const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
+    if (bottom && !this.state.loading) {
+      this.setState({ page: this.state.page + 1 }, () => {
+        this.getUserPolySketches()
+      })
+    }
+  }
+
+  getUserPolySketches = async () => {
     var url = "https://poly.googleapis.com/v1/users/me/assets?visibility=PUBLISHED&pageSize=20"
-    if (nextPageToken)
-    url += `&pageToken=${nextPageToken}`
+    if (this.state.nextPageToken)
+    url += `&pageToken=${this.state.nextPageToken}`
+
+    let sketches = []
+
     const result = await fetch(url, {
       method: "GET",
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + accessToken,
+        Authorization: "Bearer " + this.state.accessToken,
         "Content-Type": "text/plain",
       },
     })
@@ -38,8 +58,21 @@ class Controller extends React.Component {
     if (json.error || !json.userAssets) {
       this.setState({ error: json.error })
     } else {
-      console.log(json)
-      this.setState({ polySketches: json.userAssets, nextPageToken })
+      sketches = json.userAssets
+      const content = this.state.polySketches
+      for (const s of sketches) {
+        let isUnique = true
+        for (const c of content) {
+          if (c.asset.name === s.asset.name) {
+            isUnique = false
+            break;
+          }
+        }
+        if (isUnique) {
+          content.push(s)
+        }
+      }
+      this.setState({ polySketches: content, nextPageToken : json.nextPageToken})
     }
   }
 
