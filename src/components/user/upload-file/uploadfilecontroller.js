@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 }
 
 class Controller extends React.Component {
-  SUPPORTED_EXTENSIONS = ["glb", "gltf", "bin", "tilt"]
+  SUPPORTED_EXTENSIONS = ["glb", "gltf", "bin"]
   constructor(props) {
     super(props)
     this.state = { loading: false, error: "", success: false }

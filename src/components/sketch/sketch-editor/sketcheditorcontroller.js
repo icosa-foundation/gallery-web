@@ -2,6 +2,7 @@ import React from "react"
 import SketchEditor from "./sketcheditor"
 import Loader from "../../ui/loader"
 import AssetsAPI from "../../../api/assets"
+import { withRouter } from "react-router"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -24,6 +25,23 @@ class Controller extends React.Component {
       values.description,
       values.visibility
     )
+    
+    if (result.error || result.detail) {
+      let error = "An error occurred while updating your asset" || result.error
+      if (result.detail) {
+        if (typeof result.detail == "string") {
+          error = result.detail
+        } else if (result.detail[0]) {
+          error = result.detail[0].msg
+        }
+      }
+      this.setState({
+        error,
+      })
+    } else {
+      this.setState({ error: null })
+      this.props.history.push(`/view/${result.ownerurl}/${result.url}`)
+    }
   }
 
   render() {
@@ -34,4 +52,4 @@ class Controller extends React.Component {
   }
 }
 
-export default Controller
+export default withRouter(Controller)

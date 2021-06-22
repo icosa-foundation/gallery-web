@@ -1,13 +1,15 @@
 import Homepage from "./pages/homepage"
 import UserRegister from "./pages/user/register"
 import UserLogin from "./pages/user/login"
+import UserForgot from "./pages/user/forgot"
 import UserView from "./pages/user/view"
 import Terms from "./pages/static/terms"
 import SketchView from "./pages/sketch/view"
 import SketchEdit from "./pages/sketch/edit"
 import PolySketchView from "./pages/poly/sketchview"
 import PolyViewAll from "./pages/poly/viewall"
-import Dashboard from "./pages/dashboard"
+import Uploads from "./pages/uploads"
+import Settings from "./pages/settings"
 import NotFound from "./pages/notfound"
 
 export const Routes = [
@@ -22,15 +24,26 @@ export const Routes = [
     component: UserLogin,
   },
   {
+    path: "/resetpassword",
+    exact: true,
+    component: UserForgot,
+  },
+  {
     path: "/terms",
     exact: true,
     component: Terms,
   },
   {
-    path: "/dashboard",
+    path: "/uploads",
     exact: true,
-    component: Dashboard,
+    component: Uploads,
     requiresLogin: true,
+  },
+  {
+    path: "/settings",
+    exact: true,
+    component: Settings,
+    requiresLogin: true
   },
   {
     path: "/user/:id",

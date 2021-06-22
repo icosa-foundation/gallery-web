@@ -67,14 +67,14 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          url,
-          displayName,
-          description,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        "url" : url,
+        "displayname" : displayName,
+        "description" : description,
+      }),
     })
     const json = await result.json()
     if (json.error) {
@@ -90,13 +90,13 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          oldPassword,
-          newPassword,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        oldPassword,
+        newPassword,
+      }),
     })
     const json = await result.json()
     if (json.error) {
@@ -112,18 +112,18 @@ class UserAPI {
       method: "PUT",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          email,
-        }),
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        "email": email,
+      }),
     })
-    const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    const response = await result
+    if (response.status !== 202) {
+      this.setState({ error: response.json().error })
+      return response.json()
     } else {
-      return json
+      return false
     }
   }
 
@@ -132,19 +132,19 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          token,
-          newPassword,
-        }),
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        token,
+        newPassword,
+      }),
     })
-    const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    const response = await result
+    if (response.status !== 200) {
+      this.setState({ error: response.json().error })
+      return response.json()
     } else {
-      return json
+      return false
     }
   }
 
@@ -153,13 +153,13 @@ class UserAPI {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        body: JSON.stringify({
-          newEmail,
-          currentPassword,
-        }),
         Authorization: user.token_type + " " + user.token,
         "Content-Type": "text/plain",
       },
+      body: JSON.stringify({
+        newEmail,
+        currentPassword,
+      }),
     })
     const json = await result.json()
     if (json.error) {
