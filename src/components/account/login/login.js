@@ -27,7 +27,7 @@ const Login = (props) => {
           >
             <Form.Group controlId="username">
               <Form.Label srOnly>Username:</Form.Label>
-              <Form.Control type="text" onChange={changeUsername} placeholder="Username" autoComplete="username" />
+              <Form.Control type="text" onChange={changeUsername} placeholder="E-mail" autoComplete="username" />
             </Form.Group>
             <br />
             <Form.Group controlId="password">
