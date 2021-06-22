@@ -15,6 +15,7 @@ class Controller extends React.Component {
     this.state = {
       isLoggedIn: props.user && Object.keys(props.user).length !== 0,
       username: props.userInfo ? props.userInfo.displayname : "",
+      userurl: props.userInfo ? props.userInfo.url : ""
     }
   }
 
