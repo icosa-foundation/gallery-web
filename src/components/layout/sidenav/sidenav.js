@@ -34,8 +34,11 @@ const LoggedInMenuItems = (props) => {
       <PageLink to={userRoot} icon="user">
         My Profile
       </PageLink>
-      <PageLink to={userRoot + "/likes"} icon="heart">
-        My Likes
+      <PageLink to="/dashboard" icon="th">
+        My Uploads
+      </PageLink>
+      <PageLink icon="heart">
+        My Likes [Coming Soon]
       </PageLink>
       <Showable {...props}>
         <MenuItem icon={<FontAwesomeIcon icon="sign-out-alt" />} onClick={props.logout}>
@@ -90,13 +93,6 @@ const SideNav = (props) => {
           <PageLink to="/" icon="home">
             Home
           </PageLink>
-          {isLoggedIn ? (
-            <PageLink to="/dashboard" icon="th">
-              Dashboard
-            </PageLink>
-          ) : (
-            ""
-          )}
         </Menu>
         <Menu iconShape="square">
           <Showable {...props}>
