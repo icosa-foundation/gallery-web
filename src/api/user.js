@@ -118,13 +118,12 @@ class UserAPI {
         "email": email,
       }),
     })
-    const json = await result.json()
-    if (json.error) {
-      console.log(json.result)
-      this.setState({ error: json.error })
-      return
+    const response = await result
+    if (response.status !== 202) {
+      this.setState({ error: response.json().error })
+      return response.json()
     } else {
-      return json
+      return false
     }
   }
 

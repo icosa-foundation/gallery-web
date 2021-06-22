@@ -19,7 +19,8 @@ class Controller extends React.Component {
       return
     }
     const result = await UserAPI.passwordResetRequest(this.state.email)
-    if (result.error || result.detail) {
+    // Abusing js truthy, as API request returns false when it succeeds
+    if (result) {
       let error = "An Error occurred while Resetting Password" || result.error
       if (result.detail) {
         if (typeof result.detail == "string") {
