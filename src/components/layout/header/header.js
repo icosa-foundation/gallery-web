@@ -10,7 +10,7 @@ const WelcomeMessage = (props) => {
   if (isLoggedIn) {
     return (
       <div>
-        Welcome, <a href={`${userurl}`}>{username}</a>
+        Welcome, <a href={`/user/${userurl}`}>{username}</a>
       </div>
     )
   } else {
