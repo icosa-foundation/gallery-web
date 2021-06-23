@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import moment from "moment"
 import "./homehero.scss"
+import { GetSnowflakeTimestamp } from "../../../helpers"
 
 const HomeHero = (props) => {
   const { content } = props
@@ -12,13 +13,13 @@ const HomeHero = (props) => {
         {content.map((content, key) => {
           return (
             <Carousel.Item key={key}>
-              <img className="d" src={content.thumbnail.url} alt={content.displayName + " by " + content.authorName} />
+              <img className="d" src={content.thumbnail} alt={content.name + " by " + content.ownername} />
               <Carousel.Caption>
-                <Link to={"/poly/view/" + content.name.replace("assets/", "")}>
-                  <h3 className="title">{content.displayName}</h3>
+                <Link to={"/view/" + content.ownerurl + "/" + content.url}>
+                  <h3 className="title">{content.name}</h3>
                 </Link>
                 <p>
-                  {content.authorName} | {moment(content.createTime).format("YYYY-MM-DD")}
+                  {content.ownername} | {GetSnowflakeTimestamp(content.id).format("YYYY-MM-DD")}
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
