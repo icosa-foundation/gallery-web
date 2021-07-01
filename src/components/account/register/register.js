@@ -6,6 +6,7 @@ const Register = (props) => {
   const {
     handleSubmit,
     changeUsername,
+    changeDisplayname,
     changeEmail,
     changePassword,
     changeConfirmPassword,
@@ -27,6 +28,11 @@ const Register = (props) => {
             <Form.Group controlId="username">
               <Form.Label>Username:</Form.Label>
               <Form.Control type="text" onChange={changeUsername} placeholder="Username" autoComplete="username" />
+            </Form.Group>
+            <br />
+            <Form.Group controlId="displayname">
+              <Form.Label>Display Name:</Form.Label>
+              <Form.Control type="text" onChange={changeDisplayname} placeholder="Display Name" autoComplete="displayname" />
             </Form.Group>
             <br />
             <Form.Group controlId="email">

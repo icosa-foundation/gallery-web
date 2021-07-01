@@ -22,7 +22,7 @@ class UserAPI {
     }
   }
 
-  static createNewUser = async (name, email, password) => {
+  static createNewUser = async (username, displayname, email, password) => {
     const result = await fetch(api_root + "users", {
       method: "POST",
       headers: {
@@ -30,7 +30,8 @@ class UserAPI {
         "Content-Type": "text/plain",
       },
       body: JSON.stringify({
-        displayName: name,
+        displayName: displayname,
+        url: username ?? null,
         email,
         password,
       }),
