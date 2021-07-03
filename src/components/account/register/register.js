@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col, Alert, Form, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import "./style.scss"
 
 const Register = (props) => {
@@ -65,9 +66,9 @@ const Register = (props) => {
               <Form.Label className="terms">
                 <span>
                   I agree to the{" "}
-                  <a href="/terms" target="_blank">
+                  <Link to="/terms" target="_blank">
                     Terms and Conditions
-                  </a>
+                  </Link>
                 </span>
               </Form.Label>
             </Form.Group>

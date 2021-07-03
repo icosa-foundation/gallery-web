@@ -1,6 +1,7 @@
 import moment from "moment"
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import Loader from "../../ui/loader"
 import "./sketchinfo.scss"
 import { GetSnowflakeTimestamp } from "../../../helpers"
@@ -22,7 +23,7 @@ const SketchInfo = (props) => {
           {info && (
             <div>
               <h2>{displayName}</h2>
-              {isPoly ? <h4>{authorName}</h4> : <h4><a href={authorPage}>{authorName}</a></h4>}
+              {isPoly ? <h4>{authorName}</h4> : <h4><Link to={authorPage}>{authorName}</Link></h4>}
               <span>{timestamp}</span>
               <p>{info.description}</p>
               <h6>{license}</h6>
