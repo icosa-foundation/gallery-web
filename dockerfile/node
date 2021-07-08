@@ -1,0 +1,28 @@
+FROM node:14-alpine as base
+
+WORKDIR /src
+COPY package*.json ./
+RUN apk add git
+EXPOSE 3000
+# ---------- BUILD ----------
+FROM base as build
+COPY ./ /src
+RUN npm i
+RUN npm run build
+RUN npm i -g fsevents@latest -f --save-optional
+
+# ---------- PRODUCTION ----------
+FROM build as production
+ENV NODE_ENV=production
+RUN npm ci
+COPY --from=build /src/node_modules ./node_modules
+COPY --from=build /src/public ./public
+CMD ["node", "bin/www"]
+
+# ---------- DEV ----------
+FROM base as dev
+ENV NODE_ENV=development
+RUN npm install
+COPY --from=build /src/node_modules ./node_modules
+COPY --from=build /src/public ./public
+CMD ["npm", "start"]
