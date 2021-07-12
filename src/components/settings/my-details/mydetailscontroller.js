@@ -35,7 +35,7 @@ class Controller extends React.Component {
       }
       await UserAPI.updatePassword(this.props.user, values.password, values.currentpassword)
     }
-    await UserAPI.updateUser(this.props.user, values.url, values.username, values.description)
+    await UserAPI.updateUser(this.props.user, values.username, values.displayname, values.description)
   }
 
   render() {

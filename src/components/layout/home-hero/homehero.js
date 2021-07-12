@@ -1,7 +1,6 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import moment from "moment"
 import "./homehero.scss"
 import { GetSnowflakeTimestamp } from "../../../helpers"
 

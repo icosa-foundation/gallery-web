@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap"
 import Login from "../../../components/account/login"
+import { Link } from "react-router-dom"
 import "./userlogin.scss"
 
 function UserLogin(props) {
@@ -17,9 +18,9 @@ function UserLogin(props) {
       </Row>
       <Row>
         <Col className="text-center">
-          <a href="/resetpassword">Forgot Password?</a>
+          <Link to="/resetpassword">Forgot Password?</Link>
           <br />
-          <a href="/register">Register a new account</a>
+          <Link to="/register">Register a new account</Link>
         </Col>
       </Row>
     </Container>
