@@ -16,7 +16,6 @@ class SketchView extends React.Component {
 
   getAsset = async () => {
     const asset = await PolyAssetsAPI.getAsset(this.state.id)
-    console.log(asset)
     this.setState({ asset: asset, loading: false })
   }
 
