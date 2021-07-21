@@ -101,6 +101,28 @@ class AssetsAPI {
       return json
     }
   }
+
+  static getPreferredFormat = (asset) => {
+    let types = {}
+
+    for (const newformat of asset.formats) {
+      types[newformat.format] = newformat
+    }
+
+    if(types.hasOwnProperty("GLTF2")) {
+      return types["GLTF2"]
+    }
+
+    if(types.hasOwnProperty("GLTF")) {
+      return types["GLTF"]
+    }
+
+    if(types.hasOwnProperty("TILT")) {
+      return types["TILT"]
+    }
+
+    return null
+  }
 }
 
 export default AssetsAPI
