@@ -14,9 +14,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -37,9 +36,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -55,9 +53,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -78,9 +75,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -100,9 +96,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -163,9 +158,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -181,9 +175,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -198,9 +191,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -215,9 +207,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
