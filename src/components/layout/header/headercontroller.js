@@ -23,6 +23,7 @@ class Controller extends React.Component {
     if (prevProps.userInfo !== this.props.userInfo) {
       this.setState({
         username: this.props.userInfo ? this.props.userInfo.displayname : "",
+        userurl: this.props.userInfo ? this.props.userInfo.url : ""
       })
     }
     if (prevProps.user !== this.props.user) {

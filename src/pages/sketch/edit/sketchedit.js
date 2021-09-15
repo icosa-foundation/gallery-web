@@ -33,8 +33,10 @@ class SketchView extends React.Component {
       return <Loader />
     }
     let valid = false
+    let selectedAsset
     for (const asset of this.state.selfAssets) {
       if (asset.url === sketchid) {
+        selectedAsset = asset;
         valid = true
         break
       }
@@ -45,7 +47,7 @@ class SketchView extends React.Component {
     return (
       <div className="sketchedit">
         <div className="viewer">
-          <SketchViewer id={sketchid} userid={userid} />
+          <SketchViewer asset={selectedAsset}/>
         </div>
         <div className="editor">
           <SketchEditor id={sketchid} userid={userid} user={user} />

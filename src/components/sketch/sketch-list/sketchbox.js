@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import moment from "moment"
 import nothumbnail from "./nothumbnail.png"
 import { GetSnowflakeTimestamp } from "../../../helpers"
@@ -14,7 +15,7 @@ const SketchBox = (props) => {
   const timestamp = isPoly ? moment(sketch.createTime).format("YYYY-MM-DD") : GetSnowflakeTimestamp(sketch.id).format("YYYY-MM-DD")
   return (
     <div className="sketchbox">
-      <a href={sketchURL}>
+      <Link to={sketchURL}>
         <div
           className="sketchimage"
           style={{
@@ -25,7 +26,7 @@ const SketchBox = (props) => {
             <h6>{name}</h6>
           </div>
         </div>
-      </a>
+      </Link>
       <div className="sketchinfo">
         <div className="author">{owner}</div>
         <div className="date">{timestamp}</div>

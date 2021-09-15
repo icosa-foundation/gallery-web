@@ -138,7 +138,7 @@ const SideNav = (props) => {
         <Showable {...props}>
           <div className="socials text-center">
             <h5>Join our Community!</h5>
-            <a href="http://twitter.com/icosa-gallery" alt="twitter" rel="noreferrer" target="_blank">
+            <a href="http://twitter.com/IcosaGallery" alt="twitter" rel="noreferrer" target="_blank">
               <FontAwesomeIcon icon={["fab", "twitter"]} />
             </a>
             <a href="https://discord.gg/fS69VdFXpk" alt="discord" rel="noreferrer" target="_blank">

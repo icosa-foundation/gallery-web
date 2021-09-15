@@ -1,6 +1,6 @@
 import React from "react"
 import HomeHero from "./homehero"
-import PolyAssetsAPI from "../../../api/poly/assets"
+import AssetsAPI from "../../../api/assets"
 
 class Controller extends React.Component {
   constructor(props) {
@@ -17,10 +17,10 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const featured = ["ervEzbIlddY", "cNtBlok7QaS", "d-HKDBNRM9t", "0EuG9iDWMik"]
+    const featured = ["62897006741315349", "62896560660307665", "62896737995480789", "62889376153102605"]
     const sketches = []
     for (const f of featured) {
-      const sketch = await PolyAssetsAPI.getAsset(f)
+      const sketch = await AssetsAPI.getAssetId(f)
       sketches.push(sketch)
     }
     this.setState({ content: sketches })

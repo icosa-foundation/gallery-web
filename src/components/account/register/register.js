@@ -1,11 +1,13 @@
 import React from "react"
 import { Container, Row, Col, Alert, Form, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import "./style.scss"
 
 const Register = (props) => {
   const {
     handleSubmit,
     changeUsername,
+    changeDisplayname,
     changeEmail,
     changePassword,
     changeConfirmPassword,
@@ -27,6 +29,11 @@ const Register = (props) => {
             <Form.Group controlId="username">
               <Form.Label>Username:</Form.Label>
               <Form.Control type="text" onChange={changeUsername} placeholder="Username" autoComplete="username" />
+            </Form.Group>
+            <br />
+            <Form.Group controlId="displayname">
+              <Form.Label>Display Name:</Form.Label>
+              <Form.Control type="text" onChange={changeDisplayname} placeholder="Display Name" autoComplete="displayname" />
             </Form.Group>
             <br />
             <Form.Group controlId="email">
@@ -59,9 +66,9 @@ const Register = (props) => {
               <Form.Label className="terms">
                 <span>
                   I agree to the{" "}
-                  <a href="/terms" target="_blank">
+                  <Link to="/terms" target="_blank">
                     Terms and Conditions
-                  </a>
+                  </Link>
                 </span>
               </Form.Label>
             </Form.Group>
