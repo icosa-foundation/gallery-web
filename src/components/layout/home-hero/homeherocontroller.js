@@ -17,13 +17,8 @@ class Controller extends React.Component {
   }
 
   async getContent() {
-    const featured = ["62897006741315349", "62896560660307665", "62896737995480789", "62889376153102605"]
-    const sketches = []
-    for (const f of featured) {
-      const sketch = await AssetsAPI.getAssetId(f)
-      sketches.push(sketch)
-    }
-    this.setState({ content: sketches })
+    const firstFeatured = await AssetsAPI.getAssetList(4, 0, true)
+    this.setState({ content: firstFeatured })
   }
 }
 export default Controller

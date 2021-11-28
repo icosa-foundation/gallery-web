@@ -1,7 +1,7 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class PolyAssetsAPI {
-  static getAssetList = async (filter, number, page) => {
+  static getAssetList = async (number = 20, page = 0, curated = false) => {
     const result = await fetch(api_root + "poly/assets?results=" + number + "&page=" + page, {
       method: "GET",
       headers: {
@@ -10,12 +10,9 @@ class PolyAssetsAPI {
       },
     })
     const json = await result.json()
-    if (json.error || !json.assets) {
-      return json
+    if(!result.ok) {
+      throw result.statusText
     } else {
-      if (filter === "featured") {
-        return json.assets.slice(0, 4)
-      }
       return json.assets
     }
   }
