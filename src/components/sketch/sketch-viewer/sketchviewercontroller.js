@@ -18,10 +18,10 @@ class Controller extends React.Component {
 
       switch (format.format) {
         case "GLTF2":
-          viewer.loadBrushGltf(format.url)
+          viewer.loadGltf(format.url)
           break
         case "GLTF":
-          viewer.loadBrushGltf1(format.url)
+          viewer.loadGltf1(format.url)
           break
         default:
           break
@@ -31,10 +31,10 @@ class Controller extends React.Component {
 
       switch (format.formatType) {
         case "GLTF2":
-          viewer.loadBrushGltf(format.root.url)
+          viewer.loadGltf(format.root.url)
           break
         case "GLTF":
-          viewer.loadBrushGltf1(format.root.url)
+          viewer.loadGltf1(format.root.url)
           break
         default:
           break
