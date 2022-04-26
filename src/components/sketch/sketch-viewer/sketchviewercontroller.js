@@ -11,30 +11,33 @@ class Controller extends React.Component {
   }
 
   componentDidMount() {
-    const viewer = new IcosaViewer(this.viewerReference.current)
-
+    const viewer = new IcosaViewer("https://icosa-gallery.github.io/three-icosa-template/brushes/", this.viewerReference.current)
     if(!this.props.isPoly) {
       const format = AssetsAPI.getPreferredFormat(this.props.asset)
-
       switch (format.format) {
         case "GLTF2":
-          viewer.loadBrushGltf(format.url)
+          viewer.loadGltf(format.url)
           break
         case "GLTF":
-          viewer.loadBrushGltf1(format.url)
+          viewer.loadGltf1(format.url)
+          break
+        case "TILT":
+          viewer.loadTilt(format.url)
           break
         default:
           break
       }
     } else {
       const format = PolyAssetsAPI.getPreferredFormat(this.props.asset)
-
       switch (format.formatType) {
         case "GLTF2":
-          viewer.loadBrushGltf(format.root.url)
+          viewer.loadGltf(format.root.url)
           break
         case "GLTF":
-          viewer.loadBrushGltf1(format.root.url)
+          viewer.loadGltf1(format.root.url)
+          break
+        case "TILT":
+          viewer.loadTilt(format.root.url)
           break
         default:
           break

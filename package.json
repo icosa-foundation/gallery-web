@@ -11,7 +11,7 @@
     "@reduxjs/toolkit": "^1.8.1",
     "bootstrap": "^4.6.1",
     "formik": "^2.2.9",
-    "icosa-viewer": "^0.7.0",
+    "icosa-viewer": "^0.7.1",
     "moment": "^2.29.3",
     "node-sass": "^7.0.1",
     "query-string": "^7.1.1",
