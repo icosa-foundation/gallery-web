@@ -1,0 +1,25 @@
+.sketchviewer-embedded {
+    >.sketchviewer >div {
+        height: 100vh;
+        max-height: 100vh;
+        position: relative;
+    }
+}
+
+.embedded-footer {
+    h2 {
+        font-size: calc(7px + 3vw);
+    }
+    h4 {
+        font-size: calc(5px + 2vw);
+    }
+    h6 {
+        font-size: calc(5px + 1vw);
+    }
+    span {
+        font-size: calc(5px + 0.8vw);
+    }
+    position: absolute;
+    bottom: 0;
+}
+

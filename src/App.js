@@ -13,6 +13,7 @@ import { updateUserInfo } from "./states/userinfoslice"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
+import SketchViewEmbed from "./pages/sketch/embed"
 
 library.add(fab, fas)
 
@@ -56,28 +57,33 @@ class App extends React.Component {
       <div className="App">
         <RecoilRoot>
           <Router>
-            <SideNav collapsed={this.state.navCollapsed} toggleNav={this.toggleNav} />
-            <main
-              onClick={(e) => {
-                if (!this.state.navCollapsed) {
-                  this.closeNav()
-                  e.preventDefault()
-                  return
-                }
-              }}
-            >
-              <Header toggleNav={this.openNav} />
-              <Switch>
-                {Routes.map((route, key) => {
-                  let children = route.component
-                  if (route.requiresLogin && !this.props.user) {
-                    children = <Redirect to="/login" />
-                  }
-                  return <Route key={key} path={route.path} exact={route.exact} children={children}></Route>
-                })}
-              </Switch>
-              <Footer />
-            </main>
+            <Switch>
+              <Route path="/embed/:userid/:id" exact children={SketchViewEmbed} />
+              <Route path="/">
+                <SideNav collapsed={this.state.navCollapsed} toggleNav={this.toggleNav} />
+                <main
+                  onClick={(e) => {
+                    if (!this.state.navCollapsed) {
+                      this.closeNav()
+                      e.preventDefault()
+                      return
+                    }
+                  }}
+                >
+                  <Header toggleNav={this.openNav} />
+                  <Switch>
+                    {Routes.map((route, key) => {
+                      let children = route.component
+                      if (route.requiresLogin && !this.props.user) {
+                        children = <Redirect to="/login" />
+                      }
+                      return <Route key={key} path={route.path} exact={route.exact} children={children}></Route>
+                    })}
+                  </Switch>
+                  <Footer />
+                </main>
+              </Route>
+            </Switch>
           </Router>
         </RecoilRoot>
       </div>
