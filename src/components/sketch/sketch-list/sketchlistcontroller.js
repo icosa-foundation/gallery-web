@@ -12,6 +12,7 @@ class Controller extends React.Component {
   }
 
   componentDidMount() {
+    this.state.search = new URLSearchParams(this.props.location.search).get('name');
     this.getContent()
     window.addEventListener("scroll", this.handleScroll, false)
   }
@@ -24,9 +25,9 @@ class Controller extends React.Component {
     const prevSearch = this.state.search;
     this.state.search = new URLSearchParams(this.props.location.search).get('name');
     if (prevSearch !== this.state.search) {
-      this.state.content = [];
-      this.state.page = 0;
-      this.getContent();
+      this.setState({ content: [], page: 0, loading: true }, () => {
+        this.getContent();
+      });
     }
   }
 
