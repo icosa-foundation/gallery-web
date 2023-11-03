@@ -1,4 +1,5 @@
 import React from "react"
+import { withRouter } from 'react-router-dom';
 import SketchList from "./sketchlist"
 import AssetsAPI from "../../../api/assets"
 import PolyAssetsAPI from "../../../api/poly/assets"
@@ -7,7 +8,7 @@ import UserAPI from "../../../api/user"
 class Controller extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { content: [], page: 0, loading: true, usePolyList: props.isPoly, useUserList: props.userId }
+    this.state = { content: [], page: 0, loading: true, usePolyList: props.isPoly, useUserList: props.userId, search: '' }
   }
 
   componentDidMount() {
@@ -17,6 +18,16 @@ class Controller extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll, false)
+  }
+
+  componentDidUpdate(prevProps) {
+    const prevSearch = this.state.search;
+    this.state.search = new URLSearchParams(this.props.location.search).get('name');
+    if (prevSearch !== this.state.search) {
+      this.state.content = [];
+      this.state.page = 0;
+      this.getContent();
+    }
   }
 
   handleScroll = (e) => {
@@ -36,9 +47,9 @@ class Controller extends React.Component {
     } else if (this.state.usePolyList) {
       sketches = await PolyAssetsAPI.getAssetList(24, this.state.page)
     } else {
-      sketches = await AssetsAPI.getAssetList(24, this.state.page)
+      sketches = await AssetsAPI.getAssetList(24, this.state.page, false, this.state.search)
     }
-    if (sketches.length < 24 && !this.state.usePolyList) {
+    if (sketches.length < 24 && !this.state.search && !this.state.usePolyList) {
       this.setState({ usePolyList: true, page: -1 })
     }
     const content = this.state.content
@@ -61,4 +72,4 @@ class Controller extends React.Component {
     return <SketchList content={this.state.content} isPoly={this.props.isPoly} loading={this.state.loading} />
   }
 }
-export default Controller
+export default withRouter(Controller);

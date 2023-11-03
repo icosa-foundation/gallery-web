@@ -1,8 +1,13 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class AssetsAPI {
-  static getAssetList = async (number = 20, page = 0, curated = false) => {
-    const result = await fetch(api_root + "assets?results=" + number + "&page=" + page + "&curated=" + curated, {
+
+  static getAssetList = async (number = 20, page = 0, curated = false, nameQuery = '') => {
+    let queryString = `results=${number}&page=${page}&curated=${curated}`;
+    if (nameQuery) {
+      queryString += `&name=${encodeURIComponent(nameQuery)}`;
+    }
+    const result = await fetch(`${api_root}assets?${queryString}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

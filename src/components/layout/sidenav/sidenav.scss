@@ -51,15 +51,29 @@
     }
 
     .searchbar {
+        background: #DDD;
+        padding: 0.2em 0.2em;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        color: #000;
+        font-size: 1.3em;
+        border: 0;
+        border-radius: 0.3em;
+        width: 95%;
+        margin: .2em .2em;
+    }
+
+    .searchbutton {
         background: #828282;
-        padding: 0.2em 0.5em;
+        padding: 0.2em 0.2em;
         font-family: "Montserrat", sans-serif;
         font-weight: bold;
         color: #ffffff;
         font-size: 1.3em;
         border: 0;
         border-radius: 0.3em;
-        width: 100%;
+        margin: .2em .2em;
+        width: 95%;
     }
 
     .pro-sidebar-header {
