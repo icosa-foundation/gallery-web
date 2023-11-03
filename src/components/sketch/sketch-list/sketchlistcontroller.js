@@ -12,7 +12,7 @@ class Controller extends React.Component {
   }
 
   componentDidMount() {
-    this.state.search = new URLSearchParams(this.props.location.search).get('name');
+    this.setState({'search': new URLSearchParams(this.props.location.search).get('name')});
     this.getContent()
     window.addEventListener("scroll", this.handleScroll, false)
   }
@@ -23,9 +23,9 @@ class Controller extends React.Component {
 
   componentDidUpdate(prevProps) {
     const prevSearch = this.state.search;
-    this.state.search = new URLSearchParams(this.props.location.search).get('name');
-    if (prevSearch !== this.state.search) {
-      this.setState({ content: [], page: 0, loading: true }, () => {
+    const currentSearch =  new URLSearchParams(this.props.location.search).get('name');
+    if (prevSearch !== currentSearch) {
+      this.setState({ content: [], page: 0, loading: true, 'search': currentSearch}, () => {
         this.getContent();
       });
     }
