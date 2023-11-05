@@ -16,6 +16,7 @@ const SketchEditor = (props) => {
       <Formik
         initialValues={{
           title: asset.name,
+          thumbnail: asset.thumbnail,
           description: asset.description || "",
           visibility: asset.visibility || "PRIVATE",
         }}

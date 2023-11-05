@@ -50,23 +50,24 @@ class AssetsAPI {
     return json
   }
 
-  static updateAsset = async (assetid, user, name, url, description, visibility) => {
+  static updateAsset = async (assetid, user, name, thumbnail, url, description, visibility) => {
+    // Create a URLSearchParams object to build the form-encoded string
+    let formData = new FormData();
+    formData.append('name', name);
+    if (thumbnail) formData.append('thumbnail', thumbnail);
+    formData.append('url', url);
+    formData.append('description', description);
+    formData.append('visibility', visibility);
+
     const result = await fetch(api_root + "assets/" + assetid, {
       method: "PATCH",
-      body: JSON.stringify({
-        name,
-        url,
-        description,
-        visibility,
-      }),
+      body: formData,
       headers: {
         Accept: "application/json",
-        Authorization: user.token_type + " " + user.token,
-        "Content-Type": "text/plain",
+        Authorization: user.token_type + " " + user.token
       },
-    })
-    const json = await result.json()
-    return json
+    });
+    return await result.json()
   }
 
   static deleteAsset = async (assetid, user) => {
