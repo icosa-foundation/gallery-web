@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap"
 import "./devicelogin.scss"
-import UserAPI from "../../../api/user";
 import Device from "../../../components/account/device";
 
 function DeviceLogin(props) {

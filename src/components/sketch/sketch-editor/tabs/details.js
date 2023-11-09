@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { useField, Field } from "formik"
 
 const ImageInput = ({ field, form, ...props }) => {
-  const [fieldProps, meta] = useField(field.name);
+  const [meta] = useField(field.name);
   const [preview, setPreview] = React.useState('');
 
   React.useEffect(() => {

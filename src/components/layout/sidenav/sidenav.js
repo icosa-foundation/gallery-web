@@ -1,5 +1,4 @@
 import React from "react"
-import { withRouter } from 'react-router-dom';
 import { Link } from "react-router-dom"
 import { OverlayTrigger, Tooltip } from "react-bootstrap"
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter } from "react-pro-sidebar"
@@ -67,7 +66,7 @@ const LoggedOutMenuItems = (props) => {
 }
 
 const SideNav = (props) => {
-  const { collapsed, toggleNav, isLoggedIn, categories } = props
+  const { collapsed, toggleNav, isLoggedIn } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
