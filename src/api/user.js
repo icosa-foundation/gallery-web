@@ -43,6 +43,23 @@ class UserAPI {
     }
   }
 
+  static getDeviceCode = async (user) => {
+    const result = await fetch(api_root + "users/me/devicecode", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (!result.ok) {
+      throw result.statusText
+    } else {
+      return json
+    }
+  }
+
   static getSelf = async (user) => {
     const result = await fetch(api_root + "users/me", {
       method: "GET",
