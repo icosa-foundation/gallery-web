@@ -53,17 +53,21 @@ class Controller extends React.Component {
     if (sketches.length < 24 && !this.state.search && !this.state.usePolyList) {
       this.setState({ usePolyList: true, page: -1 })
     }
-    const content = this.state.content
-    for (const s of sketches) {
-      let isUnique = true
-      for (const c of content) {
-        if (c.name === s.name) {
-          isUnique = false
-          break
+    let content = this.state.content
+    if (this.state.usePolyList) {
+      content = sketches;
+    } else {
+      for (const s of sketches) {
+        let isUnique = true
+        for (const c of content) {
+          if (c.name === s.name) {
+            isUnique = false
+            break
+          }
         }
-      }
-      if (isUnique) {
-        content.push(s)
+        if (isUnique) {
+          content.push(s)
+        }
       }
     }
     this.setState({ content, loading: false })

@@ -27,20 +27,8 @@ class Controller extends React.Component {
           break
       }
     } else {
-      const format = PolyAssetsAPI.getPreferredFormat(this.props.asset)
-
-      switch (format.formatType) {
-        case "GLTF2":
-          viewer.loadGltf(format.root.url)
-          break
-        case "GLTF":
-          viewer.loadGltf1(format.root.url)
-          break
-        default:
-          break
-      }
+      viewer.loadGltf(this.props.asset.Download)
     }
-    
   }
 
   render() {

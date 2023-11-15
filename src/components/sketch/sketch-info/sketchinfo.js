@@ -11,11 +11,11 @@ const SketchInfo = (props) => {
   if (!info) {
     return <Loader />
   }
-  const displayName = isPoly ? info.displayName : info.name
-  const authorName = isPoly ? info.authorName : info.ownername
-  const timestamp = isPoly ? moment(info.createTime).format("YYYY-MM-DD") : GetSnowflakeTimestamp(info.id).format("YYYY-MM-DD")
-  const license = isPoly ? info.license : "All Rights Reserved"
-  const authorPage = isPoly ? "" : `/user/${info.ownerurl}`
+  const displayName = isPoly ? info.Title : info.name
+  const authorName = isPoly ? info.Creator.Username : info.ownername
+  const timestamp = isPoly ? moment(info.Uploaded).format("YYYY-MM-DD") : GetSnowflakeTimestamp(info.id).format("YYYY-MM-DD")
+  const license = isPoly ? info.Licence : "All Rights Reserved"
+  const authorPage = isPoly ? `https://poly.pizza/u/${authorName}` : `/user/${info.ownerurl}`
   return (
     <Container className="sketch-info">
       <Row>
