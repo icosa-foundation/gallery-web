@@ -7,12 +7,12 @@ import { GetSnowflakeTimestamp } from "../../../helpers"
 const SketchBox = (props) => {
   const { sketch } = props
 
-  const isPoly = sketch.displayName ? true : false
-  const sketchURL = (isPoly ? "/poly" : "") + "/view/" + (isPoly ? sketch.name.replace("assets/", "") : `${sketch.ownerurl}/${sketch.url}`)
-  const thumbnail = isPoly ? (sketch.thumbnail.url ? `url(${sketch.thumbnail.url})` : `url(${nothumbnail})`) : (sketch.thumbnail ? `url(${sketch.thumbnail})` : `url(${nothumbnail})`)
-  const name = isPoly ? sketch.displayName : sketch.name
-  const owner = isPoly ? sketch.authorName : sketch.ownername
-  const timestamp = isPoly ? moment(sketch.createTime).format("YYYY-MM-DD") : GetSnowflakeTimestamp(sketch.id).format("YYYY-MM-DD")
+  const isPoly = sketch.ID ? true : false
+  const sketchURL = (isPoly ? "/poly" : "") + "/view/" + (isPoly ? sketch.ID : `${sketch.ownerurl}/${sketch.url}`)
+  const thumbnail = isPoly ? (sketch.Thumbnail ? `url(${sketch.Thumbnail})` : `url(${nothumbnail})`) : (sketch.thumbnail ? `url(${sketch.thumbnail})` : `url(${nothumbnail})`)
+  const name = isPoly ? sketch.Title : sketch.name
+  const owner = isPoly ? sketch.Creator.Username : sketch.ownername
+  const timestamp = isPoly ? moment(sketch.Uploaded).format("YYYY-MM-DD") : GetSnowflakeTimestamp(sketch.id).format("YYYY-MM-DD")
   return (
     <div className="sketchbox">
       <Link to={sketchURL}>

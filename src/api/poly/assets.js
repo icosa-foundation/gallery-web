@@ -1,7 +1,7 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class PolyAssetsAPI {
-  static getAssetList = async (filter, number, page) => {
+  static getAssetList = async (number = 20, page = 0, curated = false) => {
     const result = await fetch(api_root + "poly/assets?results=" + number + "&page=" + page, {
       method: "GET",
       headers: {
@@ -10,13 +10,10 @@ class PolyAssetsAPI {
       },
     })
     const json = await result.json()
-    if (json.error || !json.assets) {
-      return json
+    if(!result.ok) {
+      throw result.statusText
     } else {
-      if (filter === "featured") {
-        return json.assets.slice(0, 4)
-      }
-      return json.assets
+      return json.results
     }
   }
 
@@ -28,8 +25,7 @@ class PolyAssetsAPI {
         "Content-Type": "text/plain",
       },
     })
-    const json = await result.json()
-    return json
+    return await result.json()
   }
 
   static importAssets = async (id_list, user) => {
@@ -42,30 +38,8 @@ class PolyAssetsAPI {
       },
       body: JSON.stringify(id_list)
     })
-    const json = await result.json()
-    return json
-  }
-
-  static getPreferredFormat = (asset) => {
-    let types = {}
-
-    for (const newformat of asset.formats) {
-      types[newformat.formatType] = newformat
-    }
-
-    if(types.hasOwnProperty("GLTF2")) {
-      return types["GLTF2"]
-    }
-
-    if(types.hasOwnProperty("GLTF")) {
-      return types["GLTF"]
-    }
-
-    if(types.hasOwnProperty("TILT")) {
-      return types["TILT"]
-    }
-
-    return null
+    const json = await result.json();
+    return json;
   }
 }
 

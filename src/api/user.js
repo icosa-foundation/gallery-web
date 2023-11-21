@@ -14,9 +14,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -37,9 +36,25 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
+    } else {
+      return json
+    }
+  }
+
+  static getDeviceCode = async (user) => {
+    const result = await fetch(api_root + "users/me/devicecode", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization: user.token_type + " " + user.token,
+        "Content-Type": "text/plain",
+      },
+    })
+    const json = await result.json()
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -55,9 +70,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -78,9 +92,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -100,9 +113,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -163,9 +175,8 @@ class UserAPI {
       }),
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -181,9 +192,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -198,9 +208,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }
@@ -215,9 +224,8 @@ class UserAPI {
       },
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }

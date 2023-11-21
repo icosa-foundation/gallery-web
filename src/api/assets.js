@@ -1,8 +1,13 @@
 const api_root = process.env.REACT_APP_ROOT_SERVER_PATH
 
 class AssetsAPI {
-  static getAssetList = async (filter, number, page) => {
-    const result = await fetch(api_root + "assets?results=" + number + "&page=" + page, {
+
+  static getAssetList = async (number = 20, page = 0, curated = false, nameQuery = '') => {
+    let queryString = `results=${number}&page=${page}&curated=${curated}`;
+    if (nameQuery) {
+      queryString += `&name=${encodeURIComponent(nameQuery)}`;
+    }
+    const result = await fetch(`${api_root}assets?${queryString}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -10,13 +15,10 @@ class AssetsAPI {
       },
     })
     const json = await result.json()
-    if (json.error || !json.assets) {
-      return json
+    if(!result.ok) {
+      throw result.statusText
     } else {
-      if (filter === "featured") {
-        return json.assets.slice(0, 4)
-      }
-      return json.assets
+      return json
     }
   }
 
@@ -48,23 +50,24 @@ class AssetsAPI {
     return json
   }
 
-  static updateAsset = async (assetid, user, name, url, description, visibility) => {
+  static updateAsset = async (assetid, user, name, thumbnail, url, description, visibility) => {
+    // Create a URLSearchParams object to build the form-encoded string
+    let formData = new FormData();
+    formData.append('name', name);
+    if (thumbnail) formData.append('thumbnail', thumbnail);
+    formData.append('url', url);
+    formData.append('description', description);
+    formData.append('visibility', visibility);
+
     const result = await fetch(api_root + "assets/" + assetid, {
       method: "PATCH",
-      body: JSON.stringify({
-        name,
-        url,
-        description,
-        visibility,
-      }),
+      body: formData,
       headers: {
         Accept: "application/json",
-        Authorization: user.token_type + " " + user.token,
-        "Content-Type": "text/plain",
+        Authorization: user.token_type + " " + user.token
       },
-    })
-    const json = await result.json()
-    return json
+    });
+    return await result.json()
   }
 
   static deleteAsset = async (assetid, user) => {
@@ -94,9 +97,8 @@ class AssetsAPI {
       body: formData,
     })
     const json = await result.json()
-    if (json.error) {
-      this.setState({ error: json.error })
-      return
+    if (!result.ok) {
+      throw result.statusText
     } else {
       return json
     }

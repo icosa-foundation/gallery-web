@@ -7,6 +7,7 @@ import "react-pro-sidebar/dist/scss/styles.scss"
 import "./sidenav.scss"
 import obLogo from "./oblogo.png"
 import { useLocation } from "react-router-dom"
+import SearchBar from "./searchbar"
 
 const Showable = (props) => {
   if (props.collapsed || !props.children) {
@@ -65,7 +66,7 @@ const LoggedOutMenuItems = (props) => {
 }
 
 const SideNav = (props) => {
-  const { collapsed, toggleNav, isLoggedIn, categories } = props
+  const { collapsed, toggleNav, isLoggedIn } = props
   return (
     <ProSidebar collapsed={collapsed} className="sidenav">
       <SidebarHeader>
@@ -106,33 +107,30 @@ const SideNav = (props) => {
         <Menu iconShape="square">
           <Showable {...props}>
             <h3>SEARCH</h3>
-            <span className="comingsoon">[Coming Soon]</span>
-            <MenuItem>
-              <input type="text" className="searchbar" disabled={true} />
-            </MenuItem>
+            <SearchBar />
           </Showable>
         </Menu>
-        <Menu iconShape="square">
-          <Showable {...props}>
-            <h3>EXPLORE</h3>
-          </Showable>
-          <PageLink to="/poly" icon="cube" className="poly-link">
-            Google Poly Legacy
-          </PageLink>
-          <Showable {...props}>
-            <span className="comingsoon">[Coming Soon]</span>
-          </Showable>
-          {categories &&
-            categories.map((category, key) => {
-              return (
-                <div className="disabled" key={key}>
-                  <PageLink key={key} to={"/category" + category.url} icon={category.icon}>
-                    {category.name}
-                  </PageLink>
-                </div>
-              )
-            })}
-        </Menu>
+        {/*<Menu iconShape="square">*/}
+        {/*  <Showable {...props}>*/}
+        {/*    <h3>EXPLORE</h3>*/}
+        {/*  </Showable>*/}
+        {/*  <PageLink to="/poly" icon="cube" className="poly-link">*/}
+        {/*    Google Poly Legacy*/}
+        {/*  </PageLink>*/}
+        {/*  <Showable {...props}>*/}
+        {/*    <span className="comingsoon">[Coming Soon]</span>*/}
+        {/*  </Showable>*/}
+        {/*  {categories &&*/}
+        {/*    categories.map((category, key) => {*/}
+        {/*      return (*/}
+        {/*        <div className="disabled" key={key}>*/}
+        {/*          <PageLink key={key} to={"/category" + category.url} icon={category.icon}>*/}
+        {/*            {category.name}*/}
+        {/*          </PageLink>*/}
+        {/*        </div>*/}
+        {/*      )*/}
+        {/*    })}*/}
+        {/*</Menu>*/}
       </SidebarContent>
       <SidebarFooter>
         <Showable {...props}>
